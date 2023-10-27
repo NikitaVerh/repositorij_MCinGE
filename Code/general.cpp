@@ -1,4 +1,9 @@
+#pragma once
 #include <iostream>
+#include "fileForIlla.cpp"
+#include "fileForAlisa.cpp"
+#include "fileForNikolai.cpp"
+#include "fileForNikita.cpp"
 
 // метод, що запускається один раз при запуску програми
 void startProgram() {} 
