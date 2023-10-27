@@ -8,7 +8,7 @@ void processAll() {
 	std::cout << "Кто прочитает, тот негр";
 	std::cout << ",";
 	std::cout << "Hello kursa41";
-
+	std::cout << "Bye kursa41";
 	std::cout << "Azazazazazzaza";
 }
 
