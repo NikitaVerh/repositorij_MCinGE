@@ -7,6 +7,7 @@ void startProgram() {}
 void processAll() {
 	std::cout << "Кто прочитает, тот негр";
 	std::cout << ",";
+	std::cout << "Azazazazazzaza";
 }
 
 // метод що повертає стан програми (виконувати/не виконувати)
