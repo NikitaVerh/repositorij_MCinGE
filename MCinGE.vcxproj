@@ -141,6 +141,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Code\fileForAlisa.cpp" />
+    <ClCompile Include="Code\fileForIlla.cpp" />
+    <ClCompile Include="Code\fileForNikita.cpp" />
+    <ClCompile Include="Code\fileForNikolai.cpp" />
     <ClCompile Include="Code\general.cpp" />
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
