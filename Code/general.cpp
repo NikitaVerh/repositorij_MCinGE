@@ -7,6 +7,8 @@ void startProgram() {}
 void processAll() {
 	std::cout << "Кто прочитает, тот негр";
 	std::cout << ",";
+
+
 	std::cout << "Azazazazazzaza";
 }
 
