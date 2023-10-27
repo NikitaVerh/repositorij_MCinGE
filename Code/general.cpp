@@ -5,7 +5,7 @@ void startProgram() {}
 
 // метод для обробки програми (виконується постійно)
 void processAll() {
-	std::cout << "Кто прочитает, тот негр";
+	std::cout << "Кто прочитает, тот негр!!!!";
 	std::cout << ",";
 	std::cout << "Hello kursa41";
 	std::cout << "Bye kursa41";
