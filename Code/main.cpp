@@ -10,6 +10,5 @@ int main() {
     startProgram();
     while (aliveProgram()) {
         processAll();
-        std::cout << "test 2 chela";
     }
 }
