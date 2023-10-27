@@ -15,4 +15,5 @@ void processAll() {
 // метод що повертає стан програми (виконувати/не виконувати)
 bool aliveProgram() {
 	startProgram();
+	std::cout << "yxxxxxxxxxx";
 } 
