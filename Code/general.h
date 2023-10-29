@@ -7,3 +7,6 @@
 void windowEventHandling(sf::RenderWindow& window);
 
 void GraphicRender(sf::RenderWindow& window);
+
+// метод що виконується один раз при старті програми
+void startProgram();

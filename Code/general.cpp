@@ -9,6 +9,10 @@
 //#include "fileForNikolai.cpp"
 //#include "fileForNikita.cpp"
 
+// метод що виконується один раз при старті програми
+void startProgram() {
+	
+}
 
 // метод для обробки подій вікна
 void windowEventHandling(sf::RenderWindow& window) {
