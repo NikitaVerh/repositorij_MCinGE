@@ -17,3 +17,6 @@ void windowEventHandling(sf::RenderWindow& window) {
 		
 	}
 }
+void GraphicRender(sf::RenderWindow& window) {
+	//вся графика
+}

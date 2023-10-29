@@ -21,7 +21,7 @@ void Game::Update() {
 
 // метод для рендеру графіки
 void Game::Render() {
-
+	GraphicRender(GameWindow);
 }
 
 // метод ігрового циклу

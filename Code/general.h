@@ -5,3 +5,5 @@
 
 // метод для обробки подій вікна
 void windowEventHandling(sf::RenderWindow& window);
+
+void GraphicRender(sf::RenderWindow& window);
