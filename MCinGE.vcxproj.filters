@@ -44,5 +44,13 @@
     <ClInclude Include="Code\general.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Code\GlobalVariables.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\textures\interface\background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
