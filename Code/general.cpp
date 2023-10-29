@@ -1,8 +1,17 @@
-//#pragma once
+#pragma once
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+
 //#include <iostream>
 //#include "fileForIlla.cpp"
 //#include "fileForAlisa.cpp"
 //#include "fileForNikolai.cpp"
 //#include "fileForNikita.cpp"
-//
-//
+
+void windowEventHandling(sf::RenderWindow& window) {
+	sf::Event event;
+	while (window.pollEvent(event)) {
+
+	}
+}

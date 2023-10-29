@@ -3,15 +3,13 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include "Game.h"
+#include "general.cpp"
 
 Game::Game():GameWindow(GameWindowSize, GameWindowTitle) {
 }
 
 void Game::HandleInput() {
-	Event event;
-	while (GameWindow.pollEvent(event)) {
-		
-	}
+	windowEventHandling(GameWindow);
 }
 
 void Game::Update() {
