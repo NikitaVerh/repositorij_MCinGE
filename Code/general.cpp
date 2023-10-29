@@ -9,9 +9,11 @@
 //#include "fileForNikolai.cpp"
 //#include "fileForNikita.cpp"
 
+
+// метод для обробки подій вікна
 void windowEventHandling(sf::RenderWindow& window) {
 	sf::Event event;
 	while (window.pollEvent(event)) {
-
+		
 	}
 }

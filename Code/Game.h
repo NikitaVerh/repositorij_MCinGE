@@ -5,19 +5,19 @@
 
 using namespace sf;
 
-class Game{
+class Game {
 private:
-	VideoMode GameWindowSize = { 800,500 };
-	String GameWindowTitle = L"Математичні концепції в ігровому середовищі";
-	RenderWindow GameWindow;
+	VideoMode GameWindowSize = { 800,500 }; // змінна що відповідає за відео режим вікна
+	String GameWindowTitle = L"Математичні концепції в ігровому середовищі"; // підпис вікна (caption)
+	RenderWindow GameWindow; // основне вікно програми
+	
 
-
-	void HandleInput();
-	void Update();
-	void Render();
+	void HandleInput(); // метод для обробки вікна
+	void Update();      // метод для обробки і оновлень всіх ігрових механік
+	void Render();      // метод для рендеру графіки
 public:
-	Game();
+	Game(); // конструктор
 
-	void Run();
+	void Run();         // метод ігрового циклу
 };
 
