@@ -1,15 +1,22 @@
 #pragma once
-#include <iostream>
-#include "fileForIlla.cpp"
-#include "fileForAlisa.cpp"
-#include "fileForNikolai.cpp"
-#include "fileForNikita.cpp"
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
 
-// метод, що запускається один раз при запуску програми
-void startProgram() {} 
+//#include <iostream>
+//#include "fileForIlla.cpp"
+//#include "fileForAlisa.cpp"
+//#include "fileForNikolai.cpp"
+//#include "fileForNikita.cpp"
 
-// метод для обробки програми (виконується постійно)
-void processAll() {}
 
-// метод що повертає стан програми (виконувати/не виконувати)
-bool aliveProgram() {} 
+// метод для обробки подій вікна
+void windowEventHandling(sf::RenderWindow& window) {
+	sf::Event event;
+	while (window.pollEvent(event)) {
+		
+	}
+}
+void GraphicRender(sf::RenderWindow& window) {
+	//вся графика
+}

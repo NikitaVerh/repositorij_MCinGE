@@ -1,14 +1,14 @@
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <iostream>
+//#include <SFML/Audio.hpp>
+//#include <SFML/Graphics.hpp>
+//#include <SFML/System.hpp>
+//#include <SFML/Window.hpp>
 #pragma once
-#include "general.cpp"
+#include "Game.h";
+#include <iostream>
 
 int main() {
-    startProgram();
-    while (aliveProgram()) {
-        processAll();
-    }
+    Game game;
+    game.Run();
+    return 0;
+    
 }
