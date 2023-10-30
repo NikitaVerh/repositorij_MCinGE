@@ -146,6 +146,7 @@
     <ClCompile Include="Code\fileForNikita.cpp" />
     <ClCompile Include="Code\fileForNikolai.cpp" />
     <ClCompile Include="Code\general.cpp" />
+    <ClCompile Include="Code\interfaceObj.cpp" />
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\Game.cpp" />
     <ClCompile Include="Code\Map.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="Code\Game.h" />
     <ClInclude Include="Code\general.h" />
     <ClInclude Include="Code\GlobalVariables.h" />
+    <ClInclude Include="Code\interfaceObj.h" />
     <ClInclude Include="Code\map.h" />
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include "GlobalVariables.h"
+#include "interfaceObj.h"
 
 //тимчасові бібліотеки
 #include <iostream>
@@ -15,6 +16,8 @@
 
 // метод що виконується один раз при старті програми
 void startProgram() {
+	Form1.addInterfaceObj(ButtonTest);
+
 	if (!texture_window.loadFromFile("Resources/textures/interface/background.png")) std::cout << "d"; //колян
 	background.setTexture(&texture_window);
 }
@@ -30,6 +33,7 @@ void windowEventHandling(sf::RenderWindow& window) {
 	sf::Event event;
 	while (window.pollEvent(event)) {
 		if (sf::Event::Closed == event.type) { stopProgram(window); }
+		
 	}
 }
 
@@ -45,5 +49,6 @@ void UpdateGraphic(sf::RenderWindow& window) {
 void GraphicRender(sf::RenderWindow& window) {
 	window.clear();
 	window.draw(background);
+	Form1.draw(window);
 	window.display();
 }

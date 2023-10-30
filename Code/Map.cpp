@@ -1,6 +1,5 @@
-#pragma once
-#include "map.h"
-
-void Map::generateLabyrinth() {
-
-}
+//#pragma once
+//#include "map.h"
+//
+//void Map::generateLabyrinth() {
+//}
