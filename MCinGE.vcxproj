@@ -148,11 +148,14 @@
     <ClCompile Include="Code\general.cpp" />
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\Game.cpp" />
+    <ClCompile Include="Code\Map.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\Block.h" />
     <ClInclude Include="Code\Game.h" />
     <ClInclude Include="Code\general.h" />
     <ClInclude Include="Code\GlobalVariables.h" />
+    <ClInclude Include="Code\map.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\textures\interface\background.png">
