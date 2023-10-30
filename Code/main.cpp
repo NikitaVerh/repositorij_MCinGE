@@ -1,3 +1,7 @@
+/*
+Головний файл де розпочинається програма
+*/
+
 
 //#include <SFML/Audio.hpp>
 //#include <SFML/Graphics.hpp>
@@ -6,6 +10,8 @@
 #pragma once
 #include "Game.h";
 #include "general.h";
+
+// тимчасові бібліотеки
 #include <iostream>
 
 int main() {

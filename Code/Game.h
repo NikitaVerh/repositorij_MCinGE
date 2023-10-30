@@ -10,10 +10,10 @@ private:
 	VideoMode GameWindowSize = { 800,500 }; // змінна що відповідає за відео режим вікна
 	String GameWindowTitle = L"Математичні концепції в ігровому середовищі"; // підпис вікна (caption)
 	RenderWindow GameWindow; // основне вікно програми
-	
+	Clock delta_time_clock; // змінна для підрахунку часу що йде на один кадр
 
 	void HandleInput(); // метод для обробки вікна
-	void Update();      // метод для обробки і оновлень всіх ігрових механік
+	void Update(Time delta_time);      // метод для обробки і оновлень всіх ігрових механік
 	void Render();      // метод для рендеру графіки
 public:
 	Game(); // конструктор
