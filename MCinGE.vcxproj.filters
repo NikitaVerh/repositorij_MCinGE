@@ -21,22 +21,22 @@
     <ClCompile Include="Code\general.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\fileForIlla.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\fileForAlisa.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\fileForNikolai.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\fileForNikita.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Map.cpp">
+    <ClCompile Include="Code\map.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\GlobalConnsts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\GlobalVariablesForResources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\GlobalVariablesOfClasses.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,18 +47,30 @@
     <ClInclude Include="Code\general.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Code\GlobalVariables.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Code\map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Code\Block.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Code\GlobalConnsts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\GlobalVariablesForResources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\GlobalVariablesOfClasses.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\interface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\textures\interface\background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_wall.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

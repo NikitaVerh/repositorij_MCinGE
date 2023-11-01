@@ -2,22 +2,20 @@
 Головний файл де розпочинається програма
 */
 
-
-//#include <SFML/Audio.hpp>
-//#include <SFML/Graphics.hpp>
-//#include <SFML/System.hpp>
-//#include <SFML/Window.hpp>
 #pragma once
-#include "Game.h";
-#include "general.h";
+#include "Game.h"
 
 // тимчасові бібліотеки
 #include <iostream>
 
+sf::VideoMode GameWindowSize = { 800,500 }; // змінна що відповідає за відео режим вікна
+sf::String GameWindowTitle = L"Математичні концепції в ігровому середовищі"; // підпис вікна (caption)
+sf::RenderWindow GameWindow(GameWindowSize, GameWindowTitle); // основне вікно програми
+sf::Clock delta_time_clock; // змінна для підрахунку часу що йде на один кадр
+
 int main() {
-    Game game;
     startProgram();
-    game.Run();
+    Run(GameWindow, delta_time_clock); // метод ігрового циклу
+    stopProgram(GameWindow);
     return 0;
-    
 }

@@ -141,23 +141,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Code\fileForAlisa.cpp" />
-    <ClCompile Include="Code\fileForIlla.cpp" />
-    <ClCompile Include="Code\fileForNikita.cpp" />
-    <ClCompile Include="Code\fileForNikolai.cpp" />
     <ClCompile Include="Code\general.cpp" />
+    <ClCompile Include="Code\GlobalConnsts.cpp" />
+    <ClCompile Include="Code\GlobalVariablesForResources.cpp" />
+    <ClCompile Include="Code\GlobalVariablesOfClasses.cpp" />
+    <ClCompile Include="Code\interface.cpp" />
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\Game.cpp" />
-    <ClCompile Include="Code\Map.cpp" />
+    <ClCompile Include="Code\map.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Block.h" />
     <ClInclude Include="Code\Game.h" />
     <ClInclude Include="Code\general.h" />
-    <ClInclude Include="Code\GlobalVariables.h" />
+    <ClInclude Include="Code\GlobalConnsts.h" />
+    <ClInclude Include="Code\GlobalVariablesForResources.h" />
+    <ClInclude Include="Code\GlobalVariablesOfClasses.h" />
+    <ClInclude Include="Code\interface.h" />
     <ClInclude Include="Code\map.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resources\textures\blocks\texture_wall.png" />
     <Image Include="Resources\textures\interface\background.png">
       <DeploymentContent>false</DeploymentContent>
     </Image>

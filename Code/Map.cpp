@@ -1,5 +1,6 @@
 #pragma once
 #include "map.h"
+#include "GlobalVariablesForResources.h"
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -161,10 +162,29 @@ void Set_types(int** mtrx) {
 
 
 void Map::generateLabyrinth() {
-    srand((unsigned int)time(0));
-    vector<Edge> edges = CreateLatticeGraph();
-    Kruskal kruskal;
-    vector<Edge> result = kruskal.kruskal(edges);
-    int** mtrx = Build_adjcncy_mtrix(result);
-    Set_types(mtrx);
+	for (int i = 0; i < mapWidth; i++) {
+		for (int j = 0; j < mapHeight; j++) {
+			map[i][j] = new BlockWall();
+		}
+	}
+}
+
+void Map::draw(sf::RenderWindow& window) {
+	for (int i = 0; i < mapWidth; i++) {
+		for (int j = 0; j < mapHeight; j++) {
+			sf::RectangleShape block = map[i][j]->getBlockForDraw();
+			block.setPosition(sf::Vector2f(i*sizeBlock,j*sizeBlock));
+			block.setSize(sf::Vector2f(sizeBlock, sizeBlock));
+			
+			window.draw(block);
+		}
+	}
+}
+
+Map::Map() {
+	for (int i = 0; i < mapWidth; i++) {
+		for (int j = 0; j < mapHeight; j++) {
+			map[i][j] = new BlockWall();
+		}
+	}
 }
