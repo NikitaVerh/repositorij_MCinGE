@@ -5,9 +5,6 @@
 
 class Map {
 private:
-	bool WallLeft = false;
-	bool WallRight = false;
-
 	Block* map[mapWidth][mapHeight];
 public:
 	Map();
@@ -17,7 +14,6 @@ public:
 
 	void setBlock(int i, int j, Block* block);
 
-	void setWallLeft(bool value);
-	void setWallRight(bool value);
+	
 	Block& getMapBlock(int i, int j);
 };

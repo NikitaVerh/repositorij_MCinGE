@@ -135,28 +135,6 @@ int** Build_adjcncy_mtrix(vector<Edge> result) {
 }
 
 
-
-void Map::setBlock(int i, int j, Block* block) {
-    if (map[i][j] != NULL) { delete(map[i][j]); }
-    map[i][j] = block;
-}
-
-void Map::setWallLeft(bool value) {
-    WallLeft = value;
-}
-
-void Map::setWallRight(bool value) {
-    WallRight = value;
-}
-
-
-Block& Map::getMapBlock(int i, int j) {
-    if (i >= 0 && i < mapWidth && j >= 0 && j < mapHeight) {
-        return *map[i][j];
-    }
-}
-
-
 void Set_types(int** mtrx) {
     for (int i = 0; i < mapHeight; i++) {
         for (int j = 0; j < mapWidth; j++) {
