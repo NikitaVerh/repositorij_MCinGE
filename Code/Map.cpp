@@ -173,9 +173,6 @@ void Map::generateLabyrinth() {
     vector<Edge> result = kruskal.kruskal(edges);
     int** mtrx = Build_adjcncy_mtrix(result);
     Set_types(mtrx);
-    for (const Edge& edge : result) {
-        cout << endl << edge.u << " - " << edge.v;
-    }
 }
 
 void Map::draw(sf::RenderWindow& window) {

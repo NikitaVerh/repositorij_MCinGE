@@ -14,3 +14,9 @@ extern sf::Texture texture_wall_left;
 extern sf::Texture texture_wall_right;
 
 extern int sizeBlock;
+
+enum {
+	type_block_wall,
+	type_block_door,
+	type_block_ladder
+};

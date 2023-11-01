@@ -82,5 +82,8 @@
     <Image Include="Resources\textures\blocks\texture_wall_right.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\textures\pers.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

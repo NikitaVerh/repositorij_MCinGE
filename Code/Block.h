@@ -3,6 +3,7 @@
 #include "GlobalVariablesForResources.h"
 
 
+
 class Block {
 protected:
     bool WallLeft = false;
@@ -10,6 +11,7 @@ protected:
     sf::RectangleShape Area;
 public:
     virtual sf::RectangleShape getBlockForDraw() = 0;
+    virtual int getTypeBlock() = 0;
 
     void setWallLeft(bool value) {
         WallLeft = value;
@@ -23,6 +25,8 @@ public:
     bool getWallRight() { return WallRight; }
 };
 
+
+
 class BlockWall : public Block {
 public:
     BlockWall() {
@@ -32,7 +36,11 @@ public:
     sf::RectangleShape getBlockForDraw() override {
         return Area;
     }
+
+    int getTypeBlock() override { return type_block_wall; }
 };
+
+
 
 class BlockDoor : public Block {
 public:
@@ -42,7 +50,11 @@ public:
     sf::RectangleShape getBlockForDraw() override {
         return Area;
     }
+    int getTypeBlock() override { return type_block_door; }
+    
 };
+
+
 
 class BlockLadder : public Block {
 public:
@@ -52,4 +64,6 @@ public:
     sf::RectangleShape getBlockForDraw() override {
         return Area;
     }
+
+    int getTypeBlock() override { return type_block_ladder; }
 };
