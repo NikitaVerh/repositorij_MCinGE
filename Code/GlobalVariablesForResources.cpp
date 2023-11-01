@@ -10,4 +10,8 @@ sf::Texture texture_block_wall;
 sf::Texture texture_block_door;
 sf::Texture texture_block_ladder;
 
-int sizeBlock = 70;
+sf::Texture texture_wall_left;
+sf::Texture texture_wall_right;
+
+
+int sizeBlock = 50;

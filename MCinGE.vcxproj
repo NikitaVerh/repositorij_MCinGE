@@ -163,6 +163,8 @@
     <Image Include="Resources\textures\blocks\texture_door.png" />
     <Image Include="Resources\textures\blocks\texture_ladder.png" />
     <Image Include="Resources\textures\blocks\texture_wall.png" />
+    <Image Include="Resources\textures\blocks\texture_wall_left.png" />
+    <Image Include="Resources\textures\blocks\texture_wall_right.png" />
     <Image Include="Resources\textures\interface\background.png">
       <DeploymentContent>false</DeploymentContent>
     </Image>

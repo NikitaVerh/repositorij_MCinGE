@@ -27,9 +27,6 @@
     <ClCompile Include="Code\map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\GlobalConnsts.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Code\GlobalVariablesForResources.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -77,6 +74,12 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\textures\blocks\texture_ladder.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_wall_left.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_wall_right.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -46,7 +46,7 @@ vector<Edge> CreateLatticeGraph() {
                 if (currVrtex == source) weight = 999;
                 else weight = fullRandom();
                 int upNghbr = currVrtex - mapWidth;
-                edges.emplace_back(upNghbr, currVrtex, 3*weight);
+                edges.emplace_back(upNghbr, currVrtex, 2*weight);
             }
 
             if (j > 0) {
@@ -179,13 +179,33 @@ void Map::generateLabyrinth() {
 }
 
 void Map::draw(sf::RenderWindow& window) {
+    sf::Sprite WallLeft;
+    sf::Sprite WallRight;
+
+    WallLeft.setTexture(texture_wall_left);
+    WallRight.setTexture(texture_wall_right);
+    WallLeft.setScale(sizeBlock / float(texture_wall_left.getSize().x), sizeBlock / float(texture_wall_left.getSize().y));
+    WallRight.setScale(sizeBlock / float(texture_wall_right.getSize().x), sizeBlock / float(texture_wall_right.getSize().y));
+
 	for (int i = 0; i < mapWidth; i++) {
 		for (int j = 0; j < mapHeight; j++) {
+            
 			sf::RectangleShape block = map[i][j]->getBlockForDraw();
 			block.setPosition(sf::Vector2f(i*sizeBlock,j*sizeBlock));
 			block.setSize(sf::Vector2f(sizeBlock, sizeBlock));
-			
 			window.draw(block);
+
+
+            if (GameMap.getMapBlock(i, j).getWallLeft()) {
+                WallLeft.setPosition(sf::Vector2f(i * sizeBlock, j * sizeBlock));
+                window.draw(WallLeft);
+            }
+            if (GameMap.getMapBlock(i, j).getWallRight()) {
+                WallRight.setPosition(sf::Vector2f(i * sizeBlock, j * sizeBlock));
+                window.draw(WallRight);
+            }
+
+            
 		}
 	}
 }

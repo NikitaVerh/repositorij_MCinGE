@@ -22,6 +22,8 @@ void startProgram() {
 	if (!texture_block_wall.loadFromFile("Resources/textures/blocks/texture_wall.png")); //колян
 	if (!texture_block_door.loadFromFile("Resources/textures/blocks/texture_door.png")); //колян
 	if (!texture_block_ladder.loadFromFile("Resources/textures/blocks/texture_ladder.png")); //колян
+	if (!texture_wall_left.loadFromFile("Resources/textures/blocks/texture_wall_left.png")); //колян
+	if (!texture_wall_right.loadFromFile("Resources/textures/blocks/texture_wall_right.png")); //колян
 
 	if (!texture_window.loadFromFile("Resources/textures/interface/background.png")) std::cout << "d"; //колян
 	background.setTexture(&texture_window);
@@ -51,6 +53,8 @@ void UpdateGraphic(sf::RenderWindow& window) {
 
 	background.setSize(sf::Vector2f((45 * window.getSize().y) / 19.0, window.getSize().y));
 	background.setPosition((window.getSize().x - background.getSize().x) / 6.0, 0);
+
+	sizeBlock = window.getSize().y / float(mapHeight);
 }
 
 // метод для відображення графіки

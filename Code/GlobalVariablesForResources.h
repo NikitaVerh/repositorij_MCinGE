@@ -10,4 +10,7 @@ extern sf::Texture texture_block_wall;
 extern sf::Texture texture_block_door;
 extern sf::Texture texture_block_ladder;
 
+extern sf::Texture texture_wall_left;
+extern sf::Texture texture_wall_right;
+
 extern int sizeBlock;

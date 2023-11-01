@@ -18,6 +18,9 @@ public:
     void setWallRight(bool value) {
         WallRight = value;
     }
+
+    bool getWallLeft() { return WallLeft; }
+    bool getWallRight() { return WallRight; }
 };
 
 class BlockWall : public Block {
