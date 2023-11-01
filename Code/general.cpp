@@ -20,6 +20,8 @@ void startProgram() {
 	Form1.addInterfaceObj(ButtonTest);
 
 	if (!texture_block_wall.loadFromFile("Resources/textures/blocks/texture_wall.png")); //колян
+	if (!texture_block_door.loadFromFile("Resources/textures/blocks/texture_door.png")); //колян
+	if (!texture_block_ladder.loadFromFile("Resources/textures/blocks/texture_ladder.png")); //колян
 
 	if (!texture_window.loadFromFile("Resources/textures/interface/background.png")) std::cout << "d"; //колян
 	background.setTexture(&texture_window);

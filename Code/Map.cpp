@@ -1,6 +1,7 @@
 #pragma once
 #include "map.h"
 #include "GlobalVariablesForResources.h"
+#include "GlobalVariablesOfClasses.h"
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -45,7 +46,7 @@ vector<Edge> CreateLatticeGraph() {
                 if (currVrtex == source) weight = 999;
                 else weight = fullRandom();
                 int upNghbr = currVrtex - mapWidth;
-                edges.emplace_back(upNghbr, currVrtex, weight);
+                edges.emplace_back(upNghbr, currVrtex, 3*weight);
             }
 
             if (j > 0) {
@@ -133,6 +134,29 @@ int** Build_adjcncy_mtrix(vector<Edge> result) {
     return adjcncy_mtrix;
 }
 
+
+
+void Map::setBlock(int i, int j, Block* block) {
+    if (map[i][j] != NULL) { delete(map[i][j]); }
+    map[i][j] = block;
+}
+
+void Map::setWallLeft(bool value) {
+    WallLeft = value;
+}
+
+void Map::setWallRight(bool value) {
+    WallRight = value;
+}
+
+
+Block& Map::getMapBlock(int i, int j) {
+    if (i >= 0 && i < mapWidth && j >= 0 && j < mapHeight) {
+        return *map[i][j];
+    }
+}
+
+
 void Set_types(int** mtrx) {
     for (int i = 0; i < mapHeight; i++) {
         for (int j = 0; j < mapWidth; j++) {
@@ -142,19 +166,22 @@ void Set_types(int** mtrx) {
 
             if (i > 0) {
                 if (mtrx[currVrtex][currVrtex - mapWidth] == 1) {
-                    map [currVrtex/mapWidth][currVrtex%mapWidth] = new BlockLadder();
+                    GameMap.setBlock(currVrtex%mapWidth, currVrtex/mapWidth, new BlockLadder());
                     set = true;
                 }
             }
 
-            if (set == false) map [currVrtex/mapWidth][currVrtex % mapWidth] = new BlockWall();
+            if (set == false) {
+                if (rand()%100 > 70) GameMap.setBlock(currVrtex % mapWidth, currVrtex / mapWidth, new BlockDoor());
+                else GameMap.setBlock(currVrtex % mapWidth, currVrtex / mapWidth, new BlockWall());
+            }
 
             if (j > 0) {
-                if (mtrx[currVrtex][currVrtex - 1] == 0) map [currVrtex / mapWidth][currVrtex % mapWidth] -> WallLeft = true;
+                if (mtrx[currVrtex][currVrtex - 1] == 0) GameMap.getMapBlock(currVrtex % mapWidth, currVrtex / mapWidth).setWallLeft(true);
             }
 
             if (j < mapWidth - 1) {
-                if (mtrx[currVrtex][currVrtex + 1] == 0) map [currVrtex / mapWidth][currVrtex % mapWidth] -> WallRight = true;
+                if (mtrx[currVrtex][currVrtex + 1] == 0) GameMap.getMapBlock(currVrtex % mapWidth, currVrtex / mapWidth).setWallRight(true);
             }
         }
     }
@@ -162,11 +189,15 @@ void Set_types(int** mtrx) {
 
 
 void Map::generateLabyrinth() {
-	for (int i = 0; i < mapWidth; i++) {
-		for (int j = 0; j < mapHeight; j++) {
-			map[i][j] = new BlockWall();
-		}
-	}
+    srand((unsigned int)time(0));
+    vector<Edge> edges = CreateLatticeGraph();
+    Kruskal kruskal;
+    vector<Edge> result = kruskal.kruskal(edges);
+    int** mtrx = Build_adjcncy_mtrix(result);
+    Set_types(mtrx);
+    for (const Edge& edge : result) {
+        cout << endl << edge.u << " - " << edge.v;
+    }
 }
 
 void Map::draw(sf::RenderWindow& window) {

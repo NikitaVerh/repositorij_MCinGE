@@ -142,7 +142,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Code\general.cpp" />
-    <ClCompile Include="Code\GlobalConnsts.cpp" />
     <ClCompile Include="Code\GlobalVariablesForResources.cpp" />
     <ClCompile Include="Code\GlobalVariablesOfClasses.cpp" />
     <ClCompile Include="Code\interface.cpp" />
@@ -161,6 +160,8 @@
     <ClInclude Include="Code\map.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resources\textures\blocks\texture_door.png" />
+    <Image Include="Resources\textures\blocks\texture_ladder.png" />
     <Image Include="Resources\textures\blocks\texture_wall.png" />
     <Image Include="Resources\textures\interface\background.png">
       <DeploymentContent>false</DeploymentContent>
