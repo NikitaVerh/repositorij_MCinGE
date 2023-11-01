@@ -1,8 +1,9 @@
 #pragma once
 
 class Block {
-private:
-
+protected:
+	bool WallLeft = false;
+	bool WallRight = false;
 public:
 	virtual void draw() = 0;
 };
