@@ -215,7 +215,18 @@ void Map::draw(sf::RenderWindow& window) {
 Map::Map() {
 	for (int i = 0; i < mapWidth; i++) {
 		for (int j = 0; j < mapHeight; j++) {
-			map[i][j] = new BlockWall();
+			map[i][j] = NULL;
 		}
+	}
+}
+
+void Map::setBlock(int i, int j, Block* block) {
+	if (map[i][j] != NULL) { delete(map[i][j]); }
+	map[i][j] = block;
+}
+
+Block& Map::getMapBlock(int i, int j) {
+	if (i >= 0 && i < mapWidth && j >= 0 && j < mapHeight) {
+		return *map[i][j];
 	}
 }
