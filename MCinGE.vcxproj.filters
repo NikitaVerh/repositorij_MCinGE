@@ -73,5 +73,11 @@
     <Image Include="Resources\textures\blocks\texture_wall.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\textures\blocks\texture_door.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_ladder.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
