@@ -22,7 +22,7 @@ class Form {
 private:
 	std::vector<interfaceObj*> elements;
 public:
-	Form() {}
+	Form();
 	void addInterfaceObj(interfaceObj* Object);
 	void draw(sf::RenderWindow& window);
 };

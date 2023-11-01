@@ -6,8 +6,9 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
-#include "GlobalVariables.h"
-#include "interfaceObj.h"
+#include "GlobalVariablesForResources.h"
+#include "GlobalVariablesOfClasses.h"
+
 
 //тимчасов≥ б≥бл≥отеки
 #include <iostream>
@@ -18,8 +19,13 @@
 void startProgram() {
 	Form1.addInterfaceObj(ButtonTest);
 
+	if (!texture_block_wall.loadFromFile("Resources/textures/blocks/texture_wall.png")); //кол€н
+
 	if (!texture_window.loadFromFile("Resources/textures/interface/background.png")) std::cout << "d"; //кол€н
 	background.setTexture(&texture_window);
+
+	GameMap = Map(); // створюватис€ ц€ зм≥нна повинна п≥сл€ загрузки текстр
+	GameMap.generateLabyrinth();
 }
 
 // метод що виконуЇтьс€ один раз перед закритт€м программи
@@ -49,6 +55,7 @@ void UpdateGraphic(sf::RenderWindow& window) {
 void GraphicRender(sf::RenderWindow& window) {
 	window.clear();
 	window.draw(background);
+	GameMap.draw(window);
 	Form1.draw(window);
 	window.display();
 }

@@ -1,23 +1,12 @@
 #pragma once
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
+#include "SFML/System.hpp"
+#include "SFML/Graphics.hpp"
+#include "SFML/Window.hpp"
+#include "general.h"
 
-using namespace sf;
+void Run(sf::RenderWindow& window, sf::Clock& delta_time_clock);
 
-class Game {
-private:
-	VideoMode GameWindowSize = { 800,500 }; // змінна що відповідає за відео режим вікна
-	String GameWindowTitle = L"Математичні концепції в ігровому середовищі"; // підпис вікна (caption)
-	RenderWindow GameWindow; // основне вікно програми
-	Clock delta_time_clock; // змінна для підрахунку часу що йде на один кадр
-
-	void HandleInput(); // метод для обробки вікна
-	void Update(Time delta_time);      // метод для обробки і оновлень всіх ігрових механік
-	void Render();      // метод для рендеру графіки
-public:
-	Game(); // конструктор
-
-	void Run();         // метод ігрового циклу
-};
+void HandleInput(sf::RenderWindow& window);
+void Update(sf::Time delta_time);
+void Render(sf::RenderWindow& window);
 
