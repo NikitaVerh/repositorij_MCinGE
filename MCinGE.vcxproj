@@ -158,6 +158,7 @@
     <ClInclude Include="Code\GlobalVariablesOfClasses.h" />
     <ClInclude Include="Code\interface.h" />
     <ClInclude Include="Code\map.h" />
+    <ClInclude Include="Code\player.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\textures\blocks\texture_door.png" />
