@@ -1,7 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
-sf::RectangleShape background(sf::Vector2f(800, 500)); // עטלקאסמגמ
+#include "GlobalVariablesForResources.h"
 
 sf::Texture texture_window;
 
@@ -13,5 +12,8 @@ sf::Texture texture_block_ladder;
 sf::Texture texture_wall_left;
 sf::Texture texture_wall_right;
 
+sf::Font master_font;
+
+int Menu = menu_main;
 
 int sizeBlock = 50;

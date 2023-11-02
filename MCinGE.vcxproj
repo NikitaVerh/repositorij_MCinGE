@@ -171,6 +171,9 @@
     </Image>
     <Image Include="Resources\textures\pers.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="Resources\fonts\testFont.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

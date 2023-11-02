@@ -62,6 +62,9 @@
     <ClInclude Include="Code\interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Code\player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\textures\interface\background.png">
@@ -85,5 +88,8 @@
     <Image Include="Resources\textures\pers.png">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Resources\fonts\testFont.ttf" />
   </ItemGroup>
 </Project>
