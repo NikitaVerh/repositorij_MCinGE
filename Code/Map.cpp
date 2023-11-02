@@ -9,8 +9,10 @@
 
 using namespace std;
 
+int single_floor_walls = -1;
 int numVertices = mapHeight * mapWidth;
 int source = mapWidth * (mapHeight - 1);
+int MinDoor = mapWidth / 7;
 
 
 struct Edge {
@@ -137,6 +139,7 @@ int** Build_adjcncy_mtrix(vector<Edge> result) {
 
 void Set_types(int** mtrx) {
     for (int i = 0; i < mapHeight; i++) {
+        single_floor_walls = 0;
         for (int j = 0; j < mapWidth; j++) {
             int currVrtex = i * mapWidth + j;
             int weight = 0;
@@ -149,30 +152,77 @@ void Set_types(int** mtrx) {
                 }
             }
 
-            if (set == false) {
-                if (rand()%100 > 70) GameMap.setBlock(currVrtex % mapWidth, currVrtex / mapWidth, new BlockDoor());
-                else GameMap.setBlock(currVrtex % mapWidth, currVrtex / mapWidth, new BlockWall());
-            }
+            if (set == false) GameMap.setBlock(currVrtex % mapWidth, currVrtex / mapWidth, new BlockWall());
 
             if (j > 0) {
-                if (mtrx[currVrtex][currVrtex - 1] == 0) GameMap.getMapBlock(currVrtex % mapWidth, currVrtex / mapWidth).setWallLeft(true);
+                if (mtrx[currVrtex][currVrtex - 1] == 0) {
+                    GameMap.getMapBlock(currVrtex % mapWidth, currVrtex / mapWidth).setWallLeft(true);
+                    ++single_floor_walls;
+                }
             }
 
             if (j < mapWidth - 1) {
                 if (mtrx[currVrtex][currVrtex + 1] == 0) GameMap.getMapBlock(currVrtex % mapWidth, currVrtex / mapWidth).setWallRight(true);
             }
         }
+        if (single_floor_walls > trunc(mapWidth / 2.4) || single_floor_walls < trunc(mapWidth/5.5)) break;
     }
 }
 
 
-void Map::generateLabyrinth() {
-    srand((unsigned int)time(0));
+void Base_Labyrinth_Generator(int cnt) {
+    srand((unsigned int)(time(0)*cnt));
     vector<Edge> edges = CreateLatticeGraph();
     Kruskal kruskal;
     vector<Edge> result = kruskal.kruskal(edges);
     int** mtrx = Build_adjcncy_mtrix(result);
     Set_types(mtrx);
+    for (int i = 0; i < numVertices; i++) delete[] mtrx[i];
+    delete[] mtrx;
+}
+
+
+void fill_range(int i, int j) {
+    int k;
+    bool flag = true;
+    int door_cnt = 0;
+    while (door_cnt < MinDoor && flag == true) {
+        k = j;
+        flag = false;
+        while (k < mapWidth) {
+            if (GameMap.getMapBlock(k, i).getTypeBlock() == 0) {
+                flag = true;
+                bool right = GameMap.getMapBlock(k, i).getWallRight();
+                bool left = GameMap.getMapBlock(k, i).getWallLeft();
+                if (rand() % 100 > 70) GameMap.setBlock(k, i, new BlockDoor());
+                if (GameMap.getMapBlock(k, i).getTypeBlock() == 1) {
+                    ++door_cnt;
+                    if (right == true) GameMap.getMapBlock(k, i).setWallRight(true);
+                    if (left == true) GameMap.getMapBlock(k, i).setWallLeft(true);
+                }
+            }
+            if (GameMap.getMapBlock(k, i).getWallRight() == true) break;
+            ++k;
+        }
+    }
+    if (k != mapWidth) fill_range(i, k+1);
+}
+
+void Door_generation() {
+    if (MinDoor == 0) MinDoor = 1;
+    for (int i = 0; i < mapHeight; i++) {
+        fill_range(i, 0);
+    }
+}
+
+
+void Map::generateLabyrinth() {
+    int cnt = 0;
+    while (single_floor_walls > trunc(mapWidth / 2.4) || single_floor_walls < trunc(mapWidth / 5.5)) {
+        ++cnt;
+        Base_Labyrinth_Generator(cnt);
+    }
+    Door_generation();
 }
 
 void Map::draw(sf::RenderWindow& window) {
