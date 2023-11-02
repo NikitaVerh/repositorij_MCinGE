@@ -217,7 +217,8 @@ void Door_generation() {
 
 
 void Map::generateLabyrinth() {
-    int cnt = 0;
+    int cnt = 1;
+    Base_Labyrinth_Generator(cnt);
     while (single_floor_walls > trunc(mapWidth / 2.4) || single_floor_walls < trunc(mapWidth / 5.5)) {
         ++cnt;
         Base_Labyrinth_Generator(cnt);
