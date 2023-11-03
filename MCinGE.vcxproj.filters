@@ -36,6 +36,9 @@
     <ClCompile Include="Code\interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Code\taskProecess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Game.h">
@@ -65,6 +68,9 @@
     <ClInclude Include="Code\player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Code\taskProecess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\textures\interface\background.png">
@@ -86,6 +92,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\textures\pers.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\interface\background3.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

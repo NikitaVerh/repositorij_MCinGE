@@ -68,6 +68,10 @@ void Button::setPosSize(float indent_left, float indent_top, float W, float H){
 	height = H;
 }
 
+void Button::setText(sf::String str) {
+	text_button.setString(str);
+}
+
 void Button::setStyle(sf::String str, float textSize, sf::Color colorFill, sf::Color colorLine, sf::Color colorFillPressed, sf::Color colorLinePressed, sf::Color colorText) {
 	/*Area.setFillColor();
 	Area.set*/

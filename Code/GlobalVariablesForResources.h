@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 
 extern sf::Texture texture_window;
+extern sf::Texture texture_window3;
 
 extern sf::Texture texture_block_wall;
 extern sf::Texture texture_block_door;
@@ -24,5 +25,11 @@ enum {
 
 enum {
 	menu_main,
-	menu_game
+	menu_game,
+	menu_test
+};
+
+enum {
+	theme_high_math
+
 };

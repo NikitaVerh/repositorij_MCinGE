@@ -5,10 +5,10 @@
 #include <vector>
 
 class interfaceObj {
-public:
+protected:
 	float indentLeft, indentTop; // значення від 0 до 1
 	float width, height;  // значення від 0 до 1
-
+public:
 	virtual void draw(sf::RenderWindow& window) = 0;
 	virtual void Update(float windowWidth, float windowHeight, float posX, float posY) = 0;
 	virtual void setPosSize(float indent_left, float indent_right, float W, float H) = 0;
@@ -38,6 +38,7 @@ public:
 	void updatePressed(sf::RenderWindow& window) override;
 
 	void setStyle(sf::String str, float textSize, sf::Color colorFill, sf::Color colorLine, sf::Color colorFillPressed, sf::Color colorLinePressed, sf::Color colorText);
+	void setText(sf::String str);
 	bool Pressed();
 	bool Released();
 };

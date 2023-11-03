@@ -3,6 +3,7 @@
 #include "GlobalVariablesForResources.h"
 
 sf::Texture texture_window;
+sf::Texture texture_window3;
 
 
 sf::Texture texture_block_wall;
