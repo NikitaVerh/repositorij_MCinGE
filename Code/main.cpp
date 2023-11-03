@@ -24,4 +24,3 @@ int main() {
     stopProgram(GameWindow);
     return 0;
 }
-шось робив з формами і інтерфейсом.Створив базу для прикладів
