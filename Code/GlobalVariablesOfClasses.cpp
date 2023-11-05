@@ -1,6 +1,7 @@
 #pragma once
 #include "GlobalVariablesOfClasses.h"
 
+
 Form Form1;
 Form Form2;
 Form Form3;
