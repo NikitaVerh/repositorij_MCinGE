@@ -22,7 +22,7 @@ void startProgram() {
 	if (!texture_block_ladder.loadFromFile("Resources/textures/blocks/texture_ladder.png")); //колян
 	if (!texture_wall_left.loadFromFile("Resources/textures/blocks/texture_wall_left.png")); //колян
 	if (!texture_wall_right.loadFromFile("Resources/textures/blocks/texture_wall_right.png")); //колян
-	if (!texture_window.loadFromFile("Resources/textures/interface/background.png")); //колян
+	if (!texture_window.loadFromFile("Resources/textures/interface/old_background.png")); //колян
 	if (!texture_window3.loadFromFile("Resources/textures/interface/background3.png")); //колян
 
 
