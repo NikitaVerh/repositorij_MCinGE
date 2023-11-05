@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include "GlobalVariablesForResources.h"
 
+json tasks;
+
 sf::Texture texture_window;
 sf::Texture texture_window3;
 
@@ -18,3 +20,4 @@ sf::Font master_font;
 int Menu = menu_main;
 
 int sizeBlock = 50;
+std::string currentDifficulty = "easy"; // Текущий уровень сложности

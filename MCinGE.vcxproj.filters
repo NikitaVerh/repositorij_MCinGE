@@ -101,4 +101,7 @@
   <ItemGroup>
     <Font Include="Resources\fonts\testFont.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\json\task.json" />
+  </ItemGroup>
 </Project>
