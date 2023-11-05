@@ -70,6 +70,10 @@ void stopProgram(sf::RenderWindow& window) {
 	window.close();
 }
 
+void updateMehanics(sf::Time delta_time) {
+
+}
+
 // עטלקאסמגמ
 void SetTask() {
 	Task task;

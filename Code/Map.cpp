@@ -256,6 +256,7 @@ void Map::draw(sf::RenderWindow& window) {
             
 		}
 	}
+    drawHitboxes(window);
 }
 
 Map::Map() {
@@ -266,9 +267,28 @@ Map::Map() {
 	}
 }
 
+void Map::addStaticHitbox(Hitbox hitbox){
+    staticHitboxes.push_back(hitbox);
+}
+
+void Map::drawHitboxes(sf::RenderWindow& window){
+    for (auto element : staticHitboxes) {
+        element.draw(window);
+    }
+}
+
 void Map::setBlock(int i, int j, Block* block) {
 	if (map[i][j] != NULL) { delete(map[i][j]); }
 	map[i][j] = block;
+}
+
+bool Map::collisionMap(Hitbox hitbox){
+    for (auto element : staticHitboxes) {
+        if (element.collision(hitbox)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 Block& Map::getMapBlock(int i, int j) {

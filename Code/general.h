@@ -15,6 +15,8 @@ void windowEventHandling(sf::RenderWindow& window);
 // метод що виконується один раз перед закриттям программи
 void stopProgram(sf::RenderWindow& window);
 
+void updateMehanics(sf::Time delta_time);
+
 // метод для відображення графіки
 void GraphicRender(sf::RenderWindow& window);
 

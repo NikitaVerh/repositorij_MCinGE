@@ -16,7 +16,7 @@ void HandleInput(sf::RenderWindow& window) {
 
 // метод для обробки і оновлень всіх ігрових механік
 void Update(sf::Time delta_time) {
-
+    updateMehanics(delta_time); 
 }
 
 

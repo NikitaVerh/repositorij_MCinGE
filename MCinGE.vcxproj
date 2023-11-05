@@ -148,6 +148,7 @@
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\Game.cpp" />
     <ClCompile Include="Code\map.cpp" />
+    <ClCompile Include="Code\player.cpp" />
     <ClCompile Include="Code\taskProecess.cpp" />
   </ItemGroup>
   <ItemGroup>
