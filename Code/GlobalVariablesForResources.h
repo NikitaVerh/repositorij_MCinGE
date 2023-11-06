@@ -42,8 +42,6 @@ enum {
 	theme_probality_theory
 };
 
-};
-
 extern float playerHeight;
 extern float playerWidth;
 extern float speed_player;
