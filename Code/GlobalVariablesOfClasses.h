@@ -17,3 +17,4 @@ extern Button* ButtonF3_3;
 extern Button* ButtonF3_4;
 
 extern Map GameMap;
+extern Player player;

@@ -15,3 +15,4 @@ Button* ButtonF3_3 = new Button();
 Button* ButtonF3_4 = new Button();
 
 Map GameMap;
+Player player;

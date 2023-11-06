@@ -10,6 +10,7 @@ extern sf::Texture texture_block_ladder;
 
 extern sf::Texture texture_wall_left;
 extern sf::Texture texture_wall_right;
+extern sf::Texture texture_person;
 
 extern int sizeBlock;
 
@@ -33,3 +34,9 @@ enum {
 	theme_high_math
 
 };
+
+extern float playerHeight;
+extern float playerWidth;
+extern float speed_player;
+extern int Y_start_climbing;
+extern bool moving_flag;

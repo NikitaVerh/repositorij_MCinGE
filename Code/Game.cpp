@@ -4,6 +4,7 @@
 #include <SFML/System.hpp>
 #include "general.h"
 #include "GlobalVariablesForResources.h"
+#include "GlobalVariablesOfClasses.h"
 
 // тимчасові бібліотеки
 #include <iostream>
@@ -25,7 +26,6 @@ void Render(sf::RenderWindow& window) {
 	UpdateGraphic(window);
 	GraphicRender(window);
 }
-
 
 // метод ігрового циклу
 void Run(sf::RenderWindow& window, sf::Clock& delta_time_clock) {

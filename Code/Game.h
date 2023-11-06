@@ -9,4 +9,3 @@ void Run(sf::RenderWindow& window, sf::Clock& delta_time_clock);
 void HandleInput(sf::RenderWindow& window);
 void Update(sf::Time delta_time);
 void Render(sf::RenderWindow& window);
-

@@ -25,11 +25,6 @@ public:
     }
 };
 
-struct Subset {
-    int parent;
-    int rank;
-};
-
 int fullRandom() {
     int random = (rand() % 100) + 2;
     return random;
@@ -63,52 +58,47 @@ vector<Edge> CreateLatticeGraph() {
     return edges;
 }
 
+
+struct Subset {
+    int parent;
+    int rank;
+    Subset(int par, int rnk) {
+        parent = par;
+        rank = rnk;
+    }
+};
+
+
 class Kruskal {
 private:
     vector<Subset> subsets;
 public:
-    void makeSet(int v) {
-        subsets[v].parent = v;
-        subsets[v].rank = 0;
-    }
-
 
     int find(int v) {
-        if (v != subsets[v].parent)
-            subsets[v].parent = find(subsets[v].parent);
+        if (v != subsets[v].parent) subsets[v].parent = find(subsets[v].parent);
         return subsets[v].parent;
     }
 
 
     void unionSets(int a, int b) {
-        a = find(a);
-        b = find(b);
-        if (a != b) {
-            if (subsets[a].rank < subsets[b].rank)
-                swap(a, b);
-            subsets[b].parent = a;
-            if (subsets[a].rank == subsets[b].rank)
-                subsets[a].rank++;
-        }
+      if (subsets[a].rank < subsets[b].rank) {
+          subsets[a].parent = b;
+          if (subsets[a].rank == subsets[b].rank) subsets[b].rank++;
+      }
+      else {
+          subsets[b].parent = a;
+          if (subsets[a].rank == subsets[b].rank) subsets[a].rank++;
+      }
     }
 
 
     vector<Edge> kruskal(vector<Edge>& edges) {
         vector<Edge> result;
-        subsets.resize(numVertices);
-
-        for (int v = 0; v < numVertices; ++v)
-            makeSet(v);
-
-        sort(edges.begin(), edges.end(), [](const Edge& a, const Edge& b) {
-            return a.weight < b.weight;
-            });
-
+        for (int v = 0; v < numVertices; ++v) subsets.emplace_back(Subset(v, 0));
+        sort(edges.begin(), edges.end(), [](const Edge& a, const Edge& b) {return a.weight < b.weight;});
         for (const Edge& edge : edges) {
-            int u = edge.u;
-            int v = edge.v;
-            int uRoot = find(u);
-            int vRoot = find(v);
+            int uRoot = find(edge.u);
+            int vRoot = find(edge.v);
 
             if (uRoot != vRoot) {
                 result.push_back(edge);
@@ -190,12 +180,12 @@ void fill_range(int i, int j) {
         k = j;
         flag = false;
         while (k < mapWidth) {
-            if (GameMap.getMapBlock(k, i).getTypeBlock() == 0) {
+            if (GameMap.getMapBlock(k, i).getTypeBlock() == type_block_wall) {
                 flag = true;
                 bool right = GameMap.getMapBlock(k, i).getWallRight();
                 bool left = GameMap.getMapBlock(k, i).getWallLeft();
                 if (rand() % 100 > 70) GameMap.setBlock(k, i, new BlockDoor());
-                if (GameMap.getMapBlock(k, i).getTypeBlock() == 1) {
+                if (GameMap.getMapBlock(k, i).getTypeBlock() == type_block_door) {
                     ++door_cnt;
                     if (right == true) GameMap.getMapBlock(k, i).setWallRight(true);
                     if (left == true) GameMap.getMapBlock(k, i).setWallLeft(true);
@@ -213,7 +203,20 @@ void Door_generation() {
     for (int i = 0; i < mapHeight; i++) {
         fill_range(i, 0);
     }
+    GameMap.setBlock(0, source/mapWidth, new BlockWall());
 }
+
+
+void Map::setNewHitboxes() {
+    staticHitboxes.clear();
+    for (int i = 0; i < mapWidth; i++) {
+        for (int j = 0; j < mapHeight; j++) {
+            if (map[i][j]->getWallRight() == true) addStaticHitbox(Hitbox(i+0.925,j,0.15,1));
+        }
+    }
+    
+}
+
 
 
 void Map::generateLabyrinth() {
@@ -224,7 +227,10 @@ void Map::generateLabyrinth() {
         Base_Labyrinth_Generator(cnt);
     }
     Door_generation();
+    setNewHitboxes();
 }
+
+
 
 void Map::draw(sf::RenderWindow& window) {
     sf::Sprite WallLeft;
@@ -295,4 +301,6 @@ Block& Map::getMapBlock(int i, int j) {
 	if (i >= 0 && i < mapWidth && j >= 0 && j < mapHeight) {
 		return *map[i][j];
 	}
+    BlockWall Blck;
+    return Blck;
 }

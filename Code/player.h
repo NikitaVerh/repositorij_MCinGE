@@ -3,12 +3,14 @@
 #include "SFML/Graphics.hpp"
 #include <SFML/System.hpp>
 #include "GlobalVariablesForResources.h"
+#include "GlobalConnsts.h"
 
 class Hitbox {
 private:
 	static bool showHitbox; // змінна для тестування і перевірки, показ всіх хітбоксів
 	sf::FloatRect hitbox;
 public:
+
 	Hitbox() {
 		setSizePos(0, 0, 1, 1);
 	}
@@ -49,11 +51,21 @@ public:
 
 class Player {
 private:
+	sf::RectangleShape player_pers;
 	float x, y;
 	Hitbox hitbox;
-	
-	bool checkColision();
+	bool checkColision(float dx);
+	sf::Time delta_time;
 public:
+	Player() {
+		Player_set_source();	
+	}
+	void Player_set_source() {
+		x = 0.3;
+		y = mapHeight - 0.01;
+	}
+	void set_pos_hitbox_player();
+	void set_time(sf::Time delta_time);
 	void Update();
 	void move(float dx, float dy);
 	void openDoor();

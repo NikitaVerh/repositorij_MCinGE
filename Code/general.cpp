@@ -24,7 +24,9 @@ void startProgram() {
 	if (!texture_wall_right.loadFromFile("Resources/textures/blocks/texture_wall_right.png")); //колян
 	if (!texture_window.loadFromFile("Resources/textures/interface/background.png")); //колян
 	if (!texture_window3.loadFromFile("Resources/textures/interface/background3.png")); //колян
-	
+	if (!texture_person.loadFromFile("Resources/textures/pers.png")); //колян
+	playerHeight = 0.6;
+	playerWidth = playerHeight * texture_person.getSize().x / texture_person.getSize().y;
 
 	master_font.loadFromFile("Resources/fonts/testFont.ttf");//колян
 	
@@ -71,7 +73,8 @@ void stopProgram(sf::RenderWindow& window) {
 }
 
 void updateMehanics(sf::Time delta_time) {
-
+	player.set_time(delta_time);
+	player.Update();
 }
 
 // тимчасово
@@ -86,6 +89,12 @@ void SetTask() {
 
 }
 
+bool button_left = false;
+bool button_right = false;
+bool button_up = false;
+bool button_down = false;
+bool button_interact = false;
+
 // метод для обробки подій вікна
 void windowEventHandling(sf::RenderWindow& window) {
 	sf::Event event;
@@ -97,7 +106,29 @@ void windowEventHandling(sf::RenderWindow& window) {
 			if (event.key.code == sf::Keyboard::Key::Num2) { Menu = menu_game;  std::cout << "Menu: " << Menu << std::endl;}
 			if (event.key.code == sf::Keyboard::Key::Num3) { Menu = menu_test;  std::cout << "Menu: " << Menu << std::endl;}
 		}
+
+		if (sf::Event::KeyReleased == event.type) {
+			if ((event.key.code == sf::Keyboard::Key::W) || (event.key.code == sf::Keyboard::Key::Space) || (event.key.code == sf::Keyboard::Key::Up)) { button_up = false; }
+			if ((event.key.code == sf::Keyboard::Key::S) || (event.key.code == sf::Keyboard::Key::LShift) || (event.key.code == sf::Keyboard::Key::Down)) { button_down = false; }
+			if ((event.key.code == sf::Keyboard::Key::A) || (event.key.code == sf::Keyboard::Key::Left)) { button_left = false; }
+			if ((event.key.code == sf::Keyboard::Key::D) || (event.key.code == sf::Keyboard::Key::Right)) { button_right = false; }
+			if ((event.key.code == sf::Keyboard::Key::E) || (event.key.code == sf::Keyboard::Key::RControl)) { button_interact = false; }
+		}
+
+		if (sf::Event::KeyPressed == event.type) {
+			if ((event.key.code == sf::Keyboard::Key::W) || (event.key.code == sf::Keyboard::Key::Space) || (event.key.code == sf::Keyboard::Key::Up)) { button_up = true; }
+			if ((event.key.code == sf::Keyboard::Key::S) || (event.key.code == sf::Keyboard::Key::LShift) || (event.key.code == sf::Keyboard::Key::Down)) { button_down = true; }
+			if ((event.key.code == sf::Keyboard::Key::A) || (event.key.code == sf::Keyboard::Key::Left)) { button_left = true; }
+			if ((event.key.code == sf::Keyboard::Key::D) || (event.key.code == sf::Keyboard::Key::Right)) { button_right = true; }
+			if ((event.key.code == sf::Keyboard::Key::E) || (event.key.code == sf::Keyboard::Key::RControl)) { button_interact = true; }
+		}
 	}
+
+	if (button_left) { player.move(-1, 0); }
+	if (button_right) { player.move(1, 0); }
+	if (button_up) { player.move(0, -1); }
+	if (button_down) { player.move(0, 1); }
+	if (button_interact) { player.openDoor(); }
 
 
 	switch (Menu){
@@ -105,7 +136,7 @@ void windowEventHandling(sf::RenderWindow& window) {
 		if (ButtonTest->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
 		break;
 	case menu_game:
-		if (ButtonTest2->Released()) { std::cout << "released" << std::endl;/* Menu = menu_main; */GameMap.generateLabyrinth(); }
+		if (ButtonTest2->Released()) { std::cout << "released" << std::endl;/* Menu = menu_main; */GameMap.generateLabyrinth(); player.Player_set_source(); }
 		break;
 	case menu_test:
 		if (ButtonF3->Released()) { std::cout << "F" << std::endl; SetTask(); }
@@ -140,6 +171,7 @@ void GraphicRender(sf::RenderWindow& window) {
 	}
 	if (Menu == menu_game) {
 		GameMap.draw(window);
+		player.drawPlayer(window);
 		Form2.draw(window);
 	}
 	if (Menu == menu_test) {

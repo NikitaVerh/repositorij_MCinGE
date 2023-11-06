@@ -14,6 +14,8 @@ public:
 	void addStaticHitbox(Hitbox hitbox);
 	void drawHitboxes(sf::RenderWindow& window);
 
+	void setNewHitboxes();
+
 	void generateLabyrinth();
 
 	void draw(sf::RenderWindow& window);
