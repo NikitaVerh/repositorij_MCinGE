@@ -1,5 +1,8 @@
 #pragma once
+#include "nlohmann/json.hpp"
 #include <SFML/Graphics.hpp>
+
+using json = nlohmann::json;
 
 extern sf::Texture texture_window;
 extern sf::Texture texture_window3;
@@ -18,6 +21,9 @@ extern sf::Font master_font;
 
 extern int Menu;
 
+extern json tasks;
+
+extern std::string currentDifficulty; // Текущий уровень сложности
 enum {
 	type_block_wall,
 	type_block_door,
@@ -31,7 +37,10 @@ enum {
 };
 
 enum {
-	theme_high_math
+	theme_high_math,
+	theme_linear_algebra, 
+	theme_probality_theory
+};
 
 };
 
