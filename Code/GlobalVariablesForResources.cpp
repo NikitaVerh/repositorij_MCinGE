@@ -28,3 +28,7 @@ float speed_player = 0.5;
 int Y_start_climbing = -1;
 bool moving_flag = false;
 std::string currentDifficulty = "easy"; // Текущий уровень сложности
+
+
+float scrollX = 0;
+float scrollY = 0;

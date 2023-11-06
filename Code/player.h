@@ -39,7 +39,7 @@ public:
 
 		sf::RectangleShape rect;
 
-		rect.setPosition(hitbox.left * sizeBlock, hitbox.top * sizeBlock);
+		rect.setPosition(hitbox.left * sizeBlock + scrollX, hitbox.top * sizeBlock + scrollY);
 		rect.setSize(sf::Vector2f(hitbox.width * sizeBlock, hitbox.height * sizeBlock));
 		rect.setFillColor(sf::Color(0, 0, 0, 0));
 		rect.setOutlineColor(sf::Color(255,0,0,180));

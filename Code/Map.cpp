@@ -245,17 +245,17 @@ void Map::draw(sf::RenderWindow& window) {
 		for (int j = 0; j < mapHeight; j++) {
             
 			sf::RectangleShape block = map[i][j]->getBlockForDraw();
-			block.setPosition(sf::Vector2f(i*sizeBlock,j*sizeBlock));
+			block.setPosition(sf::Vector2f(i*sizeBlock + scrollX,j*sizeBlock + scrollY));
 			block.setSize(sf::Vector2f(sizeBlock, sizeBlock));
 			window.draw(block);
 
 
             if (GameMap.getMapBlock(i, j).getWallLeft()) {
-                WallLeft.setPosition(sf::Vector2f(i * sizeBlock, j * sizeBlock));
+                WallLeft.setPosition(sf::Vector2f(i * sizeBlock + scrollX, j * sizeBlock + scrollY));
                 window.draw(WallLeft);
             }
             if (GameMap.getMapBlock(i, j).getWallRight()) {
-                WallRight.setPosition(sf::Vector2f(i * sizeBlock, j * sizeBlock));
+                WallRight.setPosition(sf::Vector2f(i * sizeBlock + scrollX, j * sizeBlock + scrollY));
                 window.draw(WallRight);
             }
 

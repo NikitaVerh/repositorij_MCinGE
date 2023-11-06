@@ -163,21 +163,31 @@ bool button_up = false;
 bool button_down = false;
 bool button_interact = false;
 
-// метод для обробки подій вікна
 
+
+void setMenu(int menu) {
+	if (menu == menu_main) { Menu = menu_main; }
+	if (menu == menu_game) { Menu = menu_game; }
+	if (menu == menu_test) { Menu = menu_test; SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);}
+
+}
+
+
+
+// метод для обробки подій вікна
 void windowEventHandling(sf::RenderWindow& window) {
 	sf::Event event;
 	while (window.pollEvent(event)) {
 
 		if (sf::Event::Closed == event.type) { stopProgram(window); }
 		if (sf::Event::KeyReleased == event.type) {
-			if (event.key.code == sf::Keyboard::Key::Num1) { Menu = menu_main; std::cout << "Menu: " << Menu << std::endl; }
-			if (event.key.code == sf::Keyboard::Key::Num2) { Menu = menu_game;  std::cout << "Menu: " << Menu << std::endl; }
+			if (event.key.code == sf::Keyboard::Key::Num1) { setMenu(menu_main); std::cout << "Menu: " << Menu << std::endl; }
+			if (event.key.code == sf::Keyboard::Key::Num2) { setMenu(menu_game);  std::cout << "Menu: " << Menu << std::endl; }
 			if (event.key.code == sf::Keyboard::Key::Num3) {
-				Menu = menu_test;  std::cout << "Menu: " << Menu << std::endl;
+				setMenu(menu_test);  std::cout << "Menu: " << Menu << std::endl;
 				//stopTest(); 
 				//runEntireGame(tasks);
-				SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
+				
 			}
 		}
 
@@ -197,12 +207,14 @@ void windowEventHandling(sf::RenderWindow& window) {
 			if ((event.key.code == sf::Keyboard::Key::E) || (event.key.code == sf::Keyboard::Key::RControl)) { button_interact = true; }
 		}
 	}
-
-	if (button_left) { player.move(-1, 0); }
-	if (button_right) { player.move(1, 0); }
-	if (button_up) { player.move(0, -1); }
-	if (button_down) { player.move(0, 1); }
-	if (button_interact) { player.openDoor(); }
+	if (Menu == menu_game) {
+		if (button_left) { player.move(-1, 0); }
+		if (button_right) { player.move(1, 0); }
+		if (button_up) { player.move(0, -1); }
+		if (button_down) { player.move(0, 1); }
+		if (button_interact) { player.openDoor(); }
+	}
+	
 
 
 	switch (Menu) {
@@ -249,7 +261,7 @@ void windowEventHandling(sf::RenderWindow& window) {
 void UpdateGraphic(sf::RenderWindow& window) {
 	window.setView(sf::View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y)));
 
-	sizeBlock = window.getSize().y / float(mapHeight);
+	sizeBlock = window.getSize().y / float(1.3);
 	Form1.updateForm(window);
 	Form2.updateForm(window);
 	Form3.updateForm(window);

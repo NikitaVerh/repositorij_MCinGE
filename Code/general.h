@@ -17,6 +17,8 @@ void stopProgram(sf::RenderWindow& window);
 
 void updateMehanics(sf::Time delta_time);
 
+void setMenu(int menu);
+
 // метод для відображення графіки
 void GraphicRender(sf::RenderWindow& window);
 

@@ -3,7 +3,7 @@
 #include "player.h"
 #include "GlobalVariablesOfClasses.h"
 #include "GlobalVariablesForResources.h"
-
+#include "general.h"
 bool Hitbox::showHitbox = true; // змінювати лише в коді, зміни для розробників
 
 bool Player::checkColision(float dx) {
@@ -84,13 +84,24 @@ void Player::move(float dx, float dy) {
 
 void Player::openDoor() {
 	if (GameMap.getMapBlock(trunc(x), trunc(y)).getTypeBlock() == type_block_door){
-		if (x - trunc(x) >= 0.35 && x - trunc(x) <= 0.65) Menu = menu_test;
+		if (x - trunc(x) >= 0.35 && x - trunc(x) <= 0.65) setMenu(menu_test);
 	}
 }
 
 void Player::drawPlayer(sf::RenderWindow& window) {
+	scrollX = -x * sizeBlock + window.getSize().x/2.0;
+	scrollY = -(y - 1.2) * sizeBlock;
+
+	if (scrollX > 0) { scrollX = 0; }
+	if (scrollY > 0) { scrollY = 0; }
+	
+	if (mapHeight * sizeBlock + scrollY < window.getSize().y) { scrollY = 0-(mapHeight * sizeBlock - float(window.getSize().y)); }
+	if (mapWidth * sizeBlock + scrollX < window.getSize().x) { scrollX = 0-(mapWidth * sizeBlock - float(window.getSize().x)); }
+
+	//std::cout << scrollX << " " << std::fixed << scrollY << " " << sizeBlock << std::endl;
+	
 	player_pers.setOrigin(playerWidth*sizeBlock/2.0, playerHeight*sizeBlock);
-	player_pers.setPosition(x * sizeBlock, y * sizeBlock);
+	player_pers.setPosition(x * sizeBlock + scrollX, y * sizeBlock + scrollY);
 	player_pers.setSize(sf::Vector2f(playerWidth*sizeBlock,playerHeight*sizeBlock));
 	player_pers.setTexture(&texture_person);
 	window.draw(player_pers);

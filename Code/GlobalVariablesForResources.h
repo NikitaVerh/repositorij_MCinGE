@@ -47,3 +47,8 @@ extern float playerWidth;
 extern float speed_player;
 extern int Y_start_climbing;
 extern bool moving_flag;
+
+
+
+extern float scrollX;
+extern float scrollY;
