@@ -24,6 +24,7 @@ extern int Menu;
 extern json tasks;
 
 extern std::string currentDifficulty; // Текущий уровень сложности
+
 enum {
 	type_block_wall,
 	type_block_door,

@@ -36,10 +36,13 @@
     <ClCompile Include="Code\interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\taskProecess.cpp">
+    <ClCompile Include="Code\taskProcess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Hitbox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,7 +74,13 @@
     <ClInclude Include="Code\player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Code\taskProecess.h">
+    <ClInclude Include="Code\taskProcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Hitbox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\initializators.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

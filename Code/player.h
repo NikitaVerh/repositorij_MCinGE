@@ -4,70 +4,38 @@
 #include <SFML/System.hpp>
 #include "GlobalVariablesForResources.h"
 #include "GlobalConnsts.h"
-
-class Hitbox {
-private:
-	static bool showHitbox; // змінна для тестування і перевірки, показ всіх хітбоксів
-	sf::FloatRect hitbox;
-public:
-
-	Hitbox() {
-		setSizePos(0, 0, 1, 1);
-	}
-
-	Hitbox(float x, float y, float w, float h) { 
-		setSizePos(x, y, w, h); 
-	}
-
-	void setSizePos(float x, float y, float w, float h) {
-		hitbox.left = x;
-		hitbox.top = y;
-		hitbox.width = w;
-		hitbox.height = h;
-	}
-
-	sf::FloatRect getRect() {
-		return hitbox;
-	}
-
-	bool collision(Hitbox& secondHitBox) {
-		return hitbox.intersects(secondHitBox.getRect());
-	}
-
-	void draw(sf::RenderWindow& window) {
-		if (!showHitbox) { return; }
-
-		sf::RectangleShape rect;
-
-		rect.setPosition(hitbox.left * sizeBlock + scrollX, hitbox.top * sizeBlock + scrollY);
-		rect.setSize(sf::Vector2f(hitbox.width * sizeBlock, hitbox.height * sizeBlock));
-		rect.setFillColor(sf::Color(0, 0, 0, 0));
-		rect.setOutlineColor(sf::Color(255,0,0,180));
-		rect.setOutlineThickness(1);
-		window.draw(rect);
-	}
-
-};
+#include "Hitbox.h"
 
 class Player {
 private:
 	sf::RectangleShape player_pers;
 	float x, y;
 	Hitbox hitbox;
-	bool checkColision(float dx);
 	sf::Time delta_time;
+
+	bool checkColision(float dx);
 public:
-	Player() {
-		Player_set_source();	
-	}
-	void Player_set_source() {
-		x = 0.3;
-		y = mapHeight - 0.01;
-	}
+	// конструктор класа гравця
+	Player();
+
+	// встановлення поаткової позиції гравця
+	void Player_set_source();
+
+	// встановлення хітбоксу гравця відносно гравця
 	void set_pos_hitbox_player();
+
+	// метод для отримання часу останнього кадру
 	void set_time(sf::Time delta_time);
+
+	// оновлення гравця
 	void Update();
+
+	// метод для руху гравця
 	void move(float dx, float dy);
+
+	// метод для відкриття дверей гравцем
 	void openDoor();
+
+	// метод для рендеру гравця на вікні
 	void drawPlayer(sf::RenderWindow& window);
 };

@@ -144,12 +144,13 @@
     <ClCompile Include="Code\general.cpp" />
     <ClCompile Include="Code\GlobalVariablesForResources.cpp" />
     <ClCompile Include="Code\GlobalVariablesOfClasses.cpp" />
+    <ClCompile Include="Code\Hitbox.cpp" />
     <ClCompile Include="Code\interface.cpp" />
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\Game.cpp" />
     <ClCompile Include="Code\map.cpp" />
     <ClCompile Include="Code\player.cpp" />
-    <ClCompile Include="Code\taskProecess.cpp" />
+    <ClCompile Include="Code\taskProcess.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Block.h" />
@@ -158,10 +159,12 @@
     <ClInclude Include="Code\GlobalConnsts.h" />
     <ClInclude Include="Code\GlobalVariablesForResources.h" />
     <ClInclude Include="Code\GlobalVariablesOfClasses.h" />
+    <ClInclude Include="Code\Hitbox.h" />
+    <ClInclude Include="Code\initializators.h" />
     <ClInclude Include="Code\interface.h" />
     <ClInclude Include="Code\map.h" />
     <ClInclude Include="Code\player.h" />
-    <ClInclude Include="Code\taskProecess.h" />
+    <ClInclude Include="Code\taskProcess.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\textures\blocks\texture_door.png" />

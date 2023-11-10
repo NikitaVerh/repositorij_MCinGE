@@ -4,12 +4,28 @@
 #include "GlobalVariablesOfClasses.h"
 #include "GlobalVariablesForResources.h"
 #include "general.h"
+#include "Hitbox.h"
+
+// зм≥нна дл€ в≥дкладки
 bool Hitbox::showHitbox = true; // зм≥нювати лише в код≥, зм≥ни дл€ розробник≥в
 
+// конструктор класа гравц€
+Player::Player() {
+	Player_set_source();
+}
+
+// встановленн€ поатковоњ позиц≥њ гравц€
+void Player::Player_set_source() {
+	x = 0.3;
+	y = mapHeight - 0.01;
+}
+
+// перев≥рка кол≥з≥њ гравц€ з об'Їктами GameMap
 bool Player::checkColision(float dx) {
 	return GameMap.collisionMap(Hitbox(hitbox.getRect().left + dx, hitbox.getRect().top, hitbox.getRect().width, hitbox.getRect().height));
 }
 
+// оновленн€ гравц€
 void Player::Update() {
 	if (moving_flag == false && Y_start_climbing != -1) {
 		float deltaY = 0.5 * delta_time.asSeconds() * speed_player;
@@ -23,24 +39,29 @@ void Player::Update() {
 	set_pos_hitbox_player();
 }
 
+// встановленн€ х≥тбоксу гравц€ в≥дносно гравц€
 void Player::set_pos_hitbox_player(){
 	hitbox.setSizePos(x - playerWidth / 4.0, y - playerHeight, playerWidth / 2.0, playerHeight);
 }
 
+// метод дл€ отриманн€ часу останнього кадру
 void Player::set_time(sf::Time dlt_tm) {
 	delta_time = dlt_tm;
 }
 
+// метод дл€ перев≥рки руху вниз по драбин≥
 bool Ladder_down(float x, float y) {
 	if(GameMap.getMapBlock(trunc(x), trunc(y) + 1).getTypeBlock() == type_block_ladder) return true;
 	return false;
 }
 
+// метод дл€ перев≥рки руху вверх по драбин≥
 bool Ladder_up(float x, float y) {
 	if (GameMap.getMapBlock(trunc(x), trunc(y)).getTypeBlock() == type_block_ladder) return true;
 	return false;
 }
 
+// метод дл€ руху гравц€
 void Player::move(float dx, float dy) {
 	moving_flag = true;
 	float deltaX = dx * delta_time.asSeconds() * speed_player;
@@ -82,12 +103,14 @@ void Player::move(float dx, float dy) {
 	}
 }
 
+// метод дл€ в≥дкритт€ дверей гравцем
 void Player::openDoor() {
 	if (GameMap.getMapBlock(trunc(x), trunc(y)).getTypeBlock() == type_block_door){
 		if (x - trunc(x) >= 0.35 && x - trunc(x) <= 0.65) setMenu(menu_test);
 	}
 }
 
+// метод дл€ рендеру гравц€ на в≥кн≥
 void Player::drawPlayer(sf::RenderWindow& window) {
 	scrollX = -x * sizeBlock + window.getSize().x/2.0;
 	scrollY = -(y - 1.2) * sizeBlock;
