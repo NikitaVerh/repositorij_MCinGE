@@ -284,6 +284,10 @@ void Map::drawHitboxes(sf::RenderWindow& window){
 }
 
 void Map::setBlock(int i, int j, Block* block) {
+    //try catch should be added
+    if (i < 0 || i >= mapWidth || j < 0 || j >= mapHeight) {
+        throw std::out_of_range("Індекси за межами карти.");
+    }
 	if (map[i][j] != NULL) { delete(map[i][j]); }
 	map[i][j] = block;
 }

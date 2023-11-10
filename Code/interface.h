@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <vector>
-
+#include "UIException.h"
 class interfaceObj {
 protected:
 	float indentLeft, indentTop; // значення від 0 до 1

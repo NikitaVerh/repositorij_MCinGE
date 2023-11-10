@@ -14,11 +14,19 @@
 //тимчасові бібліотеки
 #include <iostream>
 
+
+//обробка виняткових ситуацій врахована
+// 
 // метод що виконується один раз при старті програми
 void startProgram() {
-	loadResources();
-	initializeVariables();
-	initializeInterface();
+	try {
+		loadResources();
+		initializeVariables();
+		initializeInterface();
+	}
+	catch (const ResourceLoadException& e) {
+		std::cerr << "Помилка: " << e.what() << '\n';
+	}
 }
 
 // метод що виконується один раз перед закриттям программи
@@ -35,7 +43,23 @@ void updateMehanics(sf::Time delta_time) {
 void setMenu(int menu) {
 	if (menu == menu_main) { Menu = menu_main; }
 	if (menu == menu_game) { Menu = menu_game; }
-	if (menu == menu_test) { Menu = menu_test; SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);}
+	if (menu == menu_test) { Menu = menu_test; 
+		try {
+			SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
+		}
+		catch (const TaskLoadException& e) {
+			std::cerr << "Помилка завантаження завдань: " << e.what() << std::endl;
+			// Обробка помилки завантаження завдань
+		}
+		catch (const TaskParseException& e) {
+			std::cerr << "Помилка обробки завдань: " << e.what() << std::endl;
+			// Обробка помилки обробки завдань
+		}
+		catch (const std::exception& e) {
+			std::cerr << "Загальна помилка: " << e.what() << std::endl;
+			// Обробка інших винятків
+		}
+	}
 }
 
 // тимчасово ці змінні тут
@@ -102,25 +126,81 @@ void windowEventHandling(sf::RenderWindow& window) {
 		if (ButtonF3_1->Released())
 		{
 			CheckAnswer(answerF3_1);
-			SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
+			try {
+				SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
+			}
+			catch (const TaskLoadException& e) {
+				std::cerr << "Помилка завантаження завдань: " << e.what() << std::endl;
+				// Обробка помилки завантаження завдань
+			}
+			catch (const TaskParseException& e) {
+				std::cerr << "Помилка обробки завдань: " << e.what() << std::endl;
+				// Обробка помилки обробки завдань
+			}
+			catch (const std::exception& e) {
+				std::cerr << "Загальна помилка: " << e.what() << std::endl;
+				// Обробка інших винятків
+			}
 			std::cout << "F1" << std::endl;
 		}
 		if (ButtonF3_2->Released())
 		{
 			CheckAnswer(answerF3_2);
-			SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
+			try {
+				SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
+			}
+			catch (const TaskLoadException& e) {
+				std::cerr << "Помилка завантаження завдань: " << e.what() << std::endl;
+				// Обробка помилки завантаження завдань
+			}
+			catch (const TaskParseException& e) {
+				std::cerr << "Помилка обробки завдань: " << e.what() << std::endl;
+				// Обробка помилки обробки завдань
+			}
+			catch (const std::exception& e) {
+				std::cerr << "Загальна помилка: " << e.what() << std::endl;
+				// Обробка інших винятків
+			}
 			std::cout << "F2" << std::endl;
 		}
 		if (ButtonF3_3->Released())
 		{
 			CheckAnswer(answerF3_3);
-			SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
+			try {
+				SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
+			}
+			catch (const TaskLoadException& e) {
+				std::cerr << "Помилка завантаження завдань: " << e.what() << std::endl;
+				// Обробка помилки завантаження завдань
+			}
+			catch (const TaskParseException& e) {
+				std::cerr << "Помилка обробки завдань: " << e.what() << std::endl;
+				// Обробка помилки обробки завдань
+			}
+			catch (const std::exception& e) {
+				std::cerr << "Загальна помилка: " << e.what() << std::endl;
+				// Обробка інших винятків
+			}
 			std::cout << "F3" << std::endl;
 		}
 		if (ButtonF3_4->Released())
 		{
 			CheckAnswer(answerF3_4);
-			SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
+			try {
+				SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
+			}
+			catch (const TaskLoadException& e) {
+				std::cerr << "Помилка завантаження завдань: " << e.what() << std::endl;
+				// Обробка помилки завантаження завдань
+			}
+			catch (const TaskParseException& e) {
+				std::cerr << "Помилка обробки завдань: " << e.what() << std::endl;
+				// Обробка помилки обробки завдань
+			}
+			catch (const std::exception& e) {
+				std::cerr << "Загальна помилка: " << e.what() << std::endl;
+				// Обробка інших винятків
+			}
 			std::cout << "F4" << std::endl;
 		}
 		break;

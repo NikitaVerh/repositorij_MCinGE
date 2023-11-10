@@ -16,7 +16,7 @@
 
 using json = nlohmann::json;
 
-
+//обробка виняткових ситуацій є
 Task::Task() {
 	instance = "Instance";
 	answer1 = "Answer1";
@@ -36,19 +36,16 @@ void Task::setTask(sf::String Instance, sf::String Answer1, sf::String Answer2,
 std::vector<Task> Task::loadTasksFromFile(const std::string& filename, const std::string& category, const std::string& difficulty) {
 	std::vector<Task> tasks;
 
+	//try catch
 	std::ifstream file(filename);
 	if (!file.is_open()) {
-		std::cerr << "Не вдалось відкрити файл " << filename << std::endl;
 		char error_message[1024];
-		strerror_s(error_message, sizeof(error_message), errno); // использование strerror_s
-		std::cerr << "Ошибка при открытии файла. Проверьте путь и доступ к файлу: " << filename << std::endl;
-		std::cerr << "Ошибка: " << error_message << std::endl;
-		return tasks;
+		strerror_s(error_message, sizeof(error_message), errno); // Використання strerror_s
+		std::string errMsg = "Не вдалось відкрити файл " + filename + ". Помилка: " + error_message;
+		throw TaskLoadException(filename, errMsg);
 	}
-
 	//if (file.peek() == std::ifstream::traits_type::eof()) {
 	//	std::cerr << "Файл пуст: " << filename << std::endl;
-	//	// Здесь также можно добавить дополнительные действия
 	//	return tasks;
 	//}
 
@@ -56,7 +53,7 @@ std::vector<Task> Task::loadTasksFromFile(const std::string& filename, const std
 	file >> j;
 	for (const auto& item : j[category][difficulty]) {
 		Task task;
-		sf::String problem(item["problem"].get<std::string>()); // Преобразование в std::string, затем в sf::String
+		sf::String problem(item["problem"].get<std::string>());
 		sf::String answer(item["answer"].get<std::string>());
 
 		std::vector<sf::String> options;
@@ -64,17 +61,17 @@ std::vector<Task> Task::loadTasksFromFile(const std::string& filename, const std
 			options.push_back(sf::String(opt.get<std::string>()));
 		}
 
-		// Теперь у нас есть правильный ответ и варианты ответов в options, перемешаем их
-		options.push_back(answer); // Добавляем правильный ответ в список опций
-		std::shuffle(options.begin(), options.end(), std::mt19937(std::random_device()())); // Перемешиваем варианты ответа
 
-		// Убедитесь, что у вас есть все 4 варианта ответа после перемешивания, прежде чем вызвать setTask
+		options.push_back(answer);
+		std::shuffle(options.begin(), options.end(), std::mt19937(std::random_device()()));
+
 		if (options.size() >= 4) {
 			task.setTask(problem, options[0], options[1], options[2], options[3], answer);
 			tasks.push_back(task);
 		}
+		//try catch
 		else {
-			std::cerr << "Недостаточно вариантов ответов для задачи: " << problem.toAnsiString() << std::endl;
+			throw TaskParseException("Недостатньо варіантів відповідей для задачі: " + problem.toAnsiString());
 		}
 	}
 
@@ -84,22 +81,19 @@ std::vector<Task> Task::loadTasksFromFile(const std::string& filename, const std
 }
 #pragma region getRandomTasks
 std::vector<Task> Task::getRandomTasks(const std::vector<Task>& allTasks, size_t taskCount) {
-	std::vector<Task> randomTasks = allTasks; // Создаем копию всех задач
-	std::random_device rd; // Получаем случайное начальное число
-	std::mt19937 g(rd()); // Инициализируем генератор случайных чисел
+	std::vector<Task> randomTasks = allTasks;
+	std::random_device rd;
+	std::mt19937 g(rd());
 
-	// Перемешиваем вектор задач
+
 	std::shuffle(randomTasks.begin(), randomTasks.end(), g);
 
-	// Если вектор задач меньше, чем запрошенное количество задач, возвращаем его целиком
 	if (randomTasks.size() < taskCount) {
 		return randomTasks;
 	}
 
-	// Урезаем вектор до заданного количества задач
 	randomTasks.resize(taskCount);
 
-	// Теперь в randomTasks находится taskCount случайно выбранных задач
 	return randomTasks;
 }
 #pragma endregion 
@@ -108,23 +102,40 @@ bool Task::isCorrectAnswer(const sf::String& userAnswer) const {
 	return userAnswer == correct_answer;
 }
 
-Task Task::generateNewTask(const std::string& filename, const std::string& category, const std::string& difficulty)
-{
-	// Загрузите все задачи из файла для заданной категории и сложности
-	std::vector<Task> tasks = loadTasksFromFile("Resources/json/task.json", "Лінійна Алгебра", currentDifficulty);
+Task Task::generateNewTask(const std::string& filename, const std::string& category, const std::string& difficulty) {
+	static std::vector<Task> recentTasks; // Статична змінна для зберігання історії
+	const size_t maxRecentTasks = 5; // Максимальна кількість останніх завдань для зберігання
 
-	// Если нет задач, выбросите исключение
+	std::vector<Task> tasks;
+	try {
+		tasks = loadTasksFromFile("Resources/json/task.json", "Лінійна Алгебра", currentDifficulty);
+	}
+	catch (const TaskLoadException& e) {
+		std::cerr << "Помилка завантаження завдання: " << e.what() << std::endl;
+		throw;
+	}
+
 	if (tasks.empty()) {
 		throw std::runtime_error("No tasks available for the chosen category and difficulty.");
 	}
 
-	// Получите случайную задачу из списка
 	std::random_device rd;
 	std::mt19937 g(rd());
-	std::shuffle(tasks.begin(), tasks.end(), g);
-	Task randomTask = tasks.front();
+	Task randomTask;
+	bool isUnique;
 
-	// Верните выбранную задачу
+	do {
+		std::shuffle(tasks.begin(), tasks.end(), g);
+		randomTask = tasks.front();
+		isUnique = std::find(recentTasks.begin(), recentTasks.end(), randomTask) == recentTasks.end();
+	} while (!isUnique);
+
+	// Оновлення історії останніх завдань
+	recentTasks.push_back(randomTask);
+	if (recentTasks.size() > maxRecentTasks) {
+		recentTasks.erase(recentTasks.begin()); // Видаляємо найстаріше завдання
+	}
+
 	return randomTask;
 }
 sf::String Task::getInstance() { return instance; }

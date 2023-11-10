@@ -2,6 +2,8 @@
 #pragma execution_character_set("utf-8")
 #include "SFML/System.hpp"
 #include "GlobalVariablesForResources.h"
+#include "TaskLoadException.h"
+#include "TaskParseException.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -40,6 +42,9 @@ public:
 	sf::String getanswer3();
 	sf::String getanswer4();
 	sf::String getCorrectAnswer() const;
+	bool operator==(const Task& other) const {
+		return this->instance == other.instance;
+	}
 };
 
 
@@ -52,8 +57,8 @@ extern sf::String answerF3_3;
 extern sf::String answerF3_4;
 extern sf::String correctAnswer;
 
-extern int correctAnswersCount; // Количество правильных ответов на текущем уровне
-extern int playerLives; // Количество жизней игрока
+extern int correctAnswersCount; //кількість правильних відповідей на поточному рівні
+extern int playerLives; //кількість життів ігрока
 
 void SetTask(const std::string& filename, const std::string& category, const std::string& difficulty);
 
