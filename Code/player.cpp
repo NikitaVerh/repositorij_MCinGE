@@ -5,7 +5,6 @@
 #include "GlobalVariablesForResources.h"
 #include "general.h"
 #include "Hitbox.h"
-#include "PlayerException.h"
 
 //оброка виняткових ситуацій врахована
 
@@ -66,10 +65,6 @@ bool Ladder_up(float x, float y) {
 
 // метод для руху гравця
 void Player::move(float dx, float dy) {
-	//перевірка на валідність значень dx та dy
-	if (abs(dx) > 1.0 || abs(dy) > 1.0) {
-		throw PlayerException("Недопустимые значения движения.");
-	}
 	moving_flag = true;
 	float deltaX = dx * delta_time.asSeconds() * speed_player;
 	float deltaY = dy * delta_time.asSeconds() * speed_player;

@@ -152,7 +152,6 @@
     <ClCompile Include="Code\player.cpp" />
     <ClCompile Include="Code\taskProcess.cpp" />
     <ClCompile Include="Code\ResourceLoadException.cpp" />
-    <ClCompile Include="Code\PlayerException.cpp" />
     <ClCompile Include="Code\UIException.cpp" />
     <ClCompile Include="Code\TaskLoadException.cpp" />
     <ClCompile Include="Code\TaskParseException.cpp" />
@@ -171,7 +170,6 @@
     <ClInclude Include="Code\player.h" />
     <ClInclude Include="Code\taskProcess.h" />
     <ClInclude Include="Code\ResourceLoadException.h" />
-    <ClInclude Include="Code\PlayerException.h" />
     <ClInclude Include="Code\UIException.h" />
     <ClInclude Include="Code\TaskLoadException.h" />
     <ClInclude Include="Code\TaskParseException.h" />
