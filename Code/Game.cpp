@@ -35,7 +35,7 @@ void Run(sf::RenderWindow& window, sf::Clock& delta_time_clock) {
         
         HandleInput(window); // метод для обробки вікна
         Update(delta_time);      // метод для обробки і оновлень всіх ігрових механік
-        Render(window);      // метод для рендеру графіки
+        Render(window);      // метод для рендеру графікиs
     }
 }
 
