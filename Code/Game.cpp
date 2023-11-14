@@ -1,4 +1,5 @@
 #pragma once
+#pragma execution_character_set("utf-8")
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
