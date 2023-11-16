@@ -6,6 +6,7 @@
 #include "GlobalVariablesForResources.h"
 #include <iostream>
 
+//виняткові ситуації враховані
 Button::Button() {
 	Area.setSize(sf::Vector2f(100.0, 50.0));
 	Area.setPosition(sf::Vector2f(100.0, 50.0));
@@ -75,6 +76,10 @@ void Button::setText(sf::String str) {
 void Button::setStyle(sf::String str, float textSize, sf::Color colorFill, sf::Color colorLine, sf::Color colorFillPressed, sf::Color colorLinePressed, sf::Color colorText) {
 	/*Area.setFillColor();
 	Area.set*/
+	//try catch should be added
+	if (textSize <= 0) {
+		throw UIException("Розмір тексту не може бути меншим або дорівнювати нулю.");
+	}
 	size_text = textSize;
 	text_button.setFont(master_font);
 	text_button.setString(str);

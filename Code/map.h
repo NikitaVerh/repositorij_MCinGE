@@ -3,7 +3,7 @@
 #include "Block.h"
 #include <vector>
 #include "player.h"
-
+#include <stdexcept>
 
 class Map {
 private:

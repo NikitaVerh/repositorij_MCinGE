@@ -6,6 +6,8 @@
 #include "general.h"
 #include "Hitbox.h"
 
+//оброка вин€ткових ситуац≥й врахована
+
 // зм≥нна дл€ в≥дкладки
 bool Hitbox::showHitbox = true; // зм≥нювати лише в код≥, зм≥ни дл€ розробник≥в
 
@@ -22,7 +24,7 @@ void Player::Player_set_source() {
 
 // перев≥рка кол≥з≥њ гравц€ з об'Їктами GameMap
 bool Player::checkColision(float dx) {
-	return GameMap.collisionMap(Hitbox(hitbox.getRect().left + dx, hitbox.getRect().top, hitbox.getRect().width, hitbox.getRect().height));
+	return GameMap.collisionMap(Hitbox(hitbox.getRect().left, hitbox.getRect().top, hitbox.getRect().width+dx, hitbox.getRect().height));
 }
 
 // оновленн€ гравц€

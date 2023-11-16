@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Code\classesForTasks.cpp" />
     <ClCompile Include="Code\general.cpp" />
     <ClCompile Include="Code\GlobalVariablesForResources.cpp" />
     <ClCompile Include="Code\GlobalVariablesOfClasses.cpp" />
@@ -151,9 +152,14 @@
     <ClCompile Include="Code\map.cpp" />
     <ClCompile Include="Code\player.cpp" />
     <ClCompile Include="Code\taskProcess.cpp" />
+    <ClCompile Include="Code\ResourceLoadException.cpp" />
+    <ClCompile Include="Code\UIException.cpp" />
+    <ClCompile Include="Code\TaskLoadException.cpp" />
+    <ClCompile Include="Code\TaskParseException.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Block.h" />
+    <ClInclude Include="Code\classesForTasks.h" />
     <ClInclude Include="Code\Game.h" />
     <ClInclude Include="Code\general.h" />
     <ClInclude Include="Code\GlobalConnsts.h" />
@@ -165,6 +171,10 @@
     <ClInclude Include="Code\map.h" />
     <ClInclude Include="Code\player.h" />
     <ClInclude Include="Code\taskProcess.h" />
+    <ClInclude Include="Code\ResourceLoadException.h" />
+    <ClInclude Include="Code\UIException.h" />
+    <ClInclude Include="Code\TaskLoadException.h" />
+    <ClInclude Include="Code\TaskParseException.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\textures\blocks\texture_door.png" />

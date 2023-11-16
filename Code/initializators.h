@@ -2,17 +2,29 @@
 #include "GlobalVariablesForResources.h"
 #include "GlobalVariablesOfClasses.h"
 #include "taskProcess.h"
+#include "ResourceLoadException.h"
+
+//виняткові ситуації враховані
 
 void loadResources() {
-	if (!texture_block_wall.loadFromFile("Resources/textures/blocks/texture_wall.png")) {}; //колян
-	if (!texture_block_door.loadFromFile("Resources/textures/blocks/texture_door.png")) {}; //колян
-	if (!texture_block_ladder.loadFromFile("Resources/textures/blocks/texture_ladder.png")) {}; //колян
-	if (!texture_wall_left.loadFromFile("Resources/textures/blocks/texture_wall_left.png")) {}; //колян
-	if (!texture_wall_right.loadFromFile("Resources/textures/blocks/texture_wall_right.png")) {}; //колян
-	if (!texture_window.loadFromFile("Resources/textures/interface/old_background.png")) {}; //колян
-	if (!texture_window3.loadFromFile("Resources/textures/interface/background3.png")) {}; //колян
-	if (!texture_person.loadFromFile("Resources/textures/pers.png")) {}; //колян
-	if (!master_font.loadFromFile("Resources/fonts/testFont.ttf")) {};//колян
+	if (!texture_block_wall.loadFromFile("Resources/textures/blocks/texture_wall.png"))
+		throw ResourceLoadException("Resources/textures/blocks/texture_wall.png");  
+	if (!texture_block_door.loadFromFile("Resources/textures/blocks/texture_door.png"))  
+		throw ResourceLoadException("Resources/textures/blocks/texture_door.png"); 
+	if (!texture_block_ladder.loadFromFile("Resources/textures/blocks/texture_ladder.png"))
+		throw ResourceLoadException("Resources/textures/blocks/texture_ladder.png");  
+	if (!texture_wall_left.loadFromFile("Resources/textures/blocks/texture_wall_left.png")) 
+		throw ResourceLoadException("Resources/textures/blocks/texture_wall_left.png");  
+	if (!texture_wall_right.loadFromFile("Resources/textures/blocks/texture_wall_right.png")) 
+		throw ResourceLoadException("Resources/textures/blocks/texture_wall_right.png");  
+	if (!texture_window.loadFromFile("Resources/textures/interface/old_background.png")) 
+		throw ResourceLoadException("Resources/textures/interface/old_background.png"); 
+	if (!texture_window3.loadFromFile("Resources/textures/interface/background3.png"))
+		throw ResourceLoadException("Resources/textures/interface/background3.png");  
+	if (!texture_person.loadFromFile("Resources/textures/pers.png"))
+		throw ResourceLoadException("Resources/textures/pers.png");  
+	if (!master_font.loadFromFile("Resources/fonts/testFont.ttf")) 
+		throw ResourceLoadException("Resources/fonts/testFont.ttf");  
 }
 
 void initializeVariables() {
