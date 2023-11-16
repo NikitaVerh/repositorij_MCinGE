@@ -5,6 +5,7 @@
 Form Form1;
 Form Form2;
 Form Form3;
+Form Form4;
 
 Button* ButtonTest = new Button();
 Button* ButtonTest2 = new Button();

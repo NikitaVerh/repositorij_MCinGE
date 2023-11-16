@@ -137,6 +137,7 @@ void UpdateGraphic(sf::RenderWindow& window) {
 	Form1.updateForm(window);
 	Form2.updateForm(window);
 	Form3.updateForm(window);
+	Form4.updateForm(window);
 
 }
 
@@ -157,5 +158,6 @@ void GraphicRender(sf::RenderWindow& window) {
 		Form3.drawBackground(window);
 		Form3.draw(window);
 	}
+
 	window.display();
 }

@@ -49,6 +49,7 @@ void initializeInterface() {
 	Form2.addInterfaceObj(ButtonTest2);
 	Form1.initializeBackground(texture_window);
 	Form3.initializeBackground(texture_window3);
+	Form4.initializeBackground(texture_window3);
 
 	Form3.addInterfaceObj(ButtonF3);
 	Form3.addInterfaceObj(ButtonF3_1);

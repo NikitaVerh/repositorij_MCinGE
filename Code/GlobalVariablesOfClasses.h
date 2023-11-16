@@ -5,6 +5,7 @@
 extern Form Form1;
 extern Form Form2;
 extern Form Form3;
+extern Form Form4;
 
 extern Button* ButtonTest;
 extern Button* ButtonTest2;
