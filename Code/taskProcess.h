@@ -51,10 +51,10 @@ public:
 /////////////////////////////////////////////////////////////////////////////////////////
 // тимчасово
 
-extern sf::String answerF3_1;
-extern sf::String answerF3_2;
-extern sf::String answerF3_3;
-extern sf::String answerF3_4;
+extern sf::String answerF4_1;
+extern sf::String answerF4_2;
+extern sf::String answerF4_3;
+extern sf::String answerF4_4;
 extern sf::String correctAnswer;
 
 extern int correctAnswersCount; //кількість правильних відповідей на поточному рівні

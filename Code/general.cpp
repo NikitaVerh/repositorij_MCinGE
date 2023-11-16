@@ -42,6 +42,7 @@ void updateMehanics(sf::Time delta_time) {
 
 void setMenu(int menu) {
 	if (menu == menu_main) { Menu = menu_main; }
+	if (menu == menu_lobby) { Menu = menu_lobby; }
 	if (menu == menu_game) { Menu = menu_game; }
 	if (menu == menu_test) { Menu = menu_test; 
 		try {
@@ -116,16 +117,22 @@ void windowEventHandling(sf::RenderWindow& window) {
 	switch (Menu) {
 
 	case menu_main:
-		if (ButtonTest->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
+		if (ButtonF1_1->Released()) { std::cout << "released" << std::endl; Menu = menu_lobby; }
+		if (ButtonF1_2->Released()) { std::cout << "released" << std::endl; Menu = menu_stat; }
+		if (ButtonF1_3->Released()) { std::cout << "released" << std::endl; Menu = menu_inf; }
 		break;
 	case menu_game:
-		if (ButtonTest2->Released()) { std::cout << "released" << std::endl;/* Menu = menu_main; */GameMap.generateLabyrinth(); player.Player_set_source(); }
+		if (ButtonF3->Released()) { std::cout << "released" << std::endl;/* Menu = menu_main; */GameMap.generateLabyrinth(); player.Player_set_source(); }
+		break;
+	case menu_lobby:
+		if (ButtonF2_back->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
+		if (ButtonF2_easy->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
 		break;
 	case menu_test:
-		if (ButtonF3->Released()) { std::cout << "F" << std::endl; }
-		if (ButtonF3_1->Released())
+		if (ButtonF4->Released()) { std::cout << "F" << std::endl; }
+		if (ButtonF4_1->Released())
 		{
-			CheckAnswer(answerF3_1);
+			CheckAnswer(answerF4_1);
 			try {
 				SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
 			}
@@ -143,9 +150,9 @@ void windowEventHandling(sf::RenderWindow& window) {
 			}
 			std::cout << "F1" << std::endl;
 		}
-		if (ButtonF3_2->Released())
+		if (ButtonF4_2->Released())
 		{
-			CheckAnswer(answerF3_2);
+			CheckAnswer(answerF4_2);
 			try {
 				SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
 			}
@@ -163,9 +170,9 @@ void windowEventHandling(sf::RenderWindow& window) {
 			}
 			std::cout << "F2" << std::endl;
 		}
-		if (ButtonF3_3->Released())
+		if (ButtonF4_3->Released())
 		{
-			CheckAnswer(answerF3_3);
+			CheckAnswer(answerF4_3);
 			try {
 				SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
 			}
@@ -183,9 +190,9 @@ void windowEventHandling(sf::RenderWindow& window) {
 			}
 			std::cout << "F3" << std::endl;
 		}
-		if (ButtonF3_4->Released())
+		if (ButtonF4_4->Released())
 		{
-			CheckAnswer(answerF3_4);
+			CheckAnswer(answerF4_4);
 			try {
 				SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
 			}
@@ -204,6 +211,12 @@ void windowEventHandling(sf::RenderWindow& window) {
 			std::cout << "F4" << std::endl;
 		}
 		break;
+	case menu_stat:
+		if (ButtonF5_back->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
+		break;
+	case menu_inf:
+		if (ButtonF6_back->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
+		break;
 	default:
 		break;
 	}
@@ -218,6 +231,8 @@ void UpdateGraphic(sf::RenderWindow& window) {
 	Form2.updateForm(window);
 	Form3.updateForm(window);
 	Form4.updateForm(window);
+	Form5.updateForm(window);
+	Form6.updateForm(window);
 
 }
 
@@ -229,15 +244,26 @@ void GraphicRender(sf::RenderWindow& window) {
 		Form1.drawBackground(window);
 		Form1.draw(window);
 	}
+	if (Menu == menu_lobby) {
+		Form2.drawBackground(window);
+		Form2.draw(window);
+	}
 	if (Menu == menu_game) {
 		GameMap.draw(window);
 		player.drawPlayer(window);
-		Form2.draw(window);
-	}
-	if (Menu == menu_test) {
-		Form3.drawBackground(window);
 		Form3.draw(window);
 	}
-
+	if (Menu == menu_test) {
+		Form4.drawBackground(window);
+		Form4.draw(window);
+	}
+    if (Menu == menu_stat) {
+		Form5.drawBackground(window);
+		Form5.draw(window);
+	}
+	if (Menu == menu_inf) {
+		Form6.drawBackground(window);
+		Form6.draw(window);
+	}
 	window.display();
 }

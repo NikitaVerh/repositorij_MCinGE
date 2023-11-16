@@ -33,8 +33,11 @@ enum {
 
 enum {
 	menu_main,
+	menu_lobby,
 	menu_game,
-	menu_test
+	menu_test,
+	menu_stat,
+	menu_inf
 };
 
 enum {

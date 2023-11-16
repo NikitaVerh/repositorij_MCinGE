@@ -148,10 +148,10 @@ sf::String Task::getCorrectAnswer() const { return correct_answer; }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // тимчасово, код далі був перенесений з general
 
-sf::String answerF3_1;
-sf::String answerF3_2;
-sf::String answerF3_3;
-sf::String answerF3_4;
+sf::String answerF4_1;
+sf::String answerF4_2;
+sf::String answerF4_3;
+sf::String answerF4_4;
 sf::String correctAnswer;
 
 int correctAnswersCount = 0; // Количество правильных ответов на текущем уровне
@@ -169,16 +169,16 @@ void SetTask(const std::string& filename, const std::string& category, const std
 		std::cerr << "Ошибка: " << e.what() << std::endl;
 		return;
 	}
-	answerF3_1 = newTask.getanswer1();
-	answerF3_2 = newTask.getanswer2();
-	answerF3_3 = newTask.getanswer3();
-	answerF3_4 = newTask.getanswer4();
+	answerF4_1 = newTask.getanswer1();
+	answerF4_2 = newTask.getanswer2();
+	answerF4_3 = newTask.getanswer3();
+	answerF4_4 = newTask.getanswer4();
 	// Если нет исключения, и задача создана успешно, установим текст для кнопок
-	ButtonF3->setText(newTask.getInstance());
-	ButtonF3_1->setText(newTask.getanswer1());
-	ButtonF3_2->setText(newTask.getanswer2());
-	ButtonF3_3->setText(newTask.getanswer3());
-	ButtonF3_4->setText(newTask.getanswer4());
+	ButtonF4->setText(newTask.getInstance());
+	ButtonF4_1->setText(newTask.getanswer1());
+	ButtonF4_2->setText(newTask.getanswer2());
+	ButtonF4_3->setText(newTask.getanswer3());
+	ButtonF4_4->setText(newTask.getanswer4());
 	correctAnswer = newTask.getCorrectAnswer();
 	std::cout << "Правильный ответ: " << correctAnswer.toAnsiString() << std::endl;
 	/*std::cout << "answerF3_1.toAnsiString(): " << answerF3_1.toAnsiString() << std::endl;
