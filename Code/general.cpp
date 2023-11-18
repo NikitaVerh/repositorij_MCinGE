@@ -130,6 +130,7 @@ void windowEventHandling(sf::RenderWindow& window) {
 		break;
 	case menu_test:
 		if (ButtonF4->Released()) { std::cout << "F" << std::endl; }
+		if (ButtonF4_back->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
 		if (ButtonF4_1->Released())
 		{
 			CheckAnswer(answerF4_1);

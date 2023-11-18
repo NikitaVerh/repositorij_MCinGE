@@ -66,6 +66,8 @@ void initializeInterface() {
 	ButtonF4_2->setPosSize(0.5 - a + b / 2.0, 0.475, a - b, 0.04);
 	ButtonF4_3->setPosSize(0.5 + b / 2.0, 0.475, a - b, 0.04);
 	ButtonF4_4->setPosSize(0.5 + a + b / 2.0, 0.475, a - b, 0.04);
+	ButtonF4_back->setPosSize(0.6, 0.7, 0.2, 0.05);
+	ButtonF4_back->setStyle(L"Назад", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
 
 	ButtonF4->setStyle(L"Приклад", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
 	ButtonF4_1->setStyle(L"Відповідь 1", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
@@ -81,6 +83,7 @@ void initializeInterface() {
 	Form2.addInterfaceObj(ButtonF2_easy);
 	Form3.addInterfaceObj(ButtonF3);
 	Form4.addInterfaceObj(ButtonF4);
+	Form4.addInterfaceObj(ButtonF4_back);
 	Form5.addInterfaceObj(ButtonF5_back);
 	Form6.addInterfaceObj(ButtonF6_back);
 
