@@ -26,5 +26,7 @@ Button* ButtonF4_back = new Button();
 Button* ButtonF5_back = new Button();
 Button* ButtonF6_back = new Button();
 
+TextCanvas* TextBlackboard = new TextCanvas();
+
 Map GameMap;
 Player player;

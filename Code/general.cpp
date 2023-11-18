@@ -40,10 +40,7 @@ void updateMehanics(sf::Time delta_time) {
 }
 
 void setMenu(int menu) {
-	if (menu == menu_main) { Menu = menu_main; }
-	if (menu == menu_lobby) { Menu = menu_lobby; }
-	if (menu == menu_game) { Menu = menu_game; }
-	if (menu == menu_test) { Menu = menu_test; }
+	Menu = menu;
 }
 
 // тимчасово ці змінні тут
@@ -62,10 +59,11 @@ void windowEventHandling(sf::RenderWindow& window) {
 		if (sf::Event::Closed == event.type) { stopProgram(window); }
 		if (sf::Event::KeyReleased == event.type) {
 			if (event.key.code == sf::Keyboard::Key::Num1) { setMenu(menu_main); std::cout << "Menu: " << Menu << std::endl; }
-			if (event.key.code == sf::Keyboard::Key::Num2) { setMenu(menu_game);  std::cout << "Menu: " << Menu << std::endl; }
-			if (event.key.code == sf::Keyboard::Key::Num3) {
-				setMenu(menu_test);  std::cout << "Menu: " << Menu << std::endl;
-			}
+			if (event.key.code == sf::Keyboard::Key::Num2) { setMenu(menu_lobby);  std::cout << "Menu: " << Menu << std::endl; }
+			if (event.key.code == sf::Keyboard::Key::Num3) { setMenu(menu_game);  std::cout << "Menu: " << Menu << std::endl; }
+			if (event.key.code == sf::Keyboard::Key::Num4) { setMenu(menu_test);  std::cout << "Menu: " << Menu << std::endl; }
+			if (event.key.code == sf::Keyboard::Key::Num5) { setMenu(menu_stat);  std::cout << "Menu: " << Menu << std::endl; }
+			if (event.key.code == sf::Keyboard::Key::Num6) { setMenu(menu_inf);  std::cout << "Menu: " << Menu << std::endl; }
 		}
 
 		if (sf::Event::KeyReleased == event.type) {

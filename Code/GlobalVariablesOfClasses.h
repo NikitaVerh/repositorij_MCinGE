@@ -26,6 +26,7 @@ extern Button* ButtonF4_back;
 extern Button* ButtonF5_back;
 extern Button* ButtonF6_back;
 
+extern TextCanvas* TextBlackboard;
 
 extern Map GameMap;
 extern Player player;

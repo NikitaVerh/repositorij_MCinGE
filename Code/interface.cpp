@@ -257,7 +257,6 @@ void TextCanvas::Update(float windowWidth, float windowHeight, float posX, float
 			strT += "\n" + words[i] + " ";
 		}
 	}
-	cout << master_font.getLineSpacing(size) << endl;
 	text.setString(strT);
 
 	text.setPosition(windowWidth * indentLeft + posX, windowHeight * indentTop + posY);
@@ -301,4 +300,5 @@ void TextCanvas::setText(sf::String value) {
 	strText = value; 
 	words = getWords(value);
 	text.setFont(master_font);
+	text.setLineSpacing(1.2);
 }

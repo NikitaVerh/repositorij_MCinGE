@@ -75,13 +75,28 @@ void initializeInterface() {
 	ButtonF4_4->setStyle(L"Відповідь 4", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
 
 
+	ButtonF4->setSnapToBackground(true);
+	ButtonF4_1->setSnapToBackground(true);
+	ButtonF4_2->setSnapToBackground(true);
+	ButtonF4_3->setSnapToBackground(true);
+	ButtonF4_4->setSnapToBackground(true);
+	ButtonF1_1->setSnapToBackground(true);
+	ButtonF1_2->setSnapToBackground(true);
+	ButtonF1_3->setSnapToBackground(true);
+
+	TextBlackboard->setPosSize(0.341,0.12,0.32,0.3275);
+	TextBlackboard->setSnapToBackground(true);
+	TextBlackboard->setColorFill(sf::Color::Black);
+	TextBlackboard->setSize(1 / 30.0);
+	TextBlackboard->setText(L"Стрілець робить постріл по мішені один раз. У випадку промаху стрілець робить другий постріл по тій самій мішені. Імовірність влучання в мішень при одному пострілі дорівнює 0,7. Знайдіть імовірність того, що мішень буде уражена.");
+
 	Form1.addInterfaceObj(ButtonF1_1);
 	Form1.addInterfaceObj(ButtonF1_2);
 	Form1.addInterfaceObj(ButtonF1_3);
 	Form2.addInterfaceObj(ButtonF2_back);
 	Form2.addInterfaceObj(ButtonF2_easy);
 	Form3.addInterfaceObj(ButtonF3);
-	Form4.addInterfaceObj(ButtonF4);
+	//Form4.addInterfaceObj(ButtonF4);
 	Form4.addInterfaceObj(ButtonF4_back);
 	Form5.addInterfaceObj(ButtonF5_back);
 	Form6.addInterfaceObj(ButtonF6_back);
@@ -96,4 +111,6 @@ void initializeInterface() {
 	Form4.addInterfaceObj(ButtonF4_2);
 	Form4.addInterfaceObj(ButtonF4_3);
 	Form4.addInterfaceObj(ButtonF4_4);
+	Form4.addInterfaceObj(TextBlackboard);
+
 }
