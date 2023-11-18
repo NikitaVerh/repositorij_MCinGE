@@ -1,8 +1,7 @@
 #pragma once
 #include "GlobalVariablesForResources.h"
 #include "GlobalVariablesOfClasses.h"
-#include "taskProcess.h"
-#include "ResourceLoadException.h"
+#include "Exceptions.h"
 
 //виняткові ситуації враховані
 

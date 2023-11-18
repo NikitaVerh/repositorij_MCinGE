@@ -1,60 +1,71 @@
 #pragma once
+#pragma execution_character_set("utf-8")
 #include <iostream>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+#include <Windows.h>
+#include <fstream>
 #include <vector>
+#include <cstdlib> // для rand()
+#include <ctime> // для time()
+#include <string>
+#include <vector>
+#include <nlohmann/json.hpp>
 
+using json = nlohmann::json;
 using namespace sf;
+using namespace std;
 
 // клас для задачі/завдання
 class Task {
 private:
-	String exercise; // текст завдання
-	String correct_answer; // правильна відповідь
-	std::vector<String> answers; // додаткові відповіді
+	string exercise; // текст завдання
+	string correct_answer; // правильна відповідь
+	std::vector<string> answers; // додаткові відповіді
 	bool used; // змінна для позначки використання прикладу
 public:
-	Task() {
-		used = false;
-		exercise = "exercise";
-		correct_answer = "correct_answer";
-	}
+	Task() : used(false), exercise("exercise"), correct_answer("correct_answer") {}
 
-	Task(String ex, String cor_answ, String answ[3]);
+	Task(string ex, string cor_answ, std::vector<string> answ)
+		: exercise(ex), correct_answer(cor_answ), answers(answ), used(false) {}
 
 	// метод для встановлення завдання (змінних)
-	void setTask(String ex, String cor_answ, String answ[3]); 
+	void setTask(string ex, string cor_answ, std::vector<string> answ) {
+		exercise = ex;
+		correct_answer = cor_answ;
+		answers = answ;
+		used = false;
+	}
 
 	// метод для отримання правильної відповіді
-	String getCorrectAnswer();
+	string getCorrectAnswer() { return correct_answer; };
 
 	// метод для отримання всіх відповідей
-	std::vector<String> getAnswers();
+	std::vector<string> getAnswers() { return answers; };
 
 	// метод для отримання тексту завдання
-	String getExercise();
+	string getExercise() { return exercise; };
 
 	// метод для отримання стану використання завдання
-	bool getUsed();
+	bool getUsed() { return used; };
 
 	// метод для скидання стану використання завдання
-	void resetUsed();
+	void resetUsed() { used = false; };
 	
 	// метод для помітки що завдання було взяте
-	void setUsed();
+	void setUsed() { used = true; };  
 };
 
 // клас, для поєднання завдань у складність
 class Difficult {
 private:
-	String value; // складність
-	std::vector<Task> exercise; // масив задач для поточної складності
+	string value; // складність
+	std::vector<Task> exercises; // масив задач для поточної складності
 	int countUsed; // кількість використаних завдань 
 public:
-	Difficult() {
-		countUsed = 0;
-	}
+	Difficult(string val) : value(val), countUsed(0) {}
+
 	// отримати задачу (рандомну з масиву, тут помічати що задача була взята)
 	Task getExercise();
 
@@ -62,7 +73,7 @@ public:
 	void addExercise(Task task);
 
 	// отримати значення value
-	String getDifficult();
+	string getDifficult() { return value; };
 
 	// оновити всі завдання (встановити позначку не використано (resetUsed() для всього масиву))
 	void resetAllTasks();
@@ -71,51 +82,61 @@ public:
 // клас тема, що об'єднує складності в один масив для однієї теми
 class Theme {
 private:
-	String value; // значення теми
+	string value; // значення теми
 	std::vector<Difficult> difficults; // масив складностей
 public:
+	Theme(string val) : value(val) {}
+
 	// додати нову складність
-	void addDifficult(String value);
+	void addDifficult(string value);
 
 	// додати нове завдання по складності
-	void addExercise(String difficult, Task task);
+	void addExercise(string difficult, Task task);
 
 	// отримати рандомне завдання по складності
-	Task getTask(String difficult);
+	Task getTask(string difficult); //+
 
 	// отримати масив складностей
-	std::vector<String> getDifficults();
+	std::vector<string> getDifficults(); //+
 
 	// отримати назву теми
-	String getTheme();
+	string getTheme() { return value; }; //+
 
 	// оновити всі завдання (встановити позначку не використано (resetUsed() для всього масиву))
-	void resetAllTasks();
+	void resetAllTasks();//+
 };
 
 // основний клас для використання задач та контролю їх
 class Union {
 private:
-	std::vector<Theme>  themes; // масив тем
+	std::vector<Theme> themes; // масив тем
 public:
 	// додати тему
-	void addTheme(String value);
+	void addTheme(string value);
 
 	// додати завдання по складності (треба обирати тему вручну)
-	void addTask(String difficult, Task task);
+	void addTask(string theme, string difficult, Task task);
 
 	// отримати рандомну задачу згідно теми та складності
-	Task getTask(String theme, String difficult);
+	Task getTask(string theme, string difficult);
 
 	// отримати масив тем
-	std::vector<String> getThemes();
+	std::vector<string> getThemes();
 
 	// отримати масив складностей
-	std::vector<String> getDifficults();
+	std::vector<string> getDifficults(string theme) {
+		for (auto& t : themes) {
+			if (t.getTheme() == theme) {
+				return t.getDifficults();
+			}
+		}
+		return std::vector<string>(); // повернути порожній вектор, якщо не знайдено
+	}
 
 	// оновити всі завдання (скидання поміток використання)
 	void resetAllTasks();
 
 	// метод що зчитує з файлу задачі та встановлює їх у всю систему
 	void readTasksFromJson();
+
 };

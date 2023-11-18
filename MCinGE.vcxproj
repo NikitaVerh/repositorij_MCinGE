@@ -151,11 +151,7 @@
     <ClCompile Include="Code\Game.cpp" />
     <ClCompile Include="Code\map.cpp" />
     <ClCompile Include="Code\player.cpp" />
-    <ClCompile Include="Code\taskProcess.cpp" />
-    <ClCompile Include="Code\ResourceLoadException.cpp" />
-    <ClCompile Include="Code\UIException.cpp" />
-    <ClCompile Include="Code\TaskLoadException.cpp" />
-    <ClCompile Include="Code\TaskParseException.cpp" />
+    <ClCompile Include="Code\Exceptions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Block.h" />
@@ -170,11 +166,7 @@
     <ClInclude Include="Code\interface.h" />
     <ClInclude Include="Code\map.h" />
     <ClInclude Include="Code\player.h" />
-    <ClInclude Include="Code\taskProcess.h" />
-    <ClInclude Include="Code\ResourceLoadException.h" />
-    <ClInclude Include="Code\UIException.h" />
-    <ClInclude Include="Code\TaskLoadException.h" />
-    <ClInclude Include="Code\TaskParseException.h" />
+    <ClInclude Include="Code\Exceptions.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\textures\blocks\texture_door.png" />
