@@ -111,26 +111,10 @@ void windowEventHandling(sf::RenderWindow& window) {
 	case menu_test:
 		if (ButtonF4->Released()) { std::cout << "F" << std::endl; }
 		if (ButtonF4_back->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
-		if (ButtonF4_1->Released())
-		{
-			CheckAnswer(answerF3_1);
-			try {
-				SetTask("Resources/json/task.json", "Вища Математика", currentDifficulty);
-			}
-			catch (const TaskLoadException& e) {
-				std::cerr << "Помилка завантаження завдань: " << e.what() << std::endl;
-				// Обробка помилки завантаження завдань
-			}
-			catch (const TaskParseException& e) {
-				std::cerr << "Помилка обробки завдань: " << e.what() << std::endl;
-				// Обробка помилки обробки завдань
-			}
-			catch (const std::exception& e) {
-				std::cerr << "Загальна помилка: " << e.what() << std::endl;
-				// Обробка інших винятків
-			}
+		if (ButtonF4_1->Released()) {
 			std::cout << "F1" << std::endl;
 		}
+		
 		if (ButtonF4_2->Released())
 		{
 			std::cout << "F2" << std::endl;
