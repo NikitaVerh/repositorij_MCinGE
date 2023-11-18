@@ -32,3 +32,5 @@ std::string currentDifficulty = "easy"; // Текущий уровень сложности
 
 float scrollX = 0;
 float scrollY = 0;
+
+sf::Color color_door_title(255,255,255);

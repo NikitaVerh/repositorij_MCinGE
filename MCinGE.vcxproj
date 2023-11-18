@@ -142,6 +142,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Code\classesForTasks.cpp" />
+    <ClCompile Include="Code\exam.cpp" />
     <ClCompile Include="Code\general.cpp" />
     <ClCompile Include="Code\GlobalVariablesForResources.cpp" />
     <ClCompile Include="Code\GlobalVariablesOfClasses.cpp" />
@@ -156,6 +157,7 @@
   <ItemGroup>
     <ClInclude Include="Code\Block.h" />
     <ClInclude Include="Code\classesForTasks.h" />
+    <ClInclude Include="Code\exam.h" />
     <ClInclude Include="Code\Game.h" />
     <ClInclude Include="Code\general.h" />
     <ClInclude Include="Code\GlobalConnsts.h" />

@@ -24,7 +24,8 @@ void Player::Player_set_source() {
 
 // перевірка колізії гравця з об'єктами GameMap
 bool Player::checkColision(float dx) {
-	return GameMap.collisionMap(Hitbox(hitbox.getRect().left, hitbox.getRect().top, hitbox.getRect().width+dx, hitbox.getRect().height));
+	if (dx>0) return GameMap.collisionMap(Hitbox(hitbox.getRect().left, hitbox.getRect().top, hitbox.getRect().width + dx, hitbox.getRect().height));
+	else return GameMap.collisionMap(Hitbox(hitbox.getRect().left + dx, hitbox.getRect().top, hitbox.getRect().width - dx, hitbox.getRect().height));
 }
 
 // оновлення гравця
@@ -108,7 +109,9 @@ void Player::move(float dx, float dy) {
 // метод для відкриття дверей гравцем
 void Player::openDoor() {
 	if (GameMap.getMapBlock(trunc(x), trunc(y)).getTypeBlock() == type_block_door){
-		if (x - trunc(x) >= 0.35 && x - trunc(x) <= 0.65) setMenu(menu_test);
+		if (x - trunc(x) >= 0.35 && x - trunc(x) <= 0.65) {
+			exam.start_test(GameMap.getMapBlock(trunc(x), trunc(y)).getTheme());
+		}
 	}
 }
 

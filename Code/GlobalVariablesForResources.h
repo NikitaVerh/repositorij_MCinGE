@@ -56,3 +56,5 @@ extern bool moving_flag;
 
 extern float scrollX;
 extern float scrollY;
+
+extern sf::Color color_door_title;

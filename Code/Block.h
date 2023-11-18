@@ -1,17 +1,22 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "GlobalVariablesForResources.h"
-
+#include <string>
 
 
 class Block {
 protected:
+    std::string theme;
     bool WallLeft = false;
     bool WallRight = false;
     sf::RectangleShape Area;
 public:
     virtual sf::RectangleShape getBlockForDraw() = 0;
     virtual int getTypeBlock() = 0;
+
+    std::string getTheme() {
+        return theme;
+    }
 
     void setWallLeft(bool value) {
         WallLeft = value;
@@ -45,6 +50,7 @@ public:
 class BlockDoor : public Block {
 public:
     BlockDoor() {
+        theme = "";
         Area.setTexture(&texture_block_door);
     }
     sf::RectangleShape getBlockForDraw() override {

@@ -30,3 +30,6 @@ TextCanvas* TextBlackboard = new TextCanvas();
 
 Map GameMap;
 Player player;
+
+Union task_union;
+Exam exam;

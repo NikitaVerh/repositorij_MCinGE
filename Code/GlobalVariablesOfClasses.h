@@ -1,6 +1,8 @@
 #pragma once
 #include "interface.h"
 #include "map.h"
+#include "classesForTasks.h"
+#include "exam.h"
 
 extern Form Form1; //меню
 extern Form Form2; //лобі
@@ -30,3 +32,6 @@ extern TextCanvas* TextBlackboard;
 
 extern Map GameMap;
 extern Player player;
+
+extern Union task_union;
+extern Exam exam;

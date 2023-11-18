@@ -211,7 +211,7 @@ void Map::setNewHitboxes() {
     staticHitboxes.clear();
     for (int i = 0; i < mapWidth; i++) {
         for (int j = 0; j < mapHeight; j++) {
-            if (map[i][j]->getWallRight() == true) addStaticHitbox(Hitbox(i+0.925,j,0.15,1));
+            if (map[i][j]->getWallRight() == true) addStaticHitbox(Hitbox(i+0.955,j+0.05,0.09,0.95));
         }
     }
     
@@ -248,7 +248,22 @@ void Map::draw(sf::RenderWindow& window) {
 			block.setPosition(sf::Vector2f(i*sizeBlock + scrollX,j*sizeBlock + scrollY));
 			block.setSize(sf::Vector2f(sizeBlock, sizeBlock));
 			window.draw(block);
-
+            if (map[i][j]->getTypeBlock() == type_block_door) {
+                sf::Text title;
+                title.setFont(master_font);
+                title.setString(map[i][j]->getTheme());
+                float x = i * sizeBlock + scrollX + sizeBlock / 2.0;
+                float y = j * sizeBlock + scrollY + sizeBlock / 2.5;
+                title.setFillColor(color_door_title);
+                float size = sizeBlock / 4.0;
+                title.setCharacterSize(size);
+                while (title.getLocalBounds().width > sizeBlock / 5.0) {
+                    title.setCharacterSize(size--);
+                }
+                title.setPosition(x, y);
+                title.setOrigin(title.getLocalBounds().width/2.0, title.getLocalBounds().height / 2.0);
+                window.draw(title);
+            }
 
             if (GameMap.getMapBlock(i, j).getWallLeft()) {
                 WallLeft.setPosition(sf::Vector2f(i * sizeBlock + scrollX, j * sizeBlock + scrollY));

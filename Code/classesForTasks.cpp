@@ -1,3 +1,4 @@
+#pragma execution_character_set("utf-8")
 #include "classesForTasks.h"
 
 Task Difficult::getExercise()
@@ -145,9 +146,9 @@ void Union::resetAllTasks()
 
 void Union::readTasksFromJson()
 {
-    std::ifstream file("tasks.json");
+    std::ifstream file("Resources/json/task.json");
     if (!file.is_open()) {
-        std::cerr << "Не вдалося відкрити файл tasks.json" << std::endl;
+        std::cerr << "Не вдалося відкрити файл task.json" << std::endl;
         return;
     }
     json j;

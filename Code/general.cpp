@@ -22,6 +22,7 @@ void startProgram() {
 		loadResources();
 		initializeVariables();
 		initializeInterface();
+		exam.load_tasks();
 	}
 	catch (const ResourceLoadException& e) {
 		std::cerr << "Помилка: " << e.what() << '\n';
@@ -104,27 +105,17 @@ void windowEventHandling(sf::RenderWindow& window) {
 		break;
 	case menu_lobby:
 		if (ButtonF2_back->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
-		if (ButtonF2_easy->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
+		if (ButtonF2_easy->Released()) {exam.set_difficulty(0); Menu = menu_game; }
 		break;
 	case menu_test:
 		if (ButtonF4->Released()) { std::cout << "F" << std::endl; }
 		if (ButtonF4_back->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
-		if (ButtonF4_1->Released()) {
-			std::cout << "F1" << std::endl;
-		}
-		
-		if (ButtonF4_2->Released())
-		{
-			std::cout << "F2" << std::endl;
-		}
-		if (ButtonF4_3->Released())
-		{
-			std::cout << "F3" << std::endl;
-		}
-		if (ButtonF4_4->Released())
-		{
-			std::cout << "F4" << std::endl;
-		}
+
+		if (ButtonF4_1->Released())	exam.answer_chosen(0);
+		if (ButtonF4_2->Released())	exam.answer_chosen(1);
+		if (ButtonF4_3->Released())	exam.answer_chosen(2);
+		if (ButtonF4_4->Released()) exam.answer_chosen(3);
+
 		break;
 	case menu_stat:
 		if (ButtonF5_back->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
