@@ -24,6 +24,10 @@ Button::Button() {
 
 void Button::draw(sf::RenderWindow& window) {
 	if (!visible)return;
+	if (!pressed) {
+		Area.setFillColor(color_fill);
+		Area.setOutlineColor(color_line);
+	}
 	if (hover) {
 		Area.setFillColor(color_fill_hovered);
 		Area.setOutlineColor(color_line_hovered);
@@ -32,10 +36,8 @@ void Button::draw(sf::RenderWindow& window) {
 		Area.setFillColor(color_fill_pressed);
 		Area.setOutlineColor(color_line_pressed);
 	}
-	else {
-		Area.setFillColor(color_fill);
-		Area.setOutlineColor(color_line);
-	}
+	
+	
 
 	sf::FloatRect textBounds = text_button.getGlobalBounds();
 
@@ -94,6 +96,25 @@ void Button::setPosSize(float indent_left, float indent_top, float W, float H){
 	indentTop = indent_top;
 	width = W;
 	height = H;
+}
+
+void Button::setStyle(sf::String str, float textSize, sf::Color colorFill, sf::Color colorLine, sf::Color colorFillPressed, sf::Color colorLinePressed, sf::Color colorText) {
+	/*Area.setFillColor();
+	Area.set*/
+	//try catch should be added
+	if (textSize <= 0) {
+		throw UIException("Розмір тексту не може бути меншим або дорівнювати нулю.");
+	}
+	size_text = textSize;
+	text_button.setFont(master_font);
+	text_button.setString(str);
+	color_fill = colorFill;
+	color_fill_pressed = colorFillPressed;
+	color_line = colorLine;
+	color_line_pressed = colorLinePressed;
+	color_text = colorText;
+	color_fill_hovered = sf::Color(255, 255, 255, 50);
+	color_line_hovered = sf::Color(150, 70, 30, 50);
 }
 
 void Button::setText(sf::String str) {
