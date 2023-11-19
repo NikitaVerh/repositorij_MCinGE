@@ -15,6 +15,7 @@ sf::Texture texture_block_ladder;
 sf::Texture texture_wall_left;
 sf::Texture texture_wall_right;
 sf::Texture texture_person;
+sf::Texture texture_person_left;
 
 sf::Font master_font;
 
@@ -26,7 +27,6 @@ float playerHeight;
 float playerWidth;
 float speed_player = 0.5;
 int Y_start_climbing = -1;
-bool moving_flag = false;
 std::string currentDifficulty = "easy"; // Текущий уровень сложности
 
 

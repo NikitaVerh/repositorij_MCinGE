@@ -5,6 +5,7 @@
 #include "GlobalVariablesForResources.h"
 #include "GlobalConnsts.h"
 #include "Hitbox.h"
+#include "timer.h"
 
 class Player {
 private:
@@ -12,7 +13,13 @@ private:
 	float x, y;
 	Hitbox hitbox;
 	sf::Time delta_time;
-
+	int frame;
+	Timer interval_standing;
+	Timer interval_walking;
+	bool mov_flag = false;
+	int state = 0;
+	int prev_state = 0;
+	bool rotate = false;
 	bool checkColision(float dx);
 public:
 	// конструктор класа гравц€
@@ -38,4 +45,6 @@ public:
 
 	// метод дл€ рендеру гравц€ на в≥кн≥
 	void drawPlayer(sf::RenderWindow& window);
+
+	void skipFrame();
 };

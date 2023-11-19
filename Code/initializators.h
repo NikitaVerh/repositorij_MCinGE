@@ -20,15 +20,17 @@ void loadResources() {
 		throw ResourceLoadException("Resources/textures/interface/background.png"); 
 	if (!texture_window3.loadFromFile("Resources/textures/interface/background3.png"))
 		throw ResourceLoadException("Resources/textures/interface/background3.png");  
-	if (!texture_person.loadFromFile("Resources/textures/pers.png"))
-		throw ResourceLoadException("Resources/textures/pers.png");  
+	if (!texture_person.loadFromFile("Resources/textures/player-sprite.png"))
+		throw ResourceLoadException("Resources/textures/player-sprite.png");
+	if (!texture_person_left.loadFromFile("Resources/textures/player-sprite-left.png"))
+		throw ResourceLoadException("Resources/textures/player-sprite-left.png");
 	if (!master_font.loadFromFile("Resources/fonts/master_font.ttf")) 
 		throw ResourceLoadException("Resources/fonts/master_font+.ttf");  
 }
 
 void initializeVariables() {
 	playerHeight = 0.6;
-	playerWidth = playerHeight * texture_person.getSize().x / texture_person.getSize().y;
+	playerWidth = playerHeight * (texture_person.getSize().x/8.0) / texture_person.getSize().y;
 	GameMap = Map(); // створюватис€ ц€ зм≥нна повинна п≥сл€ загрузки текстр
 	exam.load_tasks();
 	GameMap.generateLabyrinth();

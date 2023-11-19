@@ -14,6 +14,7 @@ extern sf::Texture texture_block_ladder;
 extern sf::Texture texture_wall_left;
 extern sf::Texture texture_wall_right;
 extern sf::Texture texture_person;
+extern sf::Texture texture_person_left;
 
 extern int sizeBlock;
 
@@ -50,9 +51,6 @@ extern float playerHeight;
 extern float playerWidth;
 extern float speed_player;
 extern int Y_start_climbing;
-extern bool moving_flag;
-
-
 
 extern float scrollX;
 extern float scrollY;

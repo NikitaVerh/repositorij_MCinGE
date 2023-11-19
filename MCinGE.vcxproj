@@ -169,6 +169,7 @@
     <ClInclude Include="Code\map.h" />
     <ClInclude Include="Code\player.h" />
     <ClInclude Include="Code\Exceptions.h" />
+    <ClInclude Include="Code\timer.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\textures\blocks\texture_door.png" />
