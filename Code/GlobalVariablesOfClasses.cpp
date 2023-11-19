@@ -2,29 +2,34 @@
 #include "GlobalVariablesOfClasses.h"
 
 
-Form Form1;
-Form Form2;
-Form Form3;
-Form Form4;
-Form Form5;
-Form Form6;
+Form Form_menu;
+Form Form_lobby;
+Form Form_labirint;
+Form Form_test;
+Form Form_stat;
+Form Form_inf;
 
-Button* ButtonF1_1 = new Button();
-Button* ButtonF1_2 = new Button();
-Button* ButtonF1_3 = new Button();
-Button* ButtonF2_back = new Button();
-Button* ButtonF2_easy = new Button();
-Button* ButtonF3 = new Button();
+Button* ButtonMenuStart = new Button();
+Button* ButtonMenuContinue = new Button();
+Button* ButtonMenuStatic = new Button();
+Button* ButtonMenuInf = new Button();
+Button* ButtonLobbyBack = new Button();
+Button* ButtonLobbyEasy = new Button();
+Button* ButtonLobbyNormal = new Button();
+Button* ButtonLobbyHard = new Button();
+Button* ButtonLabirint = new Button();
+Button* ButtonLabirintBack = new Button();
+Button* ButtonTestFinish = new Button();
 
-Button* ButtonF4 = new Button();
-Button* ButtonF4_1 = new Button();
-Button* ButtonF4_2 = new Button();
-Button* ButtonF4_3 = new Button();
-Button* ButtonF4_4 = new Button();
-Button* ButtonF4_back = new Button();
+Button* ButtonTest = new Button();
+Button* ButtonTest1 = new Button();
+Button* ButtonTest2 = new Button();
+Button* ButtonTest3 = new Button();
+Button* ButtonTest4 = new Button();
+Button* ButtonTestBack = new Button();
 
-Button* ButtonF5_back = new Button();
-Button* ButtonF6_back = new Button();
+Button* ButtonStatBack = new Button();
+Button* ButtonInfBack = new Button();
 
 TextCanvas* TextBlackboard = new TextCanvas();
 

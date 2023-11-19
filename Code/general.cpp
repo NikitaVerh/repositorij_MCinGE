@@ -93,48 +93,40 @@ void windowEventHandling(sf::RenderWindow& window) {
 
 
 	switch (Menu) {
-
 	case menu_main:
-		if (ButtonF1_1->Released()) { std::cout << "released" << std::endl; Menu = menu_lobby; }
-		if (ButtonF1_2->Released()) { std::cout << "released" << std::endl; Menu = menu_stat; }
-		if (ButtonF1_3->Released()) { std::cout << "released" << std::endl; Menu = menu_inf; }
+		if (ButtonMenuStart->Released()) { std::cout << "released" << std::endl; setMenu(menu_lobby); }
+		if (ButtonMenuContinue->Released()) { std::cout << "released" << std::endl; setMenu(menu_game); }
+		if (ButtonMenuStatic->Released()) { std::cout << "released" << std::endl; setMenu(menu_stat); }
+		if (ButtonMenuInf->Released()) { std::cout << "released" << std::endl; setMenu(menu_inf); }
 		break;
 	case menu_game:
-		if (ButtonF3->Released()) { std::cout << "released" << std::endl;/* Menu = menu_main; */GameMap.generateLabyrinth(); player.Player_set_source(); }
+		if (ButtonLabirint->Released()) { std::cout << "released" << std::endl; /* Menu = menu_main; */ GameMap.generateLabyrinth(); player.Player_set_source(); }
+		if (ButtonLabirintBack->Released()) { std::cout << "released" << std::endl; setMenu(menu_lobby); }
 		break;
 	case menu_lobby:
-		if (ButtonF2_back->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
-		if (ButtonF2_easy->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
+		if (ButtonLobbyBack->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
+		if (ButtonLobbyEasy->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
+		if (ButtonLobbyNormal->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
+		if (ButtonLobbyHard->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
 		break;
 	case menu_test:
-		if (ButtonF4->Released()) { std::cout << "F" << std::endl; }
-		if (ButtonF4_back->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
-		if (ButtonF4_1->Released()) {
-			std::cout << "F1" << std::endl;
-		}
-		
-		if (ButtonF4_2->Released())
-		{
-			std::cout << "F2" << std::endl;
-		}
-		if (ButtonF4_3->Released())
-		{
-			std::cout << "F3" << std::endl;
-		}
-		if (ButtonF4_4->Released())
-		{
-			std::cout << "F4" << std::endl;
-		}
+		if (ButtonTest->Released()) { std::cout << "F" << std::endl; }
+		if (ButtonTestBack->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
+		if (ButtonTest1->Released()) { std::cout << "F1" << std::endl; }
+		if (ButtonTest2->Released()) { std::cout << "F2" << std::endl; }
+		if (ButtonTest3->Released()) { std::cout << "F3" << std::endl; }
+		if (ButtonTest4->Released()) { std::cout << "F4" << std::endl; }
 		break;
 	case menu_stat:
-		if (ButtonF5_back->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
+		if (ButtonStatBack->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
 		break;
 	case menu_inf:
-		if (ButtonF6_back->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
+		if (ButtonInfBack->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
 		break;
 	default:
 		break;
 	}
+
 }
 
 // метод для оновлення інтерфейсу
@@ -142,12 +134,12 @@ void UpdateGraphic(sf::RenderWindow& window) {
 	window.setView(sf::View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y)));
 
 	sizeBlock = window.getSize().y / float(1.3);
-	Form1.updateForm(window);
-	Form2.updateForm(window);
-	Form3.updateForm(window);
-	Form4.updateForm(window);
-	Form5.updateForm(window);
-	Form6.updateForm(window);
+	Form_menu.updateForm(window);
+	Form_lobby.updateForm(window);
+	Form_labirint.updateForm(window);
+	Form_test.updateForm(window);
+	Form_stat.updateForm(window);
+	Form_inf.updateForm(window);
 
 }
 
@@ -156,29 +148,29 @@ void GraphicRender(sf::RenderWindow& window) {
 
 	window.clear();
 	if (Menu == menu_main) {
-		Form1.drawBackground(window);
-		Form1.draw(window);
+		Form_menu.drawBackground(window);
+		Form_menu.draw(window);
 	}
 	if (Menu == menu_lobby) {
-		Form2.drawBackground(window);
-		Form2.draw(window);
+		Form_lobby.drawBackground(window);
+		Form_lobby.draw(window);
 	}
 	if (Menu == menu_game) {
 		GameMap.draw(window);
 		player.drawPlayer(window);
-		Form3.draw(window);
+		Form_labirint.draw(window);
 	}
 	if (Menu == menu_test) {
-		Form4.drawBackground(window);
-		Form4.draw(window);
+		Form_test.drawBackground(window);
+		Form_test.draw(window);
 	}
     if (Menu == menu_stat) {
-		Form5.drawBackground(window);
-		Form5.draw(window);
+		Form_stat.drawBackground(window);
+		Form_stat.draw(window);
 	}
 	if (Menu == menu_inf) {
-		Form6.drawBackground(window);
-		Form6.draw(window);
+		Form_inf.drawBackground(window);
+		Form_inf.draw(window);
 	}
 	window.display();
 }
