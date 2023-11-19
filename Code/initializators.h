@@ -167,7 +167,7 @@ void initializeInterface() {
 	ButtonTest3->setSnapToBackground(true);
 	ButtonTest4->setSnapToBackground(true);
 	ButtonTestBack->setSnapToBackground(false);
-	ButtonTestFinish->setSnapToBackground(true);
+	ButtonTestFinish->setSnapToBackground(false);
 	ButtonMenuStart->setSnapToBackground(true);
 	ButtonMenuContinue->setSnapToBackground(true);
 	ButtonMenuStatic->setSnapToBackground(true);
