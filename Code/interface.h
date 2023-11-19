@@ -20,6 +20,20 @@ public:
 	bool getSnapToBackground() { return snapToBackground;}
 };
 
+class Slider : public interfaceObj {
+private:
+	sf::RectangleShape Area;
+	sf::RectangleShape Track;
+	sf::RectangleShape Pic;
+	float value;
+public:
+	Slider();
+	void draw(sf::RenderWindow& window) override;
+	void Update(float windowWidth, float windowHeight, float posX, float posY) override;
+	void setPosSize(float indent_left, float indent_top, float W, float H) override;
+	void updatePressed(sf::RenderWindow& window) override;
+};
+
 class TextCanvas : public interfaceObj{
 private:
 	sf::Color colorText;

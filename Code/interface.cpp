@@ -302,3 +302,27 @@ void TextCanvas::setText(sf::String value) {
 	text.setFont(master_font);
 	text.setLineSpacing(1.2);
 }
+
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\\
+//||||||||||||||||||||||||||||||||||   Slider   ||||||||||||||||||||||||||||||||||\\
+
+Slider::Slider() {
+	value = 1;
+}
+
+void Slider::draw(sf::RenderWindow& window) {
+
+}
+
+void Slider::Update(float windowWidth, float windowHeight, float posX, float posY) {
+
+}
+
+void Slider::setPosSize(float indent_left, float indent_top, float W, float H) {
+
+}
+
+void Slider::updatePressed(sf::RenderWindow& window) {
+
+}
+
