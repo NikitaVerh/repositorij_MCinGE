@@ -105,17 +105,18 @@ void windowEventHandling(sf::RenderWindow& window) {
 		break;
 	case menu_lobby:
 		if (ButtonLobbyBack->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
-		if (ButtonLobbyEasy->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
-		if (ButtonLobbyNormal->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
-		if (ButtonLobbyHard->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
+		if (ButtonLobbyEasy->Released()) { exam.set_difficulty(0); Menu = menu_game; }
+		if (ButtonLobbyNormal->Released()) { exam.set_difficulty(1); Menu = menu_game; }
+		if (ButtonLobbyHard->Released()) { exam.set_difficulty(2); Menu = menu_game; }
 		break;
 	case menu_test:
 		if (ButtonTest->Released()) { std::cout << "F" << std::endl; }
 		if (ButtonTestBack->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
-		if (ButtonTest1->Released()) { std::cout << "F1" << std::endl; }
-		if (ButtonTest2->Released()) { std::cout << "F2" << std::endl; }
-		if (ButtonTest3->Released()) { std::cout << "F3" << std::endl; }
-		if (ButtonTest4->Released()) { std::cout << "F4" << std::endl; }
+		if (ButtonTest1->Released()) { exam.answer_chosen(0); }
+		if (ButtonTest2->Released()) { exam.answer_chosen(1); }
+		if (ButtonTest3->Released()) { exam.answer_chosen(2); }
+		if (ButtonTest4->Released()) { exam.answer_chosen(3); }
+		if (ButtonTestFinish->Released()) { exam.stop_test(); }
 		break;
 	case menu_stat:
 		if (ButtonStatBack->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }

@@ -34,7 +34,6 @@ std::string currentDifficulty = "easy"; // Текущий уровень сложности
 float scrollX = 0;
 float scrollY = 0;
 
-
 sf::Color ColorForButton(187, 157, 141, 255);
 sf::Color ColorForButtonLine(156, 119, 107, 255);
 sf::Color ColorForHoverButton(204, 180, 167, 255);
@@ -48,6 +47,5 @@ sf::Color ColorForHoverButtonDesk(102, 163, 103, 255);
 sf::Color ColorForHoverButtonDeskLine(62, 130, 63, 255);
 sf::Color ColorForPressedButtonDesk(20, 87, 21);
 sf::Color ColorForPressedButtonDeskLine(10, 76, 11, 255);
-float scrollY = 0;
 
 sf::Color color_door_title(255,255,255);

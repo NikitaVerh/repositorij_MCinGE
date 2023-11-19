@@ -19,10 +19,12 @@ void Exam::start_test(string theme) {
 	srand((unsigned int)(time(0)));
 	task_theme = theme;
 	next_task();
-	ButtonF4_1->setVisible(true);
-	ButtonF4_2->setVisible(true);
-	ButtonF4_3->setVisible(true);
-	ButtonF4_4->setVisible(true);
+	ButtonTest1->setVisible(true);
+	ButtonTest2->setVisible(true);
+	ButtonTest3->setVisible(true);
+	ButtonTest4->setVisible(true);
+	ButtonTestFinish->setVisible(true);
+	ButtonTestBack->setVisible(false);
 	Menu = menu_test;
 }
 void Exam::next_task() {
@@ -31,10 +33,10 @@ void Exam::next_task() {
 	correct_button = rand() % 4;
 	vector<string> answers = curr_task.getAnswers();
 	answers.insert(answers.begin() + correct_button, curr_task.getCorrectAnswer());
-	ButtonF4_1->setText(answers[0]);
-	ButtonF4_2->setText(answers[1]);
-	ButtonF4_3->setText(answers[2]);
-	ButtonF4_4->setText(answers[3]);
+	ButtonTest1->setText(answers[0]);
+	ButtonTest2->setText(answers[1]);
+	ButtonTest3->setText(answers[2]);
+	ButtonTest4->setText(answers[3]);
 }
 void Exam::answer_chosen(int code_button) {
 	if (code_button == correct_button) mark++;
@@ -45,8 +47,10 @@ void Exam::answer_chosen(int code_button) {
 void Exam::stop_test() {
 	//peredat ocenku v tablichku
 	TextBlackboard->setText(L"Ваша оцінка: " + std::to_string(mark) + "/" + std::to_string(max_count_task));
-	ButtonF4_1->setVisible(false);
-	ButtonF4_2->setVisible(false);
-	ButtonF4_3->setVisible(false);
-	ButtonF4_4->setVisible(false);
+	ButtonTest1->setVisible(false);
+	ButtonTest2->setVisible(false);
+	ButtonTest3->setVisible(false);
+	ButtonTest4->setVisible(false);
+	ButtonTestFinish->setVisible(false);
+	ButtonTestBack->setVisible(true);
 }
