@@ -181,6 +181,10 @@
       <DeploymentContent>false</DeploymentContent>
     </Image>
     <Image Include="Resources\textures\interface\background3.png" />
+    <Image Include="Resources\textures\interface\slider\pic_music.png" />
+    <Image Include="Resources\textures\interface\slider\pic_sound.png" />
+    <Image Include="Resources\textures\interface\slider\slider.png" />
+    <Image Include="Resources\textures\interface\slider\slider_track.png" />
     <Image Include="Resources\textures\pers.png" />
   </ItemGroup>
   <ItemGroup>

@@ -124,6 +124,18 @@
     <Image Include="Resources\textures\interface\background3.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\textures\interface\slider\pic_music.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\interface\slider\pic_sound.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\interface\slider\slider.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\interface\slider\slider_track.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\fonts\testFont.ttf" />
