@@ -5,6 +5,7 @@
 using json = nlohmann::json;
 
 extern sf::Texture texture_window;
+extern sf::Texture texture_window2;
 extern sf::Texture texture_window3;
 
 extern sf::Texture texture_block_wall;
@@ -53,6 +54,21 @@ extern float speed_player;
 extern int Y_start_climbing;
 
 extern float scrollX;
+extern float scrollY;
+
+extern sf::Color ColorForButton;
+extern sf::Color ColorForButtonLine;
+extern sf::Color ColorForHoverButton;
+extern sf::Color ColorForHoverButtonLine;
+extern sf::Color ColorForPressedButton;
+extern sf::Color ColorForPressedButtonLine;
+
+extern sf::Color ColorForButtonDesk;
+extern sf::Color ColorForButtonDeskLine;
+extern sf::Color ColorForHoverButtonDesk;
+extern sf::Color ColorForHoverButtonDeskLine;
+extern sf::Color ColorForPressedButtonDesk;
+extern sf::Color ColorForPressedButtonDeskLine;
 extern float scrollY;
 
 extern sf::Color color_door_title;

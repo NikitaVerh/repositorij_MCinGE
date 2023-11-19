@@ -18,6 +18,8 @@ void loadResources() {
 		throw ResourceLoadException("Resources/textures/blocks/texture_wall_right.png");  
 	if (!texture_window.loadFromFile("Resources/textures/interface/background.png")) 
 		throw ResourceLoadException("Resources/textures/interface/background.png"); 
+	if (!texture_window2.loadFromFile("Resources/textures/interface/background2.png"))
+		throw ResourceLoadException("Resources/textures/interface/background2.png");
 	if (!texture_window3.loadFromFile("Resources/textures/interface/background3.png"))
 		throw ResourceLoadException("Resources/textures/interface/background3.png");  
 	if (!texture_person.loadFromFile("Resources/textures/player-sprite.png"))
@@ -37,83 +39,180 @@ void initializeVariables() {
 }
 
 void initializeInterface() {
-	ButtonF1_1->setPosSize(0.49, 0.3, 0.2, 0.05);
-	ButtonF1_1->setStyle(L"Нова гра", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
+	ButtonMenuStart->setPosSize(0.493, 0.28, 0.185, 0.065);
+	ButtonMenuStart->setColorButton(ColorForButton, ColorForButtonLine);
+	ButtonMenuStart->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
+	ButtonMenuStart->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
+	ButtonMenuStart->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonMenuStart->setText(L"Нова гра");
 
-	ButtonF1_2->setPosSize(0.49, 0.4, 0.2, 0.05);
-	ButtonF1_2->setStyle(L"Статистика", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
-	
-	ButtonF1_3->setPosSize(0.49, 0.5, 0.2, 0.05);
-	ButtonF1_3->setStyle(L"Інформація", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
+	ButtonMenuContinue->setPosSize(0.493, 0.28 + 0.1, 0.185, 0.065);
+	ButtonMenuContinue->setColorButton(ColorForButton, ColorForButtonLine);
+	ButtonMenuContinue->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
+	ButtonMenuContinue->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
+	ButtonMenuContinue->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonMenuContinue->setText(L"Продовжувати");
 
-	ButtonF2_easy->setStyle(L"Легко", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
-	ButtonF2_easy->setPosSize(0.1, 0.4, 0.2, 0.05);
+	ButtonMenuStatic->setPosSize(0.493, 0.28 + 0.1 * 2, 0.185, 0.065);
+	ButtonMenuStatic->setColorButton(ColorForButton, ColorForButtonLine);
+	ButtonMenuStatic->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
+	ButtonMenuStatic->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
+	ButtonMenuStatic->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonMenuStatic->setText(L"Статистика");
 
-	ButtonF2_back->setStyle(L"Назад", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
-	ButtonF2_back->setPosSize(0.1, 0.8, 0.2, 0.05);
+	ButtonMenuInf->setPosSize(0.493, 0.28 + 0.1 * 3, 0.185, 0.065);
+	ButtonMenuInf->setColorButton(ColorForButton, ColorForButtonLine);
+	ButtonMenuInf->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
+	ButtonMenuInf->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
+	ButtonMenuInf->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonMenuInf->setText(L"Інформація");
 
-	ButtonF3->setStyle(L"Назад", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
-	ButtonF3->setPosSize(0.1, 0.5, 0.2, 0.05);
+	ButtonLobbyEasy->setPosSize(0.4, 0.2, 0.2, 0.05);
+	ButtonLobbyEasy->setColorButton(ColorForButtonDesk, ColorForButtonDeskLine);
+	ButtonLobbyEasy->setColorHover(ColorForHoverButtonDesk, ColorForHoverButtonDeskLine);
+	ButtonLobbyEasy->setColorPressed(ColorForPressedButtonDesk, ColorForPressedButtonDeskLine);
+	ButtonLobbyEasy->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonLobbyEasy->setText(L"Легко");
 
-	ButtonF5_back->setPosSize(0.49, 0.3, 0.2, 0.05);
-	ButtonF5_back->setStyle(L"Назад", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
+	ButtonLobbyNormal->setPosSize(0.4, 0.3, 0.2, 0.05);
+	ButtonLobbyNormal->setColorButton(ColorForButtonDesk, ColorForButtonDeskLine);
+	ButtonLobbyNormal->setColorHover(ColorForHoverButtonDesk, ColorForHoverButtonDeskLine);
+	ButtonLobbyNormal->setColorPressed(ColorForPressedButtonDesk, ColorForPressedButtonDeskLine);
+	ButtonLobbyNormal->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonLobbyNormal->setText(L"Нормально");
 
-	ButtonF6_back->setPosSize(0.49, 0.3, 0.2, 0.05);
-	ButtonF6_back->setStyle(L"Назад", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
+	ButtonLobbyHard->setPosSize(0.4, 0.4, 0.2, 0.05);
+	ButtonLobbyHard->setColorButton(ColorForButtonDesk, ColorForButtonDeskLine);
+	ButtonLobbyHard->setColorHover(ColorForHoverButtonDesk, ColorForHoverButtonDeskLine);
+	ButtonLobbyHard->setColorPressed(ColorForPressedButtonDesk, ColorForPressedButtonDeskLine);
+	ButtonLobbyHard->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonLobbyHard->setText(L"Складно");
 
-	double a = 87 / 271.0 / 4.0 - 0.004;
-	double b = a - 87 / 271.0 / 5.0;
-	ButtonF4->setPosSize(0.425, 0.25, 0.15, 0.1);
-	ButtonF4_1->setPosSize(0.5-2*a + b/2.0, 0.475, a - b, 0.04);
-	ButtonF4_2->setPosSize(0.5 - a + b / 2.0, 0.475, a - b, 0.04);
-	ButtonF4_3->setPosSize(0.5 + b / 2.0, 0.475, a - b, 0.04);
-	ButtonF4_4->setPosSize(0.5 + a + b / 2.0, 0.475, a - b, 0.04);
-	ButtonF4_back->setPosSize(0.6, 0.7, 0.2, 0.05);
-	ButtonF4_back->setStyle(L"Назад", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
+	ButtonLobbyBack->setPosSize(0.04, 0.88, 0.15, 0.05);
+	ButtonLobbyBack->setColorButton(ColorForButton, ColorForButtonLine);
+	ButtonLobbyBack->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
+	ButtonLobbyBack->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
+	ButtonLobbyBack->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonLobbyBack->setText(L"Назад");
 
-	ButtonF4->setStyle(L"Приклад", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
-	ButtonF4_1->setStyle(L"Відповідь 1", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
-	ButtonF4_2->setStyle(L"Відповідь 2", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
-	ButtonF4_3->setStyle(L"Відповідь 3", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
-	ButtonF4_4->setStyle(L"Відповідь 4", 0.7, sf::Color(255, 160, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(200, 110, 0, 150), sf::Color(180, 80, 0, 150), sf::Color(50, 20, 0, 255));
+	ButtonLabirint->setPosSize(0.1, 0.1, 0.2, 0.05);
+	ButtonLabirint->setColorButton(ColorForButton, ColorForButtonLine);
+	ButtonLabirint->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonLabirint->setText(L"обновить");
+
+	ButtonLabirintBack->setPosSize(0.04, 0.88, 0.15, 0.05);
+	ButtonLabirintBack->setColorButton(ColorForButton, ColorForButtonLine);
+	ButtonLabirintBack->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
+	ButtonLabirintBack->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
+	ButtonLabirintBack->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonLabirintBack->setText(L"Назад");
+
+	ButtonInfBack->setPosSize(0.04, 0.88, 0.15, 0.05);
+	ButtonInfBack->setColorButton(ColorForButton, ColorForButtonLine);
+	ButtonInfBack->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
+	ButtonInfBack->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
+	ButtonInfBack->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonInfBack->setText(L"Назад");
+
+	ButtonTest->setPosSize(0.425, 0.25, 0.15, 0.1);
+	ButtonTest1->setPosSize(0.345, 0.7, 0.073, 0.06);
+	ButtonTest1->setColorButton(ColorForButtonDesk, ColorForButtonDeskLine);
+	ButtonTest1->setColorHover(ColorForHoverButtonDesk, ColorForHoverButtonDeskLine);
+	ButtonTest1->setColorPressed(ColorForPressedButtonDesk, ColorForPressedButtonDeskLine);
+	ButtonTest1->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonTest1->setText(L"Відповідь 1");
+
+	ButtonTest2->setPosSize(0.345 + 0.08, 0.7, 0.071, 0.06);
+	ButtonTest2->setColorButton(ColorForButtonDesk, ColorForButtonDeskLine);
+	ButtonTest2->setColorHover(ColorForHoverButtonDesk, ColorForHoverButtonDeskLine);
+	ButtonTest2->setColorPressed(ColorForPressedButtonDesk, ColorForPressedButtonDeskLine);
+	ButtonTest2->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonTest2->setText(L"Відповідь 2");
+
+	ButtonTest3->setPosSize(0.345 + 0.08*2, 0.7, 0.071, 0.06);
+	ButtonTest3->setColorButton(ColorForButtonDesk, ColorForButtonDeskLine);
+	ButtonTest3->setColorHover(ColorForHoverButtonDesk, ColorForHoverButtonDeskLine);
+	ButtonTest3->setColorPressed(ColorForPressedButtonDesk, ColorForPressedButtonDeskLine);
+	ButtonTest3->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonTest3->setText(L"Відповідь 3");
+
+	ButtonTest4->setPosSize(0.345 + 0.08*3, 0.7, 0.071, 0.06);
+	ButtonTest4->setColorButton(ColorForButtonDesk, ColorForButtonDeskLine);
+	ButtonTest4->setColorHover(ColorForHoverButtonDesk, ColorForHoverButtonDeskLine);
+	ButtonTest4->setColorPressed(ColorForPressedButtonDesk, ColorForPressedButtonDeskLine);
+	ButtonTest4->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonTest4->setText(L"Відповідь 4");
+
+	ButtonTestBack->setPosSize(0.04, 0.88, 0.15, 0.05);
+	ButtonTestBack->setColorButton(ColorForButton, ColorForButtonLine);
+	ButtonTestBack->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
+	ButtonTestBack->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
+	ButtonTestBack->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonTestBack->setText(L"Назад");
+
+	ButtonTestFinish->setPosSize(0.81, 0.88, 0.15, 0.05);
+	ButtonTestFinish->setColorButton(ColorForButton, ColorForButtonLine);
+	ButtonTestFinish->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
+	ButtonTestFinish->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
+	ButtonTestFinish->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonTestFinish->setText(L"Завершити");
+
+	ButtonTest->setText(L"Приклад");
+	ButtonTest1->setText(L"Відповідь 1");
+	ButtonTest2->setText(L"Відповідь 2");
+	ButtonTest3->setText(L"Відповідь 3");
+	ButtonTest4->setText(L"Відповідь 4");
 
 
-	ButtonF4->setSnapToBackground(true);
-	ButtonF4_1->setSnapToBackground(true);
-	ButtonF4_2->setSnapToBackground(true);
-	ButtonF4_3->setSnapToBackground(true);
-	ButtonF4_4->setSnapToBackground(true);
-	ButtonF1_1->setSnapToBackground(true);
-	ButtonF1_2->setSnapToBackground(true);
-	ButtonF1_3->setSnapToBackground(true);
+	ButtonTest->setSnapToBackground(true);
+	ButtonTest1->setSnapToBackground(true);
+	ButtonTest2->setSnapToBackground(true);
+	ButtonTest3->setSnapToBackground(true);
+	ButtonTest4->setSnapToBackground(true);
+	ButtonTestBack->setSnapToBackground(false);
+	ButtonTestFinish->setSnapToBackground(false);
+	ButtonMenuStart->setSnapToBackground(true);
+	ButtonMenuContinue->setSnapToBackground(true);
+	ButtonMenuStatic->setSnapToBackground(true);
+	ButtonMenuInf->setSnapToBackground(true);
+	ButtonLobbyEasy->setSnapToBackground(true);
+	ButtonLobbyNormal->setSnapToBackground(true);
+	ButtonLobbyHard->setSnapToBackground(true);
+	ButtonLobbyBack->setSnapToBackground(false);
+	ButtonLabirintBack->setSnapToBackground(false);
 
-	TextBlackboard->setPosSize(0.341,0.12,0.32,0.3275);
+	TextBlackboard->setPosSize(0.36,0.15,0.28,0.5);
 	TextBlackboard->setSnapToBackground(true);
 	TextBlackboard->setColorFill(sf::Color::Black);
-	TextBlackboard->setSize(1 / 30.0);
+	TextBlackboard->setSize(1 / 20.0);
 	TextBlackboard->setText(L"Стрілець робить постріл по мішені один раз. У випадку промаху стрілець робить другий постріл по тій самій мішені. Імовірність влучання в мішень при одному пострілі дорівнює 0,7. Знайдіть імовірність того, що мішень буде уражена.");
 
-	Form1.addInterfaceObj(ButtonF1_1);
-	Form1.addInterfaceObj(ButtonF1_2);
-	Form1.addInterfaceObj(ButtonF1_3);
-	Form2.addInterfaceObj(ButtonF2_back);
-	Form2.addInterfaceObj(ButtonF2_easy);
-	Form3.addInterfaceObj(ButtonF3);
-	//Form4.addInterfaceObj(ButtonF4);
-	Form4.addInterfaceObj(ButtonF4_back);
-	Form5.addInterfaceObj(ButtonF5_back);
-	Form6.addInterfaceObj(ButtonF6_back);
+	Form_menu.addInterfaceObj(ButtonMenuStart);
+	Form_menu.addInterfaceObj(ButtonMenuContinue);
+	Form_menu.addInterfaceObj(ButtonMenuStatic);
+	Form_menu.addInterfaceObj(ButtonMenuInf);
+	Form_lobby.addInterfaceObj(ButtonLobbyBack);
+	Form_lobby.addInterfaceObj(ButtonLobbyEasy);
+	Form_lobby.addInterfaceObj(ButtonLobbyNormal);
+	Form_lobby.addInterfaceObj(ButtonLobbyHard);
+	Form_labirint.addInterfaceObj(ButtonLabirint);
+	Form_labirint.addInterfaceObj(ButtonLabirintBack);
+	// Form_test.addInterfaceObj(ButtonTest);
+	Form_test.addInterfaceObj(ButtonTestBack);
+	Form_test.addInterfaceObj(ButtonTestFinish);
+	Form_stat.addInterfaceObj(ButtonStatBack);
+	Form_inf.addInterfaceObj(ButtonInfBack);
 
-	Form1.initializeBackground(texture_window);
-	Form2.initializeBackground(texture_window3);
-	Form4.initializeBackground(texture_window3);
-	Form5.initializeBackground(texture_window);
-	Form6.initializeBackground(texture_window);
+	Form_menu.initializeBackground(texture_window);
+	Form_lobby.initializeBackground(texture_window3);
+	Form_test.initializeBackground(texture_window2);
+	Form_stat.initializeBackground(texture_window);
+	Form_inf.initializeBackground(texture_window);
 
-	Form4.addInterfaceObj(ButtonF4_1);
-	Form4.addInterfaceObj(ButtonF4_2);
-	Form4.addInterfaceObj(ButtonF4_3);
-	Form4.addInterfaceObj(ButtonF4_4);
-	Form4.addInterfaceObj(TextBlackboard);
+	Form_test.addInterfaceObj(ButtonTest1);
+	Form_test.addInterfaceObj(ButtonTest2);
+	Form_test.addInterfaceObj(ButtonTest3);
+	Form_test.addInterfaceObj(ButtonTest4);
+	Form_test.addInterfaceObj(TextBlackboard);
 
 }

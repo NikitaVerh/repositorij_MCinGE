@@ -4,29 +4,34 @@
 #include "classesForTasks.h"
 #include "exam.h"
 
-extern Form Form1; //меню
-extern Form Form2; //лобі
-extern Form Form3; //лабіринт
-extern Form Form4; //кабінет
-extern Form Form5; //статистика
-extern Form Form6; //інформація
+extern Form Form_menu; //меню
+extern Form Form_lobby; //лобі
+extern Form Form_labirint; //лабіринт
+extern Form Form_test; //кабінет
+extern Form Form_stat; //статистика
+extern Form Form_inf; //інформація
 
-extern Button* ButtonF1_1;
-extern Button* ButtonF1_2;
-extern Button* ButtonF1_3;
-extern Button* ButtonF2_easy;
-extern Button* ButtonF2_back;
-extern Button* ButtonF3;
+extern Button* ButtonMenuStart;
+extern Button* ButtonMenuContinue;
+extern Button* ButtonMenuStatic;
+extern Button* ButtonMenuInf;
+extern Button* ButtonLobbyEasy;
+extern Button* ButtonLobbyNormal;
+extern Button* ButtonLobbyHard;
+extern Button* ButtonLobbyBack;
+extern Button* ButtonLabirint;
+extern Button* ButtonLabirintBack;
 
-extern Button* ButtonF4;
-extern Button* ButtonF4_1;
-extern Button* ButtonF4_2;
-extern Button* ButtonF4_3;
-extern Button* ButtonF4_4;
-extern Button* ButtonF4_back;
+extern Button* ButtonTest;
+extern Button* ButtonTest1;
+extern Button* ButtonTest2;
+extern Button* ButtonTest3;
+extern Button* ButtonTest4;
+extern Button* ButtonTestBack;
+extern Button* ButtonTestFinish;
 
-extern Button* ButtonF5_back;
-extern Button* ButtonF6_back;
+extern Button* ButtonStatBack;
+extern Button* ButtonInfBack;
 
 extern TextCanvas* TextBlackboard;
 
