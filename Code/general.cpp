@@ -22,7 +22,6 @@ void startProgram() {
 		loadResources();
 		initializeVariables();
 		initializeInterface();
-		exam.load_tasks();
 	}
 	catch (const ResourceLoadException& e) {
 		std::cerr << "Помилка: " << e.what() << '\n';
@@ -132,7 +131,7 @@ void windowEventHandling(sf::RenderWindow& window) {
 void UpdateGraphic(sf::RenderWindow& window) {
 	window.setView(sf::View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y)));
 
-	sizeBlock = window.getSize().y / float(1.3);
+	sizeBlock = window.getSize().y / float(1.4);
 	Form1.updateForm(window);
 	Form2.updateForm(window);
 	Form3.updateForm(window);

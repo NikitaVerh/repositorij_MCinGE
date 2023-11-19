@@ -18,6 +18,10 @@ public:
         return theme;
     }
 
+    void setTheme(std::string chsn_theme) {
+        theme = chsn_theme;
+    }
+
     void setWallLeft(bool value) {
         WallLeft = value;
     }

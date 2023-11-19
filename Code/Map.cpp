@@ -198,12 +198,40 @@ void fill_range(int i, int j) {
     if (k != mapWidth) fill_range(i, k+1);
 }
 
+void Theme_Doors() {
+    srand((unsigned int)(time(0)));
+    bool doorset, doors_prsnt;
+    int i;
+    vector<string> themes = task_union.getThemes();
+    int theme_amnt = themes.size();
+    for (const string& sngl_theme : themes) {
+        i = rand() % mapHeight;
+        doors_prsnt = doorset = false;
+        do {
+            for (int j = 0; j < mapWidth; j++) {
+                if (GameMap.getMapBlock(j, i).getTypeBlock() == type_block_door) {
+                    if (GameMap.getMapBlock(j, i).getTheme() == "") {
+                        doors_prsnt = true;
+                        if (rand() % mapWidth+1 > mapWidth-1) GameMap.getMapBlock(j, i).setTheme(sngl_theme);
+                    }
+                    if (GameMap.getMapBlock(j, i).getTheme() == sngl_theme) {
+                        doorset = true;
+                        break;
+                    }
+                }
+            }
+            if (!doors_prsnt) i = (i + 1) % mapHeight;
+        } while (doorset == false);
+    }
+}
+
 void Door_generation() {
     if (MinDoor == 0) MinDoor = 1;
     for (int i = 0; i < mapHeight; i++) {
         fill_range(i, 0);
     }
     GameMap.setBlock(0, source/mapWidth, new BlockWall());
+    Theme_Doors();
 }
 
 
@@ -257,7 +285,7 @@ void Map::draw(sf::RenderWindow& window) {
                 title.setFillColor(color_door_title);
                 float size = sizeBlock / 4.0;
                 title.setCharacterSize(size);
-                while (title.getLocalBounds().width > sizeBlock / 5.0) {
+                while (title.getLocalBounds().width > sizeBlock / 4.0 && size > 1) {
                     title.setCharacterSize(size--);
                 }
                 title.setPosition(x, y);

@@ -30,6 +30,7 @@ void initializeVariables() {
 	playerHeight = 0.6;
 	playerWidth = playerHeight * texture_person.getSize().x / texture_person.getSize().y;
 	GameMap = Map(); // створюватис€ ц€ зм≥нна повинна п≥сл€ загрузки текстр
+	exam.load_tasks();
 	GameMap.generateLabyrinth();
 }
 
