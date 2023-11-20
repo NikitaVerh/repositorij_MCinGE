@@ -27,3 +27,9 @@ void UpdateGraphic(sf::RenderWindow& window);
 
 // метод що виконується один раз при старті програми
 void startProgram();
+
+void restart_all();
+
+void update_statistics();
+
+void setMenu(int menu);

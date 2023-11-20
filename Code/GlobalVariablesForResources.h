@@ -25,8 +25,6 @@ extern int Menu;
 
 extern json tasks;
 
-extern std::string currentDifficulty; // Текущий уровень сложности
-
 enum {
 	type_block_wall,
 	type_block_door,
@@ -72,3 +70,20 @@ extern sf::Color ColorForPressedButtonDeskLine;
 extern float scrollY;
 
 extern sf::Color color_door_title;
+
+struct rslt_pair {
+	int mark = 0;
+	std::string theme = "";
+	rslt_pair(int st_mrk, std::string st_thm) {
+		mark = st_mrk;
+		theme = st_thm;
+	}
+};
+extern int test_amnt;
+extern std::vector<rslt_pair> easy_best_marks;
+extern std::vector<rslt_pair> normal_best_marks;
+extern std::vector<rslt_pair> hard_best_marks;
+extern std::vector<rslt_pair> last_marks;
+extern std::vector<rslt_pair> curr_marks;
+extern std::string last_difficulty;
+extern int game_sessions;

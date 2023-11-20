@@ -12,6 +12,7 @@ private:
 	string task_theme;
 	string task_diff;
 	int mark;
+	double diff_factor;
 	vector<string> difficulties;
 public:
 
@@ -28,4 +29,8 @@ public:
 	void answer_chosen(int code_button);
 
 	void stop_test();
+
+	int is_completed(string theme);
+
+	void blackboard_result(int mark);
 };

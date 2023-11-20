@@ -2,14 +2,22 @@
 #pragma once
 #include "GlobalVariablesOfClasses.h"
 #include "exam.h"
+#include "general.h"
+#include <algorithm>
 
 void Exam::load_tasks() {
 	task_union.readTasksFromJson();
 	difficulties = task_union.getDifficults(task_union.getThemes()[0]);
 };
 void Exam::set_difficulty(int diff) {
-	task_diff = difficulties[diff];
+	if (diff == 0) task_diff = "easy";
+	if (diff == 1) task_diff = "normal";
+	if (diff == 2) task_diff = "hard";
+	if (task_diff == "easy") diff_factor = 1;
+	if (task_diff == "normal") diff_factor = 1.8;
+	if (task_diff == "hard") diff_factor = 2.4;
 }
+
 void Exam::start_test(string theme) {
 	if (theme == "") return;
 	task_union.resetAllTasks();
@@ -25,7 +33,7 @@ void Exam::start_test(string theme) {
 	ButtonTest4->setVisible(true);
 	ButtonTestFinish->setVisible(true);
 	ButtonTestBack->setVisible(false);
-	Menu = menu_test;
+	setMenu(menu_test);
 }
 void Exam::next_task() {
 	curr_task = task_union.getTask(task_theme, task_diff);
@@ -44,13 +52,75 @@ void Exam::answer_chosen(int code_button) {
 	if (counter_task < max_count_task) next_task();
 	else stop_test();
 }
-void Exam::stop_test() {
-	//peredat ocenku v tablichku
-	TextBlackboard->setText("Ваша оцінка: " + std::to_string(mark) + "/" + std::to_string(max_count_task));
+
+int Exam::is_completed(string theme) {
+	for (rslt_pair& single_pair : curr_marks) {
+		if (single_pair.theme == theme) {
+			if (single_pair.mark != 0) return single_pair.mark;
+		}
+	}
+	return 0;
+}
+
+void Exam::blackboard_result(int mark) {
+	TextBlackboard->setText("Ваша оцінка: " + std::to_string(mark) + "/" + std::to_string(int(diff_factor*max_count_task)));
+	setMenu(menu_test);
 	ButtonTest1->setVisible(false);
 	ButtonTest2->setVisible(false);
 	ButtonTest3->setVisible(false);
 	ButtonTest4->setVisible(false);
 	ButtonTestFinish->setVisible(false);
 	ButtonTestBack->setVisible(true);
+}
+
+bool session_end() {
+	for (rslt_pair& single_pair : curr_marks) {
+		if (single_pair.mark == 0) return false;
+	}
+	return true;
+}
+
+
+void Exam::stop_test() {
+	mark = round(mark*diff_factor);
+	blackboard_result(mark);
+	if (mark > 0) ++test_amnt;
+	for (rslt_pair& single_pair : curr_marks) {
+		if (single_pair.theme == task_theme) {
+			single_pair.mark = mark;
+			break;
+		}
+	}
+	if (task_diff == "easy") {
+		for (rslt_pair& single_pair : easy_best_marks) {
+			if (single_pair.theme == task_theme) {
+				if (single_pair.mark < mark) single_pair.mark = mark;
+				break;
+			}
+		}
+	}
+	if (task_diff == "normal") {
+		for (rslt_pair& single_pair : normal_best_marks) {
+			if (single_pair.theme == task_theme) {
+				if (single_pair.mark < mark) single_pair.mark = mark;
+				break;
+			}
+		}
+	}
+	if (task_diff == "hard") {
+		for (rslt_pair& single_pair : hard_best_marks) {
+			if (single_pair.theme == task_theme) {
+				if (single_pair.mark < mark) single_pair.mark = mark;
+				break;
+			}
+		}
+	}
+	if (session_end()) {
+		last_marks.clear();
+		for (rslt_pair& single_pair : curr_marks) {
+			last_marks.push_back(single_pair);
+		}
+		last_difficulty = task_diff;
+		game_sessions++;
+	}
 }

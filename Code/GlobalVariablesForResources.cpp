@@ -28,7 +28,6 @@ float playerHeight;
 float playerWidth;
 float speed_player = 0.5;
 int Y_start_climbing = -1;
-std::string currentDifficulty = "easy"; // Текущий уровень сложности
 
 
 float scrollX = 0;
@@ -49,3 +48,12 @@ sf::Color ColorForPressedButtonDesk(20, 87, 21);
 sf::Color ColorForPressedButtonDeskLine(10, 76, 11, 255);
 
 sf::Color color_door_title(255,255,255);
+
+int test_amnt = 0;
+std::vector<rslt_pair> easy_best_marks;
+std::vector<rslt_pair> normal_best_marks;
+std::vector<rslt_pair> hard_best_marks;
+std::vector<rslt_pair> last_marks;
+std::vector<rslt_pair> curr_marks;
+std::string last_difficulty = "";
+int game_sessions = 0;

@@ -51,6 +51,40 @@ bool button_down = false;
 bool button_interact = false;
 
 
+
+void restart_all() {
+	GameMap.generateLabyrinth();
+	player.Player_set_source();
+	std::vector<std::string> themes = task_union.getThemes();
+	curr_marks.clear();
+	for (const std::string& single_theme : themes) {
+		curr_marks.push_back(rslt_pair(0, single_theme));
+	}
+}
+
+
+void update_statistics() {
+	sf::String str;
+	str = "Усього тестів пройдено: " + std::to_string(test_amnt) + "\n" + "Усього сесій гри завершено: " + std::to_string(game_sessions) + "\n" + "\n" + "Найвищі отримані оцінки:" + "\n" + "    Рівень складності - легко:";
+	for (rslt_pair& single_pair : easy_best_marks) {
+		str = str + "\n        " + single_pair.theme + "  -  " + std::to_string(single_pair.mark);
+	}
+	str = str + "\n" + "    Рівень складності - нормально:";
+	for (rslt_pair& single_pair : normal_best_marks) {
+		str = str + "\n        " + single_pair.theme + "  -  " + std::to_string(single_pair.mark);
+	}
+	str = str + "\n" + "    Рівень складності - складно:";
+	for (rslt_pair& single_pair : hard_best_marks) {
+		str = str + "\n        " + single_pair.theme + "  -  " + std::to_string(single_pair.mark);
+	}
+	str = str + "\n" + "\n" + "Інформація про останню сесію гри:" + "\n" + "    Складність  -  " + last_difficulty;
+	for (rslt_pair& single_pair : last_marks) {
+		str = str + "\n    " + single_pair.theme + "  -  " + std::to_string(single_pair.mark);
+	}
+	TextStatistics->setText(str);
+}
+
+
 // метод для обробки подій вікна
 void windowEventHandling(sf::RenderWindow& window) {
 	sf::Event event;
@@ -94,24 +128,23 @@ void windowEventHandling(sf::RenderWindow& window) {
 
 	switch (Menu) {
 	case menu_main:
-		if (ButtonMenuStart->Released()) { std::cout << "released" << std::endl; setMenu(menu_lobby); }
-		if (ButtonMenuContinue->Released()) { std::cout << "released" << std::endl; setMenu(menu_game); }
-		if (ButtonMenuStatic->Released()) { std::cout << "released" << std::endl; setMenu(menu_stat); }
-		if (ButtonMenuInf->Released()) { std::cout << "released" << std::endl; setMenu(menu_inf); }
+		if (ButtonMenuStart->Released()) { setMenu(menu_lobby); restart_all();}
+		if (ButtonMenuContinue->Released()) {setMenu(menu_game); }
+		if (ButtonMenuStatic->Released()) { setMenu(menu_stat); update_statistics(); }
+		if (ButtonMenuInf->Released()) {setMenu(menu_inf); }
 		break;
 	case menu_game:
-		if (ButtonLabirint->Released()) { std::cout << "released" << std::endl; /* Menu = menu_main; */ GameMap.generateLabyrinth(); player.Player_set_source(); }
-		if (ButtonLabirintBack->Released()) { std::cout << "released" << std::endl; setMenu(menu_lobby); }
+		if (ButtonLabirint->Released()) { /* Menu = menu_main; */ restart_all(); }
+		if (ButtonLabirintBack->Released()) {  setMenu(menu_main); }
 		break;
 	case menu_lobby:
-		if (ButtonLobbyBack->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
+		if (ButtonLobbyBack->Released()) {  Menu = menu_main; }
 		if (ButtonLobbyEasy->Released()) { exam.set_difficulty(0); Menu = menu_game; }
 		if (ButtonLobbyNormal->Released()) { exam.set_difficulty(1); Menu = menu_game; }
 		if (ButtonLobbyHard->Released()) { exam.set_difficulty(2); Menu = menu_game; }
 		break;
 	case menu_test:
-		if (ButtonTest->Released()) { std::cout << "F" << std::endl; }
-		if (ButtonTestBack->Released()) { std::cout << "released" << std::endl; Menu = menu_game; }
+		if (ButtonTestBack->Released()) { Menu = menu_game; }
 		if (ButtonTest1->Released()) { exam.answer_chosen(0); }
 		if (ButtonTest2->Released()) { exam.answer_chosen(1); }
 		if (ButtonTest3->Released()) { exam.answer_chosen(2); }

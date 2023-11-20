@@ -35,7 +35,13 @@ void initializeVariables() {
 	playerWidth = playerHeight * (texture_person.getSize().x/8.0) / texture_person.getSize().y;
 	GameMap = Map(); // створюватис€ ц€ зм≥нна повинна п≥сл€ загрузки текстр
 	exam.load_tasks();
-	GameMap.generateLabyrinth();
+	std::vector<std::string> themes = task_union.getThemes();
+	for (const std::string& single_theme : themes) {
+		easy_best_marks.push_back(rslt_pair(0, single_theme));
+		normal_best_marks.push_back(rslt_pair(0, single_theme));
+		hard_best_marks.push_back(rslt_pair(0, single_theme));
+		last_marks.push_back(rslt_pair(0, single_theme));
+	}
 }
 
 void initializeInterface() {

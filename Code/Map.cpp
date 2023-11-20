@@ -241,8 +241,7 @@ void Map::setNewHitboxes() {
         for (int j = 0; j < mapHeight; j++) {
             if (map[i][j]->getWallRight() == true) addStaticHitbox(Hitbox(i+0.955,j+0.05,0.09,0.95));
         }
-    }
-    
+    }  
 }
 
 

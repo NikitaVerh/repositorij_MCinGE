@@ -138,7 +138,11 @@ void Player::move(float dx, float dy) {
 void Player::openDoor() {
 	if (GameMap.getMapBlock(trunc(x), trunc(y)).getTypeBlock() == type_block_door){
 		if (x - trunc(x) >= 0.35 && x - trunc(x) <= 0.65) {
-			exam.start_test(GameMap.getMapBlock(trunc(x), trunc(y)).getTheme());
+			int mark_prsnt = exam.is_completed(GameMap.getMapBlock(trunc(x), trunc(y)).getTheme());
+			if (mark_prsnt != 0) {
+				exam.blackboard_result(mark_prsnt);
+			}
+			else exam.start_test(GameMap.getMapBlock(trunc(x), trunc(y)).getTheme());
 		}
 	}
 }
