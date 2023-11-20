@@ -17,10 +17,11 @@
 //обробка виняткових ситуацій врахована
 // 
 // метод що виконується один раз при старті програми
-void startProgram() {
+void startProgram(sf::RenderWindow& window) {
 	try {
 		loadResources();
 		initializeVariables();
+		initializeCursorAndIcon(window);
 		initializeInterface();
 	}
 	catch (const ResourceLoadException& e) {
@@ -89,7 +90,7 @@ void update_statistics() {
 void windowEventHandling(sf::RenderWindow& window) {
 	sf::Event event;
 	while (window.pollEvent(event)) {
-
+		window.setMouseCursor(cursor);
 		if (sf::Event::Closed == event.type) { stopProgram(window); }
 		if (sf::Event::KeyReleased == event.type) {
 			if (event.key.code == sf::Keyboard::Key::Num1) { setMenu(menu_main); std::cout << "Menu: " << Menu << std::endl; }
@@ -125,7 +126,7 @@ void windowEventHandling(sf::RenderWindow& window) {
 	}
 	
 
-
+	if(window.hasFocus())
 	switch (Menu) {
 	case menu_main:
 		if (ButtonMenuStart->Released()) { setMenu(menu_lobby); restart_all();}
@@ -160,7 +161,7 @@ void windowEventHandling(sf::RenderWindow& window) {
 	default:
 		break;
 	}
-
+	
 }
 
 // метод для оновлення інтерфейсу

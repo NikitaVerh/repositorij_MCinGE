@@ -26,7 +26,7 @@ void GraphicRender(sf::RenderWindow& window);
 void UpdateGraphic(sf::RenderWindow& window);
 
 // метод що виконується один раз при старті програми
-void startProgram();
+void startProgram(sf::RenderWindow& window);
 
 void restart_all();
 

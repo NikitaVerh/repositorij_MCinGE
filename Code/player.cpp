@@ -150,7 +150,7 @@ void Player::openDoor() {
 // метод дл€ рендеру гравц€ на в≥кн≥
 void Player::drawPlayer(sf::RenderWindow& window) {
 	scrollX = -x * sizeBlock + window.getSize().x/2.0;
-	scrollY = -(y - 1.2) * sizeBlock;
+	scrollY = -(y - 1.125) * sizeBlock;
 
 	if (scrollX > 0) { scrollX = 0; }
 	if (scrollY > 0) { scrollY = 0; }

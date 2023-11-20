@@ -36,6 +36,9 @@ extern Button* ButtonInfBack;
 extern TextCanvas* TextBlackboard;
 extern TextCanvas* TextStatistics;
 
+extern Slider* SliderMusic;
+extern Slider* SliderSound;
+
 extern Map GameMap;
 extern Player player;
 

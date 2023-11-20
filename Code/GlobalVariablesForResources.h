@@ -2,6 +2,9 @@
 #include "nlohmann/json.hpp"
 #include <SFML/Graphics.hpp>
 
+extern sf::Cursor cursor;
+extern sf::Image imageCursor;
+
 using json = nlohmann::json;
 
 extern sf::Texture texture_window;
@@ -16,6 +19,14 @@ extern sf::Texture texture_wall_left;
 extern sf::Texture texture_wall_right;
 extern sf::Texture texture_person;
 extern sf::Texture texture_person_left;
+
+extern sf::Texture texture_slider_pic_music;
+extern sf::Texture texture_slider_pic_sound;
+extern sf::Texture texture_slider;
+extern sf::Texture texture_slider_track;
+
+
+extern sf::Texture texture_cursor;
 
 extern int sizeBlock;
 

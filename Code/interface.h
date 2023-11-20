@@ -25,13 +25,21 @@ private:
 	sf::RectangleShape Area;
 	sf::RectangleShape Track;
 	sf::RectangleShape Pic;
+	sf::Texture texturePic;
 	float value;
+
+	bool pressed;
+	bool released;
+	bool canUpdatePressed;
 public:
 	Slider();
 	void draw(sf::RenderWindow& window) override;
 	void Update(float windowWidth, float windowHeight, float posX, float posY) override;
 	void setPosSize(float indent_left, float indent_top, float W, float H) override;
 	void updatePressed(sf::RenderWindow& window) override;
+	void setTexturePic(sf::Texture& textureForPic);
+	float getValue();
+	void setCanUpdatePresed(bool can);
 };
 
 class TextCanvas : public interfaceObj{
@@ -100,6 +108,7 @@ private:
 	std::vector<interfaceObj*> elements;
 	sf::RectangleShape background;
 	bool bgr = false;
+	float coefficient;
 
 	void update(sf::RenderWindow& window);
 	void updateBackground(sf::RenderWindow& window);
@@ -111,7 +120,9 @@ public:
 	void updateForm(sf::RenderWindow& window);
 	void initializeBackground(sf::Texture& texture);
 	void drawBackground(sf::RenderWindow& window);
+	void setBackgroundCoefficient(float value);
 	
 	//void setBackgroundIndent();
 };
 
+std::vector<sf::String> getWords(sf::String str);
