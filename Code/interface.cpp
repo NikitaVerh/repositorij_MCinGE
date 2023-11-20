@@ -119,7 +119,7 @@ void Button::setStyle(sf::String str, float textSize, sf::Color colorFill, sf::C
 }
 
 void Button::setText(sf::String str) {
-	text_button.setString(str);
+	text_button.setString(sf::String::fromUtf8(str.begin(), str.end()));
 }
 
 void Button::setStyleText(float textSize, sf::Color colorText) {
@@ -258,6 +258,7 @@ void TextCanvas::Update(float windowWidth, float windowHeight, float posX, float
 			strT += "\n" + words[i] + " ";
 		}
 	}
+	//sf::String strT32 = sf::String::fromUtf8(strT.begin(), strT.end());
 	text.setString(strT);
 
 	text.setPosition(windowWidth * indentLeft + posX, windowHeight * indentTop + posY);
@@ -287,10 +288,11 @@ std::vector<sf::String> getWords(sf::String str) {
 	while (!str.isEmpty()) {
 		int pos = str.find(" ");
 		if (pos == -1) {
-			words.push_back(str);
+			words.push_back(sf::String::fromUtf8(str.begin(), str.end()));
 			break;
 		}
-		words.push_back(str.substring(0, pos));
+		sf::String a = str.substring(0, pos);
+		words.push_back(sf::String::fromUtf8(a.begin(), a.end()));
 		str.erase(0, pos + 1);
 	}
 	return words;
@@ -298,7 +300,7 @@ std::vector<sf::String> getWords(sf::String str) {
 
 
 void TextCanvas::setText(sf::String value) {
-	strText = value; 
+	strText = value;
 	words = getWords(value);
 	text.setFont(master_font);
 	text.setLineSpacing(1.2);

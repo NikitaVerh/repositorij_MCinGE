@@ -279,7 +279,8 @@ void Map::draw(sf::RenderWindow& window) {
             if (map[i][j]->getTypeBlock() == type_block_door) {
                 sf::Text title;
                 title.setFont(master_font);
-                title.setString(map[i][j]->getTheme());
+                sf::String textDoor = map[i][j]->getTheme();
+                title.setString(sf::String::fromUtf8(textDoor.begin(), textDoor.end()));
                 float x = i * sizeBlock + scrollX + sizeBlock / 2.0;
                 float y = j * sizeBlock + scrollY + sizeBlock / 2.5;
                 title.setFillColor(color_door_title);

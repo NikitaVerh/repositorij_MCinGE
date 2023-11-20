@@ -46,7 +46,7 @@ void Exam::answer_chosen(int code_button) {
 }
 void Exam::stop_test() {
 	//peredat ocenku v tablichku
-	TextBlackboard->setText(L"Ваша оцінка: " + std::to_string(mark) + "/" + std::to_string(max_count_task));
+	TextBlackboard->setText("Ваша оцінка: " + std::to_string(mark) + "/" + std::to_string(max_count_task));
 	ButtonTest1->setVisible(false);
 	ButtonTest2->setVisible(false);
 	ButtonTest3->setVisible(false);
