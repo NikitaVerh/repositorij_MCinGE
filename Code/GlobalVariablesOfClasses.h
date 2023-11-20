@@ -34,6 +34,7 @@ extern Button* ButtonStatBack;
 extern Button* ButtonInfBack;
 
 extern TextCanvas* TextBlackboard;
+extern TextCanvas* TextStatistics;
 
 extern Map GameMap;
 extern Player player;
