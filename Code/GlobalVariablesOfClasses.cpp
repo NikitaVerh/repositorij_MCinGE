@@ -32,6 +32,7 @@ Button* ButtonStatBack = new Button();
 Button* ButtonInfBack = new Button();
 
 TextCanvas* TextBlackboard = new TextCanvas();
+TextCanvas* TextStatistics = new TextCanvas();
 
 Map GameMap;
 Player player;
