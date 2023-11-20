@@ -98,18 +98,12 @@
     <ClInclude Include="Code\timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Code\save.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\textures\interface\background.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\textures\blocks\texture_wall.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\textures\blocks\texture_door.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\textures\blocks\texture_ladder.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\textures\blocks\texture_wall_left.png">
@@ -149,6 +143,60 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\textures\interface\cursor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_door1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_door2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_door3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_door4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_door5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_ladder1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_ladder2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_ladder3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_ladder4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_ladder5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_wall1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_wall2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_wall3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_wall4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_wall5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_door0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_ladder0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_wall0.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
