@@ -1,6 +1,7 @@
 #pragma once
 #include "nlohmann/json.hpp"
 #include <SFML/Graphics.hpp>
+#include "GlobalConnsts.h"
 
 extern sf::Cursor cursor;
 extern sf::Image imageCursor;
@@ -11,9 +12,9 @@ extern sf::Texture texture_window;
 extern sf::Texture texture_window2;
 extern sf::Texture texture_window3;
 
-extern sf::Texture texture_block_wall;
-extern sf::Texture texture_block_door;
-extern sf::Texture texture_block_ladder;
+extern sf::Texture texture_block_wall[maxIdTextres];
+extern sf::Texture texture_block_door[maxIdTextres];
+extern sf::Texture texture_block_ladder[maxIdTextres];
 
 extern sf::Texture texture_wall_left;
 extern sf::Texture texture_wall_right;
@@ -98,3 +99,7 @@ extern std::vector<rslt_pair> last_marks;
 extern std::vector<rslt_pair> curr_marks;
 extern std::string last_difficulty;
 extern int game_sessions;
+
+
+
+

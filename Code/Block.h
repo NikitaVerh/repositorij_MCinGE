@@ -10,6 +10,7 @@ protected:
     bool WallLeft = false;
     bool WallRight = false;
     sf::RectangleShape Area;
+    int idTexture = 0;
 public:
     virtual sf::RectangleShape getBlockForDraw() = 0;
     virtual int getTypeBlock() = 0;
@@ -39,8 +40,8 @@ public:
 class BlockWall : public Block {
 public:
     BlockWall() {
-        //Area.setTextureRect(sf::IntRect(0, 0, texture_block_wall.getSize().x, texture_block_wall.getSize().y));
-        Area.setTexture(&texture_block_wall);
+        idTexture = rand() % maxIdTextres;
+        Area.setTexture(&texture_block_wall[idTexture]);
     }
     sf::RectangleShape getBlockForDraw() override {
         return Area;
@@ -55,7 +56,8 @@ class BlockDoor : public Block {
 public:
     BlockDoor() {
         theme = "";
-        Area.setTexture(&texture_block_door);
+        idTexture = rand() % maxIdTextres;
+        Area.setTexture(&texture_block_door[idTexture]);
     }
     sf::RectangleShape getBlockForDraw() override {
         return Area;
@@ -69,7 +71,8 @@ public:
 class BlockLadder : public Block {
 public:
     BlockLadder() {
-        Area.setTexture(&texture_block_ladder);
+        idTexture = rand() % maxIdTextres;
+        Area.setTexture(&texture_block_ladder[idTexture]);
     }
     sf::RectangleShape getBlockForDraw() override {
         return Area;
