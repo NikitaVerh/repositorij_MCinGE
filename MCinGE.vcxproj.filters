@@ -136,9 +136,25 @@
     <Image Include="Resources\textures\interface\slider\slider_track.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\textures\interface\background2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\interface\old_background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\player-sprite.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\player-sprite-left.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\interface\cursor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\fonts\testFont.ttf" />
+    <Font Include="Resources\fonts\master_font.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\json\task.json" />

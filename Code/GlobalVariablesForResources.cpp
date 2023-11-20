@@ -2,6 +2,9 @@
 #include <SFML/Graphics.hpp>
 #include "GlobalVariablesForResources.h"
 
+sf::Cursor cursor;
+sf::Image imageCursor;
+
 json tasks;
 
 sf::Texture texture_window;
@@ -17,6 +20,13 @@ sf::Texture texture_wall_left;
 sf::Texture texture_wall_right;
 sf::Texture texture_person;
 sf::Texture texture_person_left;
+
+sf::Texture texture_slider_pic_music;
+sf::Texture texture_slider_pic_sound;
+sf::Texture texture_slider;
+sf::Texture texture_slider_track;
+
+sf::Texture texture_cursor;
 
 sf::Font master_font;
 

@@ -258,7 +258,34 @@ void Map::generateLabyrinth() {
     setNewHitboxes();
 }
 
+void drawText(sf::RenderWindow& window, int typeBlock, sf::String str, int i, int j) {
+    if (typeBlock == type_block_door) {
+        sf::Text title;
+        title.setFont(master_font);
+        sf::String textDoor = str;
+        title.setString(sf::String::fromUtf8(textDoor.begin(), textDoor.end()));
+        float x = i * sizeBlock + scrollX + sizeBlock / 2.0;
+        float y = j * sizeBlock + scrollY + sizeBlock / 2.5;
+        title.setFillColor(color_door_title);
+        float size = sizeBlock / 4.0;
+        title.setCharacterSize(size);
+        while (title.getLocalBounds().width > sizeBlock / 4.0 && size > 1) {
+            size -= size * 0.5;
+            title.setCharacterSize(size);
+        }
+        title.setPosition(x, y);
+        title.setOrigin(title.getLocalBounds().width / 2.0, title.getLocalBounds().height / 2.0);
 
+        std::vector<sf::String> words = getWords(textDoor);
+        for (int i = 0; i < words.size(); i++) {
+            title.setPosition(x, y + i * size);
+            title.setString(words[i]);//sf::String::fromUtf8(words[i].begin(), words[i].end()));
+            title.setOrigin(title.getLocalBounds().width / 2.0, title.getLocalBounds().height / 2.0);
+            window.draw(title);
+        }
+        
+    }
+}
 
 void Map::draw(sf::RenderWindow& window) {
     sf::Sprite WallLeft;
@@ -276,24 +303,7 @@ void Map::draw(sf::RenderWindow& window) {
 			block.setPosition(sf::Vector2f(i*sizeBlock + scrollX,j*sizeBlock + scrollY));
 			block.setSize(sf::Vector2f(sizeBlock, sizeBlock));
 			window.draw(block);
-            if (map[i][j]->getTypeBlock() == type_block_door) {
-                sf::Text title;
-                title.setFont(master_font);
-                sf::String textDoor = map[i][j]->getTheme();
-                title.setString(sf::String::fromUtf8(textDoor.begin(), textDoor.end()));
-                float x = i * sizeBlock + scrollX + sizeBlock / 2.0;
-                float y = j * sizeBlock + scrollY + sizeBlock / 2.5;
-                title.setFillColor(color_door_title);
-                float size = sizeBlock / 4.0;
-                title.setCharacterSize(size);
-                while (title.getLocalBounds().width > sizeBlock / 4.0 && size > 1) {
-                    size -= size * 0.5;
-                    title.setCharacterSize(size);
-                }
-                title.setPosition(x, y);
-                title.setOrigin(title.getLocalBounds().width/2.0, title.getLocalBounds().height / 2.0);
-                window.draw(title);
-            }
+            drawText(window, map[i][j]->getTypeBlock(), map[i][j]->getTheme(), i, j);
 
             if (GameMap.getMapBlock(i, j).getWallLeft()) {
                 WallLeft.setPosition(sf::Vector2f(i * sizeBlock + scrollX, j * sizeBlock + scrollY));

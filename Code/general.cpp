@@ -17,10 +17,11 @@
 //обробка виняткових ситуацій врахована
 // 
 // метод що виконується один раз при старті програми
-void startProgram() {
+void startProgram(sf::RenderWindow& window) {
 	try {
 		loadResources();
 		initializeVariables();
+		initializeCursorAndIcon(window);
 		initializeInterface();
 	}
 	catch (const ResourceLoadException& e) {
@@ -51,11 +52,12 @@ bool button_down = false;
 bool button_interact = false;
 
 
+
 // метод для обробки подій вікна
 void windowEventHandling(sf::RenderWindow& window) {
 	sf::Event event;
 	while (window.pollEvent(event)) {
-
+		window.setMouseCursor(cursor);
 		if (sf::Event::Closed == event.type) { stopProgram(window); }
 		if (sf::Event::KeyReleased == event.type) {
 			if (event.key.code == sf::Keyboard::Key::Num1) { setMenu(menu_main); std::cout << "Menu: " << Menu << std::endl; }
@@ -91,13 +93,15 @@ void windowEventHandling(sf::RenderWindow& window) {
 	}
 	
 
-
+	if(window.hasFocus())
 	switch (Menu) {
 	case menu_main:
 		if (ButtonMenuStart->Released()) { std::cout << "released" << std::endl; setMenu(menu_lobby); }
 		if (ButtonMenuContinue->Released()) { std::cout << "released" << std::endl; setMenu(menu_game); }
 		if (ButtonMenuStatic->Released()) { std::cout << "released" << std::endl; setMenu(menu_stat); }
 		if (ButtonMenuInf->Released()) { std::cout << "released" << std::endl; setMenu(menu_inf); }
+		SliderMusic->setCanUpdatePresed(true); // дати дозвіл на обробку натиснень
+		SliderSound->setCanUpdatePresed(true); // дати дозвіл на обробку натиснень
 		break;
 	case menu_game:
 		if (ButtonLabirint->Released()) { std::cout << "released" << std::endl; /* Menu = menu_main; */ GameMap.generateLabyrinth(); player.Player_set_source(); }
@@ -127,7 +131,7 @@ void windowEventHandling(sf::RenderWindow& window) {
 	default:
 		break;
 	}
-
+	
 }
 
 // метод для оновлення інтерфейсу

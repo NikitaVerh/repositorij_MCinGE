@@ -65,7 +65,7 @@ void Button::draw(sf::RenderWindow& window) {
 }
 
 void Button::updatePressed(sf::RenderWindow& window) {
-	if (!visible) {
+	if (!visible || !window.hasFocus()) {
 		pressed = false;
 		released = false;
 		return;
@@ -162,7 +162,9 @@ void Form::addInterfaceObj(interfaceObj* Object) {
 
 
 
-Form::Form() {}
+Form::Form() {
+	coefficient = 2.0;
+}
 
 void Form::draw(sf::RenderWindow& window) {
 	for (const auto& element : elements) {
@@ -197,7 +199,7 @@ void Form::initializeBackground(sf::Texture & texture){
 void Form::updateBackground(sf::RenderWindow& window){
 	if (bgr) {
 		background.setSize(sf::Vector2f(window.getSize().y * background.getTexture()->getSize().x / background.getTexture()->getSize().y, window.getSize().y));
-		background.setPosition((window.getSize().x - background.getSize().x) / 6.0, 0);
+		background.setPosition((window.getSize().x - background.getSize().x) / coefficient, 0);
 	}
 	else {
 		background.setSize(sf::Vector2f(window.getSize().x , window.getSize().y));
@@ -207,6 +209,10 @@ void Form::updateBackground(sf::RenderWindow& window){
 
 void Form::drawBackground(sf::RenderWindow& window){
 	window.draw(background);
+}
+
+void Form::setBackgroundCoefficient(float value) {
+	coefficient = value;
 }
 
 void Form::updatePressed(sf::RenderWindow& window){
@@ -234,7 +240,7 @@ void TextCanvas::draw(sf::RenderWindow& window) {
 	window.draw(reg);///    reg
 }
 
-using namespace std;
+//using namespace std;
 
 void TextCanvas::Update(float windowWidth, float windowHeight, float posX, float posY) {
 	
@@ -309,23 +315,90 @@ void TextCanvas::setText(sf::String value) {
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\\
 //||||||||||||||||||||||||||||||||||   Slider   ||||||||||||||||||||||||||||||||||\\
 
+
 Slider::Slider() {
-	value = 1;
+	value = 1.0;
+	visible = true;
+	snapToBackground = false;
 }
 
 void Slider::draw(sf::RenderWindow& window) {
-
+	if (!visible)return;
+	window.draw(Pic);
+	window.draw(Track);
+	window.draw(Area);
 }
 
 void Slider::Update(float windowWidth, float windowHeight, float posX, float posY) {
+	Pic.setTexture(&texturePic);
+	Area.setTexture(&texture_slider);
+	Track.setTexture(&texture_slider_track);
+
+	Pic.setPosition(windowWidth*indentLeft + posX,windowHeight*indentTop + posY);
+	Pic.setSize(sf::Vector2f(windowHeight*height, windowHeight*height));
+
+	Track.setPosition(windowWidth * indentLeft + windowHeight * height + posX, windowHeight * indentTop + posY);
+	Track.setSize(sf::Vector2f(windowHeight * height * 4, windowHeight * height));
+
+	Area.setPosition(windowWidth * indentLeft + windowHeight * height + value* windowHeight * height * 3 + posX, windowHeight * indentTop + posY);
+	Area.setSize(sf::Vector2f(windowHeight * height, windowHeight * height));
 
 }
 
 void Slider::setPosSize(float indent_left, float indent_top, float W, float H) {
+	indentLeft = indent_left;
+	indentTop = indent_top;
+	height = H;
+}
 
+void Slider::setCanUpdatePresed(bool can) {
+	canUpdatePressed = can;
 }
 
 void Slider::updatePressed(sf::RenderWindow& window) {
+	if (!visible || !canUpdatePressed) {
+		pressed = false;
+		released = false;
+		return;
+	}
+	bool MouseHover = Pic.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) ||
+		Track.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
 
+	if (pressed == false) { released = false; }
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && MouseHover) {
+		pressed = true;
+	}
+	else {
+		if (pressed && MouseHover) released = true;
+		pressed = false;
+	}
+
+	MouseHover = Pic.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
+	if (released && MouseHover) {
+		if (value != 0) { value = 0; }
+		else { value = 1; }
+	}
+
+	MouseHover = Track.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
+	if (pressed && MouseHover) {
+		float xTrack = Track.getPosition().x;
+		float wTrack = Track.getSize().x;
+
+		float mouseX = sf::Mouse::getPosition(window).x - Track.getSize().y/2.0;
+
+		value = (mouseX - xTrack) / (wTrack * 3 / 4.0);
+
+		if (value > 1) { value = 1; }
+		if (value < 0) { value = 0; }
+		std::cout << value << std::endl;
+	}
+	canUpdatePressed = false;
 }
 
+void Slider::setTexturePic(sf::Texture& textureForPic) {
+	texturePic = textureForPic;
+}
+
+float Slider::getValue() {
+	return value;
+}

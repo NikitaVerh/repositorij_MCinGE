@@ -6,28 +6,48 @@
 //виняткові ситуації враховані
 
 void loadResources() {
+	if (!imageCursor.loadFromFile("Resources/textures/interface/cursor.png"))
+		throw ResourceLoadException("Resources/textures/interface/cursor.png");
+	;
 	if (!texture_block_wall.loadFromFile("Resources/textures/blocks/texture_wall.png"))
 		throw ResourceLoadException("Resources/textures/blocks/texture_wall.png");  
 	if (!texture_block_door.loadFromFile("Resources/textures/blocks/texture_door.png"))  
 		throw ResourceLoadException("Resources/textures/blocks/texture_door.png"); 
 	if (!texture_block_ladder.loadFromFile("Resources/textures/blocks/texture_ladder.png"))
 		throw ResourceLoadException("Resources/textures/blocks/texture_ladder.png");  
+	
 	if (!texture_wall_left.loadFromFile("Resources/textures/blocks/texture_wall_left.png")) 
 		throw ResourceLoadException("Resources/textures/blocks/texture_wall_left.png");  
 	if (!texture_wall_right.loadFromFile("Resources/textures/blocks/texture_wall_right.png")) 
 		throw ResourceLoadException("Resources/textures/blocks/texture_wall_right.png");  
+	
 	if (!texture_window.loadFromFile("Resources/textures/interface/background.png")) 
 		throw ResourceLoadException("Resources/textures/interface/background.png"); 
 	if (!texture_window2.loadFromFile("Resources/textures/interface/background2.png"))
 		throw ResourceLoadException("Resources/textures/interface/background2.png");
 	if (!texture_window3.loadFromFile("Resources/textures/interface/background3.png"))
 		throw ResourceLoadException("Resources/textures/interface/background3.png");  
+
 	if (!texture_person.loadFromFile("Resources/textures/player-sprite.png"))
 		throw ResourceLoadException("Resources/textures/player-sprite.png");
 	if (!texture_person_left.loadFromFile("Resources/textures/player-sprite-left.png"))
 		throw ResourceLoadException("Resources/textures/player-sprite-left.png");
-	if (!master_font.loadFromFile("Resources/fonts/master_font.ttf")) 
-		throw ResourceLoadException("Resources/fonts/master_font+.ttf");  
+
+	if (!master_font.loadFromFile("Resources/fonts/master_font.ttf"))
+		throw ResourceLoadException("Resources/fonts/master_font+.ttf");
+
+	if (!texture_slider_pic_music.loadFromFile("Resources/textures/interface/slider/pic_music.png"))
+		throw ResourceLoadException("Resources/textures/interface/slider/pic_music.png");
+	if (!texture_slider_pic_sound.loadFromFile("Resources/textures/interface/slider/pic_sound.png"))
+		throw ResourceLoadException("Resources/textures/interface/slider/pic_sound.png");
+	if (!texture_slider.loadFromFile("Resources/textures/interface/slider/slider.png"))
+		throw ResourceLoadException("Resources/textures/interface/slider/slider.png");
+	if (!texture_slider_track.loadFromFile("Resources/textures/interface/slider/slider_track.png"))
+		throw ResourceLoadException("Resources/textures/interface/slider/slider_track.png");
+
+	if (!texture_cursor.loadFromFile("Resources/textures/interface/cursor.png"))
+		throw ResourceLoadException("Resources/textures/interface/cursor.png");
+
 }
 
 void initializeVariables() {
@@ -200,11 +220,23 @@ void initializeInterface() {
 	TextStatistics->setSize(1 / 30.0);
 	TextStatistics->setText("Стрілець робить постріл по мішені один раз. У випадку промаху стрілець робить другий постріл по тій самій мішені. Імовірність влучання в мішень при одному пострілі дорівнює 0,7. Знайдіть імовірність того, що мішень буде уражена.");
 
+	SliderMusic->setPosSize(0, 0, 0, 0.05);
+	SliderSound->setPosSize(0, 0.05, 0, 0.05);
+
+	SliderMusic->setTexturePic(texture_slider_pic_music);
+	SliderSound->setTexturePic(texture_slider_pic_sound);
+
+	SliderMusic->setSnapToBackground(false);
+	SliderSound->setSnapToBackground(false);
 
 	Form_menu.addInterfaceObj(ButtonMenuStart);
 	Form_menu.addInterfaceObj(ButtonMenuContinue);
 	Form_menu.addInterfaceObj(ButtonMenuStatic);
 	Form_menu.addInterfaceObj(ButtonMenuInf);
+
+	Form_menu.addInterfaceObj(SliderMusic);
+	Form_menu.addInterfaceObj(SliderSound);
+
 	Form_lobby.addInterfaceObj(ButtonLobbyBack);
 	Form_lobby.addInterfaceObj(ButtonLobbyEasy);
 	Form_lobby.addInterfaceObj(ButtonLobbyNormal);
@@ -218,6 +250,8 @@ void initializeInterface() {
 	Form_stat.addInterfaceObj(TextStatistics);
 	Form_inf.addInterfaceObj(ButtonInfBack);
 
+	Form_menu.setBackgroundCoefficient(6.0);
+
 	Form_menu.initializeBackground(texture_window);
 	Form_lobby.initializeBackground(texture_window3);
 	Form_test.initializeBackground(texture_window2);
@@ -230,4 +264,10 @@ void initializeInterface() {
 	Form_test.addInterfaceObj(ButtonTest4);
 	Form_test.addInterfaceObj(TextBlackboard);
 
+}
+
+void initializeCursorAndIcon(sf::RenderWindow& window) {
+	sf::Vector2u clickSpot(0, 0);
+	cursor.loadFromPixels(imageCursor.getPixelsPtr(), imageCursor.getSize(), clickSpot);
+	
 }

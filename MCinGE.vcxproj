@@ -180,14 +180,20 @@
     <Image Include="Resources\textures\interface\background.png">
       <DeploymentContent>false</DeploymentContent>
     </Image>
+    <Image Include="Resources\textures\interface\background2.png" />
     <Image Include="Resources\textures\interface\background3.png" />
+    <Image Include="Resources\textures\interface\cursor.png" />
+    <Image Include="Resources\textures\interface\old_background.png" />
     <Image Include="Resources\textures\interface\slider\pic_music.png" />
     <Image Include="Resources\textures\interface\slider\pic_sound.png" />
     <Image Include="Resources\textures\interface\slider\slider.png" />
     <Image Include="Resources\textures\interface\slider\slider_track.png" />
     <Image Include="Resources\textures\pers.png" />
+    <Image Include="Resources\textures\player-sprite-left.png" />
+    <Image Include="Resources\textures\player-sprite.png" />
   </ItemGroup>
   <ItemGroup>
+    <Font Include="Resources\fonts\master_font.ttf" />
     <Font Include="Resources\fonts\testFont.ttf" />
   </ItemGroup>
   <ItemGroup>

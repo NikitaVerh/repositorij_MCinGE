@@ -19,7 +19,7 @@ int main() {
     SetConsoleOutputCP(65001);// встановлення кодування Windows-65001 в  потік виведення
 
 
-    startProgram();
+    startProgram(GameWindow);
     Run(GameWindow, delta_time_clock); // метод ігрового циклу
     stopProgram(GameWindow);
     return 0;
