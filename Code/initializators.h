@@ -114,6 +114,13 @@ void initializeInterface() {
 	ButtonInfBack->setStyleText(0.6, sf::Color(0, 0, 0, 255));
 	ButtonInfBack->setText(L"Назад");
 
+	ButtonStatBack->setPosSize(0.04, 0.88, 0.15, 0.05);
+	ButtonStatBack->setColorButton(ColorForButton, ColorForButtonLine);
+	ButtonStatBack->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
+	ButtonStatBack->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
+	ButtonStatBack->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonStatBack->setText(L"Назад");
+
 	ButtonTest->setPosSize(0.425, 0.25, 0.15, 0.1);
 	ButtonTest1->setPosSize(0.345, 0.7, 0.073, 0.06);
 	ButtonTest1->setColorButton(ColorForButtonDesk, ColorForButtonDeskLine);
