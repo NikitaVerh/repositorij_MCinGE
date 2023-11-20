@@ -82,6 +82,7 @@ void update_statistics() {
 	for (rslt_pair& single_pair : last_marks) {
 		str = str + "\n    " + single_pair.theme + "  -  " + std::to_string(single_pair.mark);
 	}
+
 	TextStatistics->setText(str);
 }
 
@@ -133,6 +134,8 @@ void windowEventHandling(sf::RenderWindow& window) {
 		if (ButtonMenuContinue->Released()) {setMenu(menu_game); }
 		if (ButtonMenuStatic->Released()) { setMenu(menu_stat); update_statistics(); }
 		if (ButtonMenuInf->Released()) {setMenu(menu_inf); }
+		SliderMusic->setCanUpdatePresed(true);
+		SliderSound->setCanUpdatePresed(true);
 		break;
 	case menu_game:
 		if (ButtonLabirint->Released()) { /* Menu = menu_main; */ restart_all(); }

@@ -62,6 +62,7 @@ void initializeVariables() {
 		hard_best_marks.push_back(rslt_pair(0, single_theme));
 		last_marks.push_back(rslt_pair(0, single_theme));
 	}
+	last_difficulty = "інформація відсутня";
 }
 
 void initializeInterface() {
@@ -216,14 +217,15 @@ void initializeInterface() {
 
 	TextBlackboard->setPosSize(0.36,0.15,0.28,0.5);
 	TextBlackboard->setSnapToBackground(true);
+	TextBlackboard->setNeedUpdateWords(true);
 	TextBlackboard->setColorFill(sf::Color::Black);
 	TextBlackboard->setSize(1 / 20.0);
 	TextBlackboard->setText("Стрілець робить постріл по мішені один раз. У випадку промаху стрілець робить другий постріл по тій самій мішені. Імовірність влучання в мішень при одному пострілі дорівнює 0,7. Знайдіть імовірність того, що мішень буде уражена.");
 
-	TextStatistics->setPosSize(0.1, 0.15, 0.6, 0.5);
+	TextStatistics->setPosSize(0.2, 0.1, 0.6, 0.5);
 	TextStatistics->setSnapToBackground(true);
 	TextBlackboard->setColorFill(sf::Color::Black);
-	TextStatistics->setSize(1 / 30.0);
+	TextStatistics->setSize(1 / 40.0);
 	TextStatistics->setText("Стрілець робить постріл по мішені один раз. У випадку промаху стрілець робить другий постріл по тій самій мішені. Імовірність влучання в мішень при одному пострілі дорівнює 0,7. Знайдіть імовірність того, що мішень буде уражена.");
 
 	SliderMusic->setPosSize(0, 0, 0, 0.05);

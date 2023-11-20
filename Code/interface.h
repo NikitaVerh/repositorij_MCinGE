@@ -50,6 +50,7 @@ private:
 	float sizeText;
 	sf::Text text;
 	sf::RectangleShape reg;
+	bool needUpdateWords = false;
 public:
 	TextCanvas();
 	void draw(sf::RenderWindow& window) override;
@@ -60,6 +61,7 @@ public:
 	void setText(sf::String value);
 	void setSize(float value) { sizeText = value; }
 	void setColorFill(sf::Color color) { colorText = color; }
+	void setNeedUpdateWords(bool value) { needUpdateWords = value; }
 };
 
 class Button : public interfaceObj {

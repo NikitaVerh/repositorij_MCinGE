@@ -253,19 +253,25 @@ void TextCanvas::Update(float windowWidth, float windowHeight, float posX, float
 	sf::String str = "";
 	sf::String strT = "";
 
-	for (int i = 0; i < words.size(); i++) {
-		text.setString(str + words[i]);
-		if (text.getLocalBounds().width < w) {
-			str += words[i] + " ";
-			strT += words[i] + " ";
+	if (needUpdateWords) {
+		for (int i = 0; i < words.size(); i++) {
+			text.setString(str + words[i]);
+			if (text.getLocalBounds().width < w) {
+				str += words[i] + " ";
+				strT += words[i] + " ";
+			}
+			else {
+				str = words[i] + " ";
+				strT += "\n" + words[i] + " ";
+			}
 		}
-		else {
-			str = words[i] + " ";
-			strT += "\n" + words[i] + " ";
-		}
+		text.setString(strT);
+	}
+	else {
+		text.setString(strText);
 	}
 	//sf::String strT32 = sf::String::fromUtf8(strT.begin(), strT.end());
-	text.setString(strT);
+	
 
 	text.setPosition(windowWidth * indentLeft + posX, windowHeight * indentTop + posY);
 
@@ -306,7 +312,7 @@ std::vector<sf::String> getWords(sf::String str) {
 
 
 void TextCanvas::setText(sf::String value) {
-	strText = value;
+	strText = sf::String::fromUtf8(value.begin(), value.end());
 	words = getWords(value);
 	text.setFont(master_font);
 	text.setLineSpacing(1.2);
