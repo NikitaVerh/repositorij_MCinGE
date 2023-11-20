@@ -43,10 +43,10 @@ int Y_start_climbing = -1;
 float scrollX = 0;
 float scrollY = 0;
 
-sf::Color ColorForButton(187, 157, 141, 255);
-sf::Color ColorForButtonLine(156, 119, 107, 255);
-sf::Color ColorForHoverButton(204, 180, 167, 255);
-sf::Color ColorForHoverButtonLine(169, 139, 129, 255);
+sf::Color ColorForButton(255, 161, 117, 255);
+sf::Color ColorForButtonLine(240, 131, 80, 255);
+sf::Color ColorForHoverButton(245, 145, 98, 255);
+sf::Color ColorForHoverButtonLine(223, 110, 56, 255);
 sf::Color ColorForPressedButton(164, 134, 118, 255);
 sf::Color ColorForPressedButtonLine(143, 106, 94, 255);
 

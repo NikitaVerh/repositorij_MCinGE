@@ -17,7 +17,6 @@ Button* ButtonLobbyBack = new Button();
 Button* ButtonLobbyEasy = new Button();
 Button* ButtonLobbyNormal = new Button();
 Button* ButtonLobbyHard = new Button();
-Button* ButtonLabirint = new Button();
 Button* ButtonLabirintBack = new Button();
 Button* ButtonTestFinish = new Button();
 

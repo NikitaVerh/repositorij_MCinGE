@@ -70,28 +70,28 @@ void initializeInterface() {
 	ButtonMenuStart->setColorButton(ColorForButton, ColorForButtonLine);
 	ButtonMenuStart->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
 	ButtonMenuStart->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
-	ButtonMenuStart->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonMenuStart->setStyleText(0.6, sf::Color(255, 255, 255, 255));
 	ButtonMenuStart->setText("Нова гра");
 
 	ButtonMenuContinue->setPosSize(0.493, 0.28 + 0.1, 0.185, 0.065);
 	ButtonMenuContinue->setColorButton(ColorForButton, ColorForButtonLine);
 	ButtonMenuContinue->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
 	ButtonMenuContinue->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
-	ButtonMenuContinue->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonMenuContinue->setStyleText(0.6, sf::Color(255, 255, 255, 255));
 	ButtonMenuContinue->setText("Продовжувати");
 
 	ButtonMenuStatic->setPosSize(0.493, 0.28 + 0.1 * 2, 0.185, 0.065);
 	ButtonMenuStatic->setColorButton(ColorForButton, ColorForButtonLine);
 	ButtonMenuStatic->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
 	ButtonMenuStatic->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
-	ButtonMenuStatic->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonMenuStatic->setStyleText(0.6, sf::Color(255, 255, 255, 255));
 	ButtonMenuStatic->setText("Статистика");
 
 	ButtonMenuInf->setPosSize(0.493, 0.28 + 0.1 * 3, 0.185, 0.065);
 	ButtonMenuInf->setColorButton(ColorForButton, ColorForButtonLine);
 	ButtonMenuInf->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
 	ButtonMenuInf->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
-	ButtonMenuInf->setStyleText(0.6, sf::Color(0, 0, 0, 255));
+	ButtonMenuInf->setStyleText(0.6, sf::Color(255, 255, 255, 255));
 	ButtonMenuInf->setText("Інформація");
 
 	ButtonLobbyEasy->setPosSize(0.4, 0.2, 0.2, 0.05);
@@ -122,17 +122,12 @@ void initializeInterface() {
 	ButtonLobbyBack->setStyleText(0.6, sf::Color(0, 0, 0, 255));
 	ButtonLobbyBack->setText("Назад");
 
-	ButtonLabirint->setPosSize(0.1, 0.1, 0.2, 0.05);
-	ButtonLabirint->setColorButton(ColorForButton, ColorForButtonLine);
-	ButtonLabirint->setStyleText(0.6, sf::Color(0, 0, 0, 255));
-	ButtonLabirint->setText("обновить");
-
-	ButtonLabirintBack->setPosSize(0.04, 0.88, 0.15, 0.05);
+	ButtonLabirintBack->setPosSize(0.04, 0.07, 0.15, 0.05);
 	ButtonLabirintBack->setColorButton(ColorForButton, ColorForButtonLine);
 	ButtonLabirintBack->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
 	ButtonLabirintBack->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
 	ButtonLabirintBack->setStyleText(0.6, sf::Color(0, 0, 0, 255));
-	ButtonLabirintBack->setText("Назад");
+	ButtonLabirintBack->setText("Вийти");
 
 	ButtonInfBack->setPosSize(0.04, 0.88, 0.15, 0.05);
 	ButtonInfBack->setColorButton(ColorForButton, ColorForButtonLine);
@@ -224,7 +219,7 @@ void initializeInterface() {
 
 	TextStatistics->setPosSize(0.2, 0.1, 0.6, 0.5);
 	TextStatistics->setSnapToBackground(true);
-	TextBlackboard->setColorFill(sf::Color::Black);
+	TextStatistics->setColorFill(sf::Color::Black);
 	TextStatistics->setSize(1 / 40.0);
 	TextStatistics->setText("Стрілець робить постріл по мішені один раз. У випадку промаху стрілець робить другий постріл по тій самій мішені. Імовірність влучання в мішень при одному пострілі дорівнює 0,7. Знайдіть імовірність того, що мішень буде уражена.");
 
@@ -249,7 +244,6 @@ void initializeInterface() {
 	Form_lobby.addInterfaceObj(ButtonLobbyEasy);
 	Form_lobby.addInterfaceObj(ButtonLobbyNormal);
 	Form_lobby.addInterfaceObj(ButtonLobbyHard);
-	Form_labirint.addInterfaceObj(ButtonLabirint);
 	Form_labirint.addInterfaceObj(ButtonLabirintBack);
 	// Form_test.addInterfaceObj(ButtonTest);
 	Form_test.addInterfaceObj(ButtonTestBack);

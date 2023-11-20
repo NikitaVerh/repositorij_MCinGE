@@ -19,7 +19,6 @@ extern Button* ButtonLobbyEasy;
 extern Button* ButtonLobbyNormal;
 extern Button* ButtonLobbyHard;
 extern Button* ButtonLobbyBack;
-extern Button* ButtonLabirint;
 extern Button* ButtonLabirintBack;
 
 extern Button* ButtonTest;

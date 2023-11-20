@@ -138,7 +138,6 @@ void windowEventHandling(sf::RenderWindow& window) {
 		SliderSound->setCanUpdatePresed(true);
 		break;
 	case menu_game:
-		if (ButtonLabirint->Released()) { /* Menu = menu_main; */ restart_all(); }
 		if (ButtonLabirintBack->Released()) {  setMenu(menu_main); }
 		break;
 	case menu_lobby:

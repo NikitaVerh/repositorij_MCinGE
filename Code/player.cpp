@@ -20,8 +20,8 @@ Player::Player() {
 void Player::Player_set_source() {
 	x = 0.3;
 	y = mapHeight - 0.01;
-	interval_walking.setInterval(100);
-	interval_standing.setInterval(1000);
+	interval_walking.setInterval(150);
+	interval_standing.setInterval(500);
 }
 
 // перев≥рка кол≥з≥њ гравц€ з об'Їктами GameMap
