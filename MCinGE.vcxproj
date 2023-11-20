@@ -173,19 +173,19 @@
     <ClInclude Include="Code\timer.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\textures\blocks\texture_door.png" />
+    <Image Include="Resources\textures\blocks\texture_door0.png" />
     <Image Include="Resources\textures\blocks\texture_door1.png" />
     <Image Include="Resources\textures\blocks\texture_door2.png" />
     <Image Include="Resources\textures\blocks\texture_door3.png" />
     <Image Include="Resources\textures\blocks\texture_door4.png" />
     <Image Include="Resources\textures\blocks\texture_door5.png" />
-    <Image Include="Resources\textures\blocks\texture_ladder.png" />
+    <Image Include="Resources\textures\blocks\texture_ladder0.png" />
     <Image Include="Resources\textures\blocks\texture_ladder1.png" />
     <Image Include="Resources\textures\blocks\texture_ladder2.png" />
     <Image Include="Resources\textures\blocks\texture_ladder3.png" />
     <Image Include="Resources\textures\blocks\texture_ladder4.png" />
     <Image Include="Resources\textures\blocks\texture_ladder5.png" />
-    <Image Include="Resources\textures\blocks\texture_wall.png" />
+    <Image Include="Resources\textures\blocks\texture_wall0.png" />
     <Image Include="Resources\textures\blocks\texture_wall1.png" />
     <Image Include="Resources\textures\blocks\texture_wall2.png" />
     <Image Include="Resources\textures\blocks\texture_wall3.png" />
