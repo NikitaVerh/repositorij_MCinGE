@@ -32,7 +32,7 @@ void Render(sf::RenderWindow& window) {
 void Run(sf::RenderWindow& window, sf::Clock& delta_time_clock) {
     while (window.isOpen()) {
         sf::Time delta_time = delta_time_clock.restart(); // змінна що зберігає кількість часу за минулий кадр
-        
+        //std::cout << delta_time.asMilliseconds() << std::endl;
         HandleInput(window); // метод для обробки вікна
         Update(delta_time);      // метод для обробки і оновлень всіх ігрових механік
         Render(window);      // метод для рендеру графікиs

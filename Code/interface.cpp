@@ -15,6 +15,7 @@ Button::Button() {
 	hover = false;
 	text_button.setFont(master_font);
 	snapToBackground = false;
+	size_text = 1;
 	Area.setSize(sf::Vector2f(100.0, 50.0));
 	Area.setPosition(sf::Vector2f(100.0, 50.0));
 	Area.setOutlineThickness(5);

@@ -286,7 +286,8 @@ void Map::draw(sf::RenderWindow& window) {
                 float size = sizeBlock / 4.0;
                 title.setCharacterSize(size);
                 while (title.getLocalBounds().width > sizeBlock / 4.0 && size > 1) {
-                    title.setCharacterSize(size--);
+                    size -= size * 0.5;
+                    title.setCharacterSize(size);
                 }
                 title.setPosition(x, y);
                 title.setOrigin(title.getLocalBounds().width/2.0, title.getLocalBounds().height / 2.0);
