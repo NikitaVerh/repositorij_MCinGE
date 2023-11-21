@@ -105,21 +105,21 @@ void initializeInterface() { //метод для ініціалізації об'єктів
 	ButtonLobbyEasy->setColorButton(ColorForButtonBoard, ColorForButtonBoardLine);
 	ButtonLobbyEasy->setColorHover(ColorForHoverButtonBoard, ColorForHoverButtonBoardLine);
 	ButtonLobbyEasy->setColorPressed(ColorForPressedButtonBoard, ColorForPressedButtonBoardLine);
-	ButtonLobbyEasy->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonLobbyEasy->setStyleText(0.6, color_board);
 	ButtonLobbyEasy->setText("Легко");
 
 	ButtonLobbyNormal->setPosSize(0.4, 0.3, 0.2, 0.05);
 	ButtonLobbyNormal->setColorButton(ColorForButtonBoard, ColorForButtonBoardLine);
 	ButtonLobbyNormal->setColorHover(ColorForHoverButtonBoard, ColorForHoverButtonBoardLine);
 	ButtonLobbyNormal->setColorPressed(ColorForPressedButtonBoard, ColorForPressedButtonBoardLine);
-	ButtonLobbyNormal->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonLobbyNormal->setStyleText(0.6, color_board);
 	ButtonLobbyNormal->setText("Нормально");
 
 	ButtonLobbyHard->setPosSize(0.4, 0.4, 0.2, 0.05);
 	ButtonLobbyHard->setColorButton(ColorForButtonBoard, ColorForButtonBoardLine);
 	ButtonLobbyHard->setColorHover(ColorForHoverButtonBoard, ColorForHoverButtonBoardLine);
 	ButtonLobbyHard->setColorPressed(ColorForPressedButtonBoard, ColorForPressedButtonBoardLine);
-	ButtonLobbyHard->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonLobbyHard->setStyleText(0.6, color_board);
 	ButtonLobbyHard->setText("Складно");
 
 	ButtonLobbyBack->setPosSize(0.04, 0.88, 0.15, 0.05);
@@ -129,7 +129,7 @@ void initializeInterface() { //метод для ініціалізації об'єктів
 	ButtonLobbyBack->setStyleText(0.6, color_button);
 	ButtonLobbyBack->setText("Назад");
 
-	ButtonLabirintBack->setPosSize(0.04, 0.05, 0.15, 0.05);
+	ButtonLabirintBack->setPosSize(0.04, 0.05, 0.1, 0.05);
 	ButtonLabirintBack->setColorButton(ColorForButtonGame, ColorForButtonGameLine);
 	ButtonLabirintBack->setColorHover(ColorForHoverButtonGame, ColorForHoverButtonGameLine);
 	ButtonLabirintBack->setColorPressed(ColorForPressedButtonGame, ColorForPressedButtonGameLine);
@@ -155,31 +155,31 @@ void initializeInterface() { //метод для ініціалізації об'єктів
 	ButtonTest1->setColorButton(ColorForButtonBoard, ColorForButtonBoardLine);
 	ButtonTest1->setColorHover(ColorForHoverButtonBoard, ColorForHoverButtonBoardLine);
 	ButtonTest1->setColorPressed(ColorForPressedButtonBoard, ColorForPressedButtonBoardLine);
-	ButtonTest1->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonTest1->setStyleText(0.6, color_board);
 	ButtonTest1->setText("Відповідь 1");
 
 	ButtonTest2->setPosSize(0.345 + 0.08, 0.7, 0.071, 0.06);
 	ButtonTest2->setColorButton(ColorForButtonBoard, ColorForButtonBoardLine);
 	ButtonTest2->setColorHover(ColorForHoverButtonBoard, ColorForHoverButtonBoardLine);
 	ButtonTest2->setColorPressed(ColorForPressedButtonBoard, ColorForPressedButtonBoardLine);
-	ButtonTest2->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonTest2->setStyleText(0.6, color_board);
 	ButtonTest2->setText("Відповідь 2");
 
 	ButtonTest3->setPosSize(0.345 + 0.08*2, 0.7, 0.071, 0.06);
 	ButtonTest3->setColorButton(ColorForButtonBoard, ColorForButtonBoardLine);
 	ButtonTest3->setColorHover(ColorForHoverButtonBoard, ColorForHoverButtonBoardLine);
 	ButtonTest3->setColorPressed(ColorForPressedButtonBoard, ColorForPressedButtonBoardLine);
-	ButtonTest3->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonTest3->setStyleText(0.6, color_board);
 	ButtonTest3->setText("Відповідь 3");
 
 	ButtonTest4->setPosSize(0.345 + 0.08*3, 0.7, 0.071, 0.06);
 	ButtonTest4->setColorButton(ColorForButtonBoard, ColorForButtonBoardLine);
 	ButtonTest4->setColorHover(ColorForHoverButtonBoard, ColorForHoverButtonBoardLine);
 	ButtonTest4->setColorPressed(ColorForPressedButtonBoard, ColorForPressedButtonBoardLine);
-	ButtonTest4->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonTest4->setStyleText(0.6, color_board);
 	ButtonTest4->setText("Відповідь 4");
 
-	ButtonTestBack->setPosSize(0.47, 0.7, 0.05, 0.08);
+	ButtonTestBack->setPosSize(0.47, 0.7, 0.05, 0.06);
 	ButtonTestBack->setColorButton(ColorForButtonGame, ColorForButtonGameLine);
 	ButtonTestBack->setColorHover(ColorForHoverButtonGame, ColorForHoverButtonGameLine);
 	ButtonTestBack->setColorPressed(ColorForPressedButtonGame, ColorForPressedButtonGameLine);

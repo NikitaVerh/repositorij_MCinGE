@@ -71,6 +71,8 @@ sf::Color color_door_title(95, 42, 21);
 sf::Color color_button(97, 76, 45, 255);
 sf::Color color_menu(95, 42, 21, 255);
 
+sf::Color color_board(255, 255, 255, 255);
+
 int test_amnt = 0;
 std::vector<rslt_pair> easy_best_marks;
 std::vector<rslt_pair> normal_best_marks;

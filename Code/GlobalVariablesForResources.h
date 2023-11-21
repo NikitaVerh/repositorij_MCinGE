@@ -93,6 +93,7 @@ extern sf::Color color_door_title;
 
 extern sf::Color color_button;
 extern sf::Color color_menu;
+extern sf::Color color_board;
 
 struct rslt_pair {
 	int mark = 0;
