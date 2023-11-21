@@ -264,7 +264,7 @@ void drawText(sf::RenderWindow& window, int typeBlock, sf::String str, int i, in
         sf::String textDoor = str;
         title.setString(sf::String::fromUtf8(textDoor.begin(), textDoor.end()));
         float x = i * sizeBlock + scrollX + sizeBlock / 2.0;
-        float y = j * sizeBlock + scrollY + sizeBlock / 2.5;
+        float y = j * sizeBlock + scrollY + sizeBlock / 2.35;
         title.setFillColor(color_door_title);
         float size = sizeBlock / 4.0;
         title.setCharacterSize(size);

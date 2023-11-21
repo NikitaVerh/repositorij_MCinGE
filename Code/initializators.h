@@ -23,10 +23,10 @@ void loadResources() {
 	
 	if (!texture_window.loadFromFile("Resources/textures/interface/background.png")) 
 		throw ResourceLoadException("Resources/textures/interface/background.png"); 
-	if (!texture_window2.loadFromFile("Resources/textures/interface/background2.png"))
-		throw ResourceLoadException("Resources/textures/interface/background2.png");
-	if (!texture_window3.loadFromFile("Resources/textures/interface/background3.png"))
-		throw ResourceLoadException("Resources/textures/interface/background3.png");  
+	if (!texture_window2.loadFromFile("Resources/textures/interface/background_room.png"))
+		throw ResourceLoadException("Resources/textures/interface/background_room.png");
+	if (!texture_window3.loadFromFile("Resources/textures/interface/background_lobby.png"))
+		throw ResourceLoadException("Resources/textures/interface/background_lobby.png");  
 	if (!texture_window4.loadFromFile("Resources/textures/interface/background_static.png"))
 		throw ResourceLoadException("Resources/textures/interface/background_static.png");
 	if (!texture_window5.loadFromFile("Resources/textures/interface/background_inf.png"))

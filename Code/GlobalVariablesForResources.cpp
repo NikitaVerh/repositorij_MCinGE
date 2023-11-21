@@ -59,7 +59,7 @@ sf::Color ColorForHoverButtonDeskLine(62, 130, 63, 255);
 sf::Color ColorForPressedButtonDesk(20, 87, 21);
 sf::Color ColorForPressedButtonDeskLine(10, 76, 11, 255);
 
-sf::Color color_door_title(255,255,255);
+sf::Color color_door_title(95, 42, 21);
 
 int test_amnt = 0;
 std::vector<rslt_pair> easy_best_marks;
