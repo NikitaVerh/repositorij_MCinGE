@@ -77,14 +77,25 @@ extern sf::Color ColorForHoverButtonLine;
 extern sf::Color ColorForPressedButton;
 extern sf::Color ColorForPressedButtonLine;
 
-extern sf::Color ColorForButtonDesk;
-extern sf::Color ColorForButtonDeskLine;
-extern sf::Color ColorForHoverButtonDesk;
-extern sf::Color ColorForHoverButtonDeskLine;
-extern sf::Color ColorForPressedButtonDesk;
-extern sf::Color ColorForPressedButtonDeskLine;
+extern sf::Color ColorForButtonBoard;
+extern sf::Color ColorForButtonBoardLine;
+extern sf::Color ColorForHoverButtonBoard;
+extern sf::Color ColorForHoverButtonBoardLine;
+extern sf::Color ColorForPressedButtonBoard;
+extern sf::Color ColorForPressedButtonBoardLine;
+
+extern sf::Color ColorForButtonGame;
+extern sf::Color ColorForButtonGameLine;
+extern sf::Color ColorForHoverButtonGame;
+extern sf::Color ColorForHoverButtonGameLine;
+extern sf::Color ColorForPressedButtonGame;
+extern sf::Color ColorForPressedButtonGameLine;
 
 extern sf::Color color_door_title;
+
+extern sf::Color color_button;
+extern sf::Color color_menu;
+extern sf::Color color_board;
 
 struct rslt_pair {
 	int mark = 0;
