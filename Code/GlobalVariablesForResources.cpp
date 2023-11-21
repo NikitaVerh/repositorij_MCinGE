@@ -52,14 +52,24 @@ sf::Color ColorForHoverButtonLine(220, 107, 55, 150);
 sf::Color ColorForPressedButton(243, 110, 55, 150);
 sf::Color ColorForPressedButtonLine(215, 85, 32, 150);
 
-sf::Color ColorForButtonDesk(62, 130, 63, 255);
-sf::Color ColorForButtonDeskLine(20, 87, 21, 255);
-sf::Color ColorForHoverButtonDesk(102, 163, 103, 255);
-sf::Color ColorForHoverButtonDeskLine(62, 130, 63, 255);
-sf::Color ColorForPressedButtonDesk(20, 87, 21);
-sf::Color ColorForPressedButtonDeskLine(10, 76, 11, 255);
+sf::Color ColorForButtonBoard(62, 130, 63, 255);
+sf::Color ColorForButtonBoardLine(20, 87, 21, 255);
+sf::Color ColorForHoverButtonBoard(31, 94, 29, 170);
+sf::Color ColorForHoverButtonBoardLine(27, 79, 25, 255);
+sf::Color ColorForPressedButtonBoard(20, 87, 21);
+sf::Color ColorForPressedButtonBoardLine(10, 76, 11, 255);
+
+sf::Color ColorForButtonGame(249, 233, 210, 255);
+sf::Color ColorForButtonGameLine(204, 183, 154, 255);
+sf::Color ColorForHoverButtonGame(224, 208, 186, 255);
+sf::Color ColorForHoverButtonGameLine(186, 165, 137, 255);
+sf::Color ColorForPressedButtonGame(194, 178, 156, 255);
+sf::Color ColorForPressedButtonGameLine(163, 141, 109, 255);
 
 sf::Color color_door_title(95, 42, 21);
+
+sf::Color color_button(97, 76, 45, 255);
+sf::Color color_menu(95, 42, 21, 255);
 
 int test_amnt = 0;
 std::vector<rslt_pair> easy_best_marks;
