@@ -153,6 +153,7 @@
     <ClCompile Include="Code\map.cpp" />
     <ClCompile Include="Code\player.cpp" />
     <ClCompile Include="Code\Exceptions.cpp" />
+    <ClCompile Include="Code\save.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Block.h" />

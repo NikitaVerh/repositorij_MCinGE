@@ -4,6 +4,7 @@
 #include "exam.h"
 #include "general.h"
 #include <algorithm>
+#include "save.h"
 
 void Exam::load_tasks() {
 	task_union.readTasksFromJson();
@@ -123,4 +124,5 @@ void Exam::stop_test() {
 		last_difficulty = task_diff;
 		game_sessions++;
 	}
+	//saveStatistics("statistics.csv");
 }

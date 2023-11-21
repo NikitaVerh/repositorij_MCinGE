@@ -9,6 +9,7 @@
 #include "GlobalVariablesForResources.h"
 #include "GlobalVariablesOfClasses.h"
 #include "initializators.h"
+#include "save.h"
 
 //тимчасові бібліотеки
 #include <iostream>
@@ -30,6 +31,7 @@ void startProgram(sf::RenderWindow& window) {
 	try {
 		loadResources();
 		initializeVariables();
+		loadStatistics("statistics.csv"); 
 		initializeCursorAndIcon(window);
 		initializeInterface();
 		loadAllData();
@@ -37,12 +39,16 @@ void startProgram(sf::RenderWindow& window) {
 	catch (const ResourceLoadException& e) {
 		std::cerr << "Помилка: " << e.what() << '\n';
 	}
+	catch (const std::exception& e) {
+		std::cerr << "Помилка при завантаженні статистики: " << e.what() << '\n';
+	}
 }
 
 // метод що виконується один раз перед закриттям программи
 void stopProgram(sf::RenderWindow& window) {
 	saveAllData();
 	window.close();
+	saveStatistics("statistics.csv");
 }
 
 void updateMehanics(sf::Time delta_time) {
