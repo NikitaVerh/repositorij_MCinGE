@@ -10,7 +10,7 @@
 class Player {
 private:
 	sf::RectangleShape player_pers;
-	float x, y; //
+	float x, y;  
 	Hitbox hitbox;
 	sf::Time delta_time;
 	int frame;

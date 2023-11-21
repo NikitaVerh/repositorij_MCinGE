@@ -18,7 +18,7 @@ void saveStatistics(const std::string& filename) {
         for (const auto& pair : marks) {
             file << type << "," << pair.theme << "," << pair.mark << std::endl;
         }
-        };
+    };
 
     writeMarks(easy_best_marks, "easy");
     writeMarks(normal_best_marks, "normal");
@@ -48,9 +48,11 @@ void updateOrAddMark(std::vector<rslt_pair>& marks, const std::string& theme, in
 
 void loadStatistics(const std::string& filename)
 {
+
     std::ifstream file(filename);
     if (!file.is_open()) {
         std::cerr << "Unable to open file " << filename << std::endl;
+        isReadedGood = false;
         return;
     }
 
@@ -92,6 +94,7 @@ void loadLabyrinth(const std::string& filename, Map& gameMap)
 
     if (!file.is_open()) {
         throw std::runtime_error("Unable to open file for loading");
+        isReadedGood = false;
     }
 
     for (int i = 0; i < mapWidth; ++i) {
@@ -115,6 +118,7 @@ void loadLabyrinth(const std::string& filename, Map& gameMap)
                 break;
             default:
                 throw std::runtime_error("Unknown block type");
+                isReadedGood = false;
             }
 
             block->setWallLeft(wallLeft);
@@ -133,11 +137,9 @@ void loadLabyrinth(const std::string& filename, Map& gameMap)
 
 void saveLabyrinth(const std::string& filename, Map& gameMap) {
     std::ofstream file(filename);
-
     if (!file.is_open()) {
         throw std::runtime_error("Unable to open file for saving");
     }
-
     for (int i = 0; i < mapWidth; ++i) {
         for (int j = 0; j < mapHeight; ++j) {
             Block& block = gameMap.getMapBlock(i, j);
@@ -148,7 +150,6 @@ void saveLabyrinth(const std::string& filename, Map& gameMap) {
                 << block.getTheme() << "\n";
         }
     }
-
     file.close();
 }
 #pragma endregion
@@ -159,17 +160,21 @@ void loadPlayerPosition(const std::string& filename) {
 
     if (!file.is_open()) {
         throw std::runtime_error("Unable to open file for loading player position");
+        isReadedGood = false;
     }
 
     float x, y;
-    file >> x >> y;
+    int y_s;
+    file >> x >> y >> y_s;
 
     if (!file.fail()) {
         player.setX(x);
         player.setY(y);
+        Y_start_climbing = y_s;
     }
     else {
         throw std::runtime_error("Error reading player position from file");
+        isReadedGood = false;
     }
 
     file.close();
@@ -182,7 +187,7 @@ void savePlayerPosition(const std::string& filename) {
         throw std::runtime_error("Unable to open file for saving player position");
     }
 
-    file << player.getX() << " " << player.getY();
+    file << player.getX() << " " << player.getY() << " " << Y_start_climbing;
     file.close();
 }
 
@@ -211,6 +216,7 @@ void loadMarks(const std::string& filename) {
 
     if (!file.is_open()) {
         throw std::runtime_error("Unable to open file for loading marks");
+        isReadedGood = false;
     }
 
     // Перевірка, чи файл не пустий
@@ -231,6 +237,7 @@ void loadMarks(const std::string& filename) {
             }
             else {
                 throw std::runtime_error("Error reading marks from file");
+                isReadedGood = false;
             }
         }
     }
@@ -245,6 +252,7 @@ void loadExamData(const std::string& filename) {
 
     if (!file.is_open()) {
         throw std::runtime_error("Unable to open file for loading exam data");
+        isReadedGood = false;
     }
 
     double diffFactor;
@@ -258,6 +266,7 @@ void loadExamData(const std::string& filename) {
     }
     else {
         throw std::runtime_error("Error reading exam data from file");
+        isReadedGood = false;
     }
 
     file.close();
@@ -297,6 +306,7 @@ void loadSliderData(const std::string& filename) {
 
     if (!file.is_open()) {
         throw std::runtime_error("Unable to open file for loading slider data");
+        isReadedGood = false;
     }
 
     float musicValue, soundValue;
@@ -306,6 +316,7 @@ void loadSliderData(const std::string& filename) {
     }
     else {
         throw std::runtime_error("Error reading music slider value from file");
+        isReadedGood = false;
     }
 
     if (file >> soundValue) {

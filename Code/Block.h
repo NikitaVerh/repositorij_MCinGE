@@ -19,7 +19,7 @@ public:
         return theme;
     }
 
-    void setIdTexture(int value) { idTexture = value; }
+    virtual void setIdTexture(int value) = 0;
     int getIdTexture() { return idTexture; }
 
    
@@ -52,6 +52,10 @@ public:
     }
 
     int getTypeBlock() override { return type_block_wall; }
+    void setIdTexture(int value) override {
+        idTexture = value;
+        Area.setTexture(&texture_block_wall[idTexture]);
+    }
 };
 
 
@@ -67,7 +71,10 @@ public:
         return Area;
     }
     int getTypeBlock() override { return type_block_door; }
-    
+    void setIdTexture(int value) override {
+        idTexture = value;
+        Area.setTexture(&texture_block_door[idTexture]);
+    }
 };
 
 
@@ -83,4 +90,9 @@ public:
     }
 
     int getTypeBlock() override { return type_block_ladder; }
+
+    void setIdTexture(int value) override { 
+        idTexture = value;
+        Area.setTexture(&texture_block_ladder[idTexture]);
+    }
 };

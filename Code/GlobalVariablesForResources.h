@@ -102,5 +102,5 @@ extern std::string last_difficulty;
 extern int game_sessions;
 
 
-
+extern bool isReadedGood;
 

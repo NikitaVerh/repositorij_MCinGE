@@ -14,6 +14,15 @@
 //тимчасові бібліотеки
 #include <iostream>
 
+void restart_all() {
+	GameMap.generateLabyrinth();
+	player.Player_set_source();
+	std::vector<std::string> themes = task_union.getThemes();
+	curr_marks.clear();
+	for (const std::string& single_theme : themes) {
+		curr_marks.push_back(rslt_pair(0, single_theme));
+	}
+}
 void saveAllData() {
 	saveStatistics("Resources/data/statistics.csv");
 	saveLabyrinth("Resources/data/labyrinth.sld", GameMap);
@@ -49,6 +58,8 @@ void startProgram(sf::RenderWindow& window) {
 	catch (const std::exception& e) {
 		std::cerr << "Помилка при завантаженні статистики: " << e.what() << '\n';
 	}
+	if (!isReadedGood) { ButtonMenuContinue->setVisible(false); restart_all(); }
+	else ButtonMenuContinue->setVisible(true);
 }
 
 // метод що виконується один раз перед закриттям программи
@@ -77,15 +88,7 @@ bool button_interact = false;
 
 
 
-void restart_all() {
-	GameMap.generateLabyrinth();
-	player.Player_set_source();
-	std::vector<std::string> themes = task_union.getThemes();
-	curr_marks.clear();
-	for (const std::string& single_theme : themes) {
-		curr_marks.push_back(rslt_pair(0, single_theme));
-	}
-}
+
 
 
 void update_statistics() {
@@ -154,7 +157,9 @@ void windowEventHandling(sf::RenderWindow& window) {
 	if(window.hasFocus())
 	switch (Menu) {
 	case menu_main:
-		if (ButtonMenuStart->Released()) { setMenu(menu_lobby); restart_all();}
+		if (ButtonMenuStart->Released()) {
+			setMenu(menu_lobby); restart_all();
+		}
 		if (ButtonMenuContinue->Released()) {setMenu(menu_game); }
 		if (ButtonMenuStatic->Released()) { setMenu(menu_stat); update_statistics(); }
 		if (ButtonMenuInf->Released()) {setMenu(menu_inf); }
@@ -166,9 +171,9 @@ void windowEventHandling(sf::RenderWindow& window) {
 		break;
 	case menu_lobby:
 		if (ButtonLobbyBack->Released()) { setMenu(menu_main); }
-		if (ButtonLobbyEasy->Released()) { exam.set_difficulty(0); setMenu(menu_game); }
-		if (ButtonLobbyNormal->Released()) { exam.set_difficulty(1); setMenu(menu_game); }
-		if (ButtonLobbyHard->Released()) { exam.set_difficulty(2); setMenu(menu_game); }
+		if (ButtonLobbyEasy->Released()) { exam.set_difficulty(0); ButtonMenuContinue->setVisible(true);  setMenu(menu_game); }
+		if (ButtonLobbyNormal->Released()) { exam.set_difficulty(1); ButtonMenuContinue->setVisible(true);  setMenu(menu_game); }
+		if (ButtonLobbyHard->Released()) { exam.set_difficulty(2); ButtonMenuContinue->setVisible(true);  setMenu(menu_game); }
 		break;
 	case menu_test:
 		if (ButtonTestBack->Released()) { setMenu(menu_game); }
