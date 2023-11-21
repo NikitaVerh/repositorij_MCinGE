@@ -10,6 +10,8 @@ json tasks;
 sf::Texture texture_window;
 sf::Texture texture_window2;
 sf::Texture texture_window3;
+sf::Texture texture_window4;
+sf::Texture texture_window5;
 
 
 sf::Texture texture_block_wall;
@@ -43,12 +45,12 @@ int Y_start_climbing = -1;
 float scrollX = 0;
 float scrollY = 0;
 
-sf::Color ColorForButton(255, 176, 147, 255);
-sf::Color ColorForButtonLine(245, 153, 118, 255);
-sf::Color ColorForHoverButton(253, 167, 127, 255);
-sf::Color ColorForHoverButtonLine(243, 142, 94, 255);
-sf::Color ColorForPressedButton(164, 134, 118, 255);
-sf::Color ColorForPressedButtonLine(143, 106, 94, 255);
+sf::Color ColorForButton(255, 161, 109, 150);
+sf::Color ColorForButtonLine(227, 136, 86, 150);
+sf::Color ColorForHoverButton(248, 132, 89, 150);
+sf::Color ColorForHoverButtonLine(220, 107, 55, 150);
+sf::Color ColorForPressedButton(243, 110, 55, 150);
+sf::Color ColorForPressedButtonLine(215, 85, 32, 150);
 
 sf::Color ColorForButtonDesk(62, 130, 63, 255);
 sf::Color ColorForButtonDeskLine(20, 87, 21, 255);

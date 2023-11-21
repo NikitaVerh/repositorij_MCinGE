@@ -10,6 +10,8 @@ using json = nlohmann::json;
 extern sf::Texture texture_window;
 extern sf::Texture texture_window2;
 extern sf::Texture texture_window3;
+extern sf::Texture texture_window4;
+extern sf::Texture texture_window5;
 
 extern sf::Texture texture_block_wall;
 extern sf::Texture texture_block_door;
