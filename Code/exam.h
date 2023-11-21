@@ -15,8 +15,16 @@ private:
 	double diff_factor;
 	vector<string> difficulties;
 public:
+	Exam() { task_diff = "easy"; };
 
-	Exam(){};
+	double getDiffFactor() const { return diff_factor; }
+	int getMaxCountTask() const { return max_count_task; }
+	std::string getTaskDiff() const { return task_diff; }
+
+	// Сетери
+	void setDiffFactor(double value) { diff_factor = value; }
+	void setMaxCountTask(int value) { max_count_task = value; }
+	void setTaskDiff(const std::string& value) { task_diff = value; }
 
 	void load_tasks();
 

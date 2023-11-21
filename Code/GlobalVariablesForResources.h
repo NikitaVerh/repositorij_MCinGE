@@ -33,7 +33,7 @@ extern int sizeBlock;
 
 extern sf::Font master_font;
 
-extern int Menu;
+extern int Menu;  
 
 extern json tasks;
 
@@ -58,7 +58,7 @@ enum {
 	theme_probality_theory
 };
 
-extern float playerHeight;
+extern float playerHeight; 
 extern float playerWidth;
 extern float speed_player;
 extern int Y_start_climbing;
@@ -79,7 +79,6 @@ extern sf::Color ColorForHoverButtonDesk;
 extern sf::Color ColorForHoverButtonDeskLine;
 extern sf::Color ColorForPressedButtonDesk;
 extern sf::Color ColorForPressedButtonDeskLine;
-extern float scrollY;
 
 extern sf::Color color_door_title;
 

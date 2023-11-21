@@ -14,14 +14,22 @@
 //тимчасові бібліотеки
 #include <iostream>
 
-
-
 void saveAllData() {
-	
+	saveStatistics("Resources/data/statistics.csv");
+	saveLabyrinth("Resources/data/labyrinth.sld", GameMap);
+	savePlayerPosition("Resources/data/playerPos.spp");
+	saveMarks("Resources/data/marks.smd");
+	saveExamData("Resources/data/exam.sed");
+	saveSliderData("Resources/data/slider.ssd");
 }
 
 void loadAllData() {
-
+	loadStatistics("Resources/data/statistics.csv");
+	loadLabyrinth("Resources/data/labyrinth.sld", GameMap);
+	loadPlayerPosition("Resources/data/playerPos.spp");
+	loadMarks("Resources/data/marks.smd");
+	loadExamData("Resources/data/exam.sed");
+	loadSliderData("Resources/data/slider.ssd");
 }
 
 //обробка виняткових ситуацій врахована
@@ -31,7 +39,6 @@ void startProgram(sf::RenderWindow& window) {
 	try {
 		loadResources();
 		initializeVariables();
-		loadStatistics("statistics.csv"); 
 		initializeCursorAndIcon(window);
 		initializeInterface();
 		loadAllData();
@@ -48,7 +55,6 @@ void startProgram(sf::RenderWindow& window) {
 void stopProgram(sf::RenderWindow& window) {
 	saveAllData();
 	window.close();
-	saveStatistics("statistics.csv");
 }
 
 void updateMehanics(sf::Time delta_time) {

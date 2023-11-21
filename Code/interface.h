@@ -39,6 +39,7 @@ public:
 	void updatePressed(sf::RenderWindow& window) override;
 	void setTexturePic(sf::Texture& textureForPic);
 	float getValue();
+	void setValue(float val);
 	void setCanUpdatePresed(bool can);
 };
 

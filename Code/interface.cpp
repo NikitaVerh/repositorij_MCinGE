@@ -408,3 +408,9 @@ void Slider::setTexturePic(sf::Texture& textureForPic) {
 float Slider::getValue() {
 	return value;
 }
+
+void Slider::setValue(float val) {
+	if (val < 0.0f) val = 0.0f;
+	if (val > 1.0f) val = 1.0f;
+	value = val;
+}
