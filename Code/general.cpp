@@ -48,8 +48,8 @@ void startProgram(sf::RenderWindow& window) {
 	try {
 		loadResources();
 		initializeVariables();
-		initializeCursorAndIcon(window);
 		initializeInterface();
+		initializeCursorAndIcon(window);
 		loadAllData();
 	}
 	catch (const ResourceLoadException& e) {

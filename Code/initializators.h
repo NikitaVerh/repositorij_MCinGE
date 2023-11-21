@@ -111,7 +111,7 @@ void initializeInterface() { //метод для ініціалізації об'єктів
 	ButtonMenuContinue->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
 	ButtonMenuContinue->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
 	ButtonMenuContinue->setStyleText(0.6, color_menu);
-	ButtonMenuContinue->setText("Продовжувати");
+	ButtonMenuContinue->setText("Продовжити");
 
 	ButtonMenuStart->setPosSize(0.493, 0.28 + 0.1, 0.185, 0.065);
 	ButtonMenuStart->setColorButton(ColorForButton, ColorForButtonLine);
@@ -183,7 +183,7 @@ void initializeInterface() { //метод для ініціалізації об'єктів
 	ButtonStatBack->setStyleText(0.6, color_button);
 	ButtonStatBack->setText("Назад");
 
-	ButtonTest->setPosSize(0.425, 0.25, 0.15, 0.1);
+	
 	ButtonTest1->setPosSize(0.345, 0.7, 0.073, 0.06);
 	ButtonTest1->setColorButton(ColorForButtonBoard, ColorForButtonBoardLine);
 	ButtonTest1->setColorHover(ColorForHoverButtonBoard, ColorForHoverButtonBoardLine);
@@ -226,7 +226,6 @@ void initializeInterface() { //метод для ініціалізації об'єктів
 	ButtonTestFinish->setStyleText(0.6, color_button);
 	ButtonTestFinish->setText("Завершити");
 
-	ButtonTest->setSnapToBackground(true);
 	ButtonTest1->setSnapToBackground(true);
 	ButtonTest2->setSnapToBackground(true);
 	ButtonTest3->setSnapToBackground(true);
@@ -281,7 +280,6 @@ void initializeInterface() { //метод для ініціалізації об'єктів
 	Form_lobby.addInterfaceObj(ButtonLobbyNormal);
 	Form_lobby.addInterfaceObj(ButtonLobbyHard);
 	Form_labirint.addInterfaceObj(ButtonLabirintBack);
-	// Form_test.addInterfaceObj(ButtonTest);
 	Form_test.addInterfaceObj(ButtonTestBack);
 	Form_test.addInterfaceObj(ButtonTestFinish);
 	Form_stat.addInterfaceObj(ButtonStatBack);
@@ -307,5 +305,5 @@ void initializeInterface() { //метод для ініціалізації об'єктів
 void initializeCursorAndIcon(sf::RenderWindow& window) {
 	sf::Vector2u clickSpot(0, 0);
 	cursor.loadFromPixels(imageCursor.getPixelsPtr(), imageCursor.getSize(), clickSpot);
-	
+	window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 }
