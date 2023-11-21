@@ -37,3 +37,5 @@ void setMenu(int menu);
 void saveAllData();
 
 void loadAllData();
+
+void updateSoundAndMusic();

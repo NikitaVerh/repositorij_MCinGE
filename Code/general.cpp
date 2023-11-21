@@ -60,6 +60,7 @@ void startProgram(sf::RenderWindow& window) {
 	}
 	if (!isReadedGood) { ButtonMenuContinue->setVisible(false); restart_all(); }
 	else ButtonMenuContinue->setVisible(true);
+	window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 }
 
 // метод що виконується один раз перед закриттям программи
@@ -113,6 +114,7 @@ void update_statistics() {
 	TextStatistics->setText(str);
 }
 
+int changeMenu;
 
 // метод для обробки подій вікна
 void windowEventHandling(sf::RenderWindow& window) {
@@ -120,14 +122,14 @@ void windowEventHandling(sf::RenderWindow& window) {
 	while (window.pollEvent(event)) {
 		window.setMouseCursor(cursor);
 		if (sf::Event::Closed == event.type) { stopProgram(window); }
-		if (sf::Event::KeyReleased == event.type) {
+		/*if (sf::Event::KeyReleased == event.type) {
 			if (event.key.code == sf::Keyboard::Key::Num1) { setMenu(menu_main); std::cout << "Menu: " << Menu << std::endl; }
 			if (event.key.code == sf::Keyboard::Key::Num2) { setMenu(menu_lobby);  std::cout << "Menu: " << Menu << std::endl; }
 			if (event.key.code == sf::Keyboard::Key::Num3) { setMenu(menu_game);  std::cout << "Menu: " << Menu << std::endl; }
 			if (event.key.code == sf::Keyboard::Key::Num4) { setMenu(menu_test);  std::cout << "Menu: " << Menu << std::endl; }
 			if (event.key.code == sf::Keyboard::Key::Num5) { setMenu(menu_stat);  std::cout << "Menu: " << Menu << std::endl; }
 			if (event.key.code == sf::Keyboard::Key::Num6) { setMenu(menu_inf);  std::cout << "Menu: " << Menu << std::endl; }
-		}
+		}*/
 
 		if (sf::Event::KeyReleased == event.type) {
 			if ((event.key.code == sf::Keyboard::Key::W) || (event.key.code == sf::Keyboard::Key::Space) || (event.key.code == sf::Keyboard::Key::Up)) { button_up = false; }
@@ -154,7 +156,7 @@ void windowEventHandling(sf::RenderWindow& window) {
 	}
 	
 
-	if(window.hasFocus())
+	if(window.hasFocus() && changeMenu == Menu)
 	switch (Menu) {
 	case menu_main:
 		if (ButtonMenuStart->Released()) {
@@ -184,13 +186,43 @@ void windowEventHandling(sf::RenderWindow& window) {
 		if (ButtonTestFinish->Released()) { exam.stop_test(); }
 		break;
 	case menu_stat:
-		if (ButtonStatBack->Released()) { std::cout << "released" << std::endl; setMenu(menu_main); }
+		if (ButtonStatBack->Released()) { setMenu(menu_main); }
 		break;
 	case menu_inf:
-		if (ButtonInfBack->Released()) { std::cout << "released" << std::endl; setMenu(menu_main); }
+		if (ButtonInfBack->Released()) { setMenu(menu_main); }
 		break;
 	default:
 		break;
+	}
+
+	changeMenu = Menu;
+}
+
+int curr_music = -1;
+
+void updateSoundAndMusic() {
+	SoundClick_in.setVolume(SliderSound->getValue() * 100);
+	SoundClick_out.setVolume(SliderSound->getValue() * 100);
+	SoundCorrect.setVolume(SliderSound->getValue() * 100);
+	SoundWrong.setVolume(SliderSound->getValue() * 100);
+	SoundDoor_open.setVolume(SliderSound->getValue() * 100);
+	for (int i = 0; i < maxStepSounds; i++) {
+		SoundStep[i].setVolume(SliderSound->getValue() * 100);
+	}
+	for (int i = 0; i < maxMusicTracks; i++) {
+		music[i].setVolume(SliderMusic->getValue() * 100);
+	}
+	bool play = false;
+	for (int i = 0; i < maxMusicTracks; i++) {
+		if (music[i].getStatus() == sf::Music::Playing)play = true;
+	}
+	if (!play) {
+		int a = rand() % maxMusicTracks;
+		while (a == curr_music) {
+			a = rand() % maxMusicTracks;
+		}
+		curr_music = a;
+		music[curr_music].play();
 	}
 	
 }
@@ -199,13 +231,13 @@ void windowEventHandling(sf::RenderWindow& window) {
 void UpdateGraphic(sf::RenderWindow& window) {
 	window.setView(sf::View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y)));
 
-	sizeBlock = window.getSize().y / float(1.3);
-	Form_menu.updateForm(window);
-	Form_lobby.updateForm(window);
-	Form_labirint.updateForm(window);
-	Form_test.updateForm(window);
-	Form_stat.updateForm(window);
-	Form_inf.updateForm(window);
+	sizeBlock = window.getSize().y / float(1.35);
+	if (Menu == menu_main) Form_menu.updateForm(window);
+	if (Menu == menu_lobby)Form_lobby.updateForm(window);
+	if (Menu == menu_game) Form_labirint.updateForm(window);
+	if (Menu == menu_test) Form_test.updateForm(window);
+	if (Menu == menu_stat) Form_stat.updateForm(window);
+	if (Menu == menu_inf)  Form_inf.updateForm(window);
 
 }
 

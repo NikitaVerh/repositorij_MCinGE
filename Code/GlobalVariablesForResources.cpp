@@ -4,6 +4,7 @@
 
 sf::Cursor cursor;
 sf::Image imageCursor;
+sf::Image icon;
 
 json tasks;
 
@@ -73,3 +74,18 @@ int game_sessions = 0;
 bool isReadedGood = true;
 
 
+sf::Sound SoundClick_in;
+sf::Sound SoundClick_out;
+sf::Sound SoundCorrect;
+sf::Sound SoundWrong;
+sf::Sound SoundDoor_open;
+sf::Sound SoundStep[maxStepSounds];
+
+sf::SoundBuffer sbclick_in;
+sf::SoundBuffer sbclick_out;
+sf::SoundBuffer sbcorrect;
+sf::SoundBuffer sbwrong;
+sf::SoundBuffer sbdoor_open;
+sf::SoundBuffer sbstep[maxStepSounds];
+
+sf::Music music[maxMusicTracks];

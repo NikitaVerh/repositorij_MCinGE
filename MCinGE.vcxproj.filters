@@ -202,6 +202,12 @@
     <Image Include="Resources\textures\blocks\texture_wall0.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\textures\player\player-sprite-left.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\player\player-sprite.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\fonts\testFont.ttf" />
@@ -209,5 +215,59 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\json\task.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\sounds\click_in.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\sounds\click_out.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\sounds\correct.mp3" />
+    <Media Include="Resources\sounds\door_open.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\sounds\step0.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\sounds\step1.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\sounds\step2.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\sounds\step3.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\sounds\step4.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\sounds\step5.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\sounds\step6.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\sounds\step7.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\sounds\step8.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\sounds\step9.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\sounds\wrong.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\music\music2.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\music\music1.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\music\music0.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>

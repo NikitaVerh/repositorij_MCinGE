@@ -9,7 +9,7 @@
 //оброка вин€ткових ситуац≥й врахована
 
 // зм≥нна дл€ в≥дкладки
-bool Hitbox::showHitbox = true; // зм≥нювати лише в код≥, зм≥ни дл€ розробник≥в
+bool Hitbox::showHitbox = false; // зм≥нювати лише в код≥, зм≥ни дл€ розробник≥в
 
 // конструктор класа гравц€
 Player::Player() {
@@ -37,13 +37,16 @@ void Player::skipFrame() {
 		interval_standing.restart();
 		interval_walking.restart();
 		if (state == 0) frame = 0;
-		if (state == 1) frame = 2;
+		if (state == 1) {frame = 2; SoundStep[rand() % maxStepSounds].play();}
 	}
 	if (interval_standing.getValue()) {
-		if (state == 0) {if (++frame > 1) frame = 0;}
+		if (state == 0) { if (++frame > 1) frame = 0; }
 	}
 	if (interval_walking.getValue()) {
-		if (state == 1) {if (++frame > 7) frame = 2;}
+		if (state == 1) {
+			if (++frame > 7) frame = 2; 
+			if (frame == 2 || frame == 5) SoundStep[rand() % maxStepSounds].play();
+		}
 	}
 	prev_state = state;
 }
@@ -141,6 +144,7 @@ void Player::openDoor() {
 			int mark_prsnt = exam.is_completed(GameMap.getMapBlock(trunc(x), trunc(y)).getTheme());
 			if (mark_prsnt != 0) {
 				exam.blackboard_result(mark_prsnt);
+				SoundDoor_open.play();
 			}
 			else exam.start_test(GameMap.getMapBlock(trunc(x), trunc(y)).getTheme());
 		}

@@ -75,10 +75,11 @@ void Button::updatePressed(sf::RenderWindow& window) {
 
 	if (pressed == false) { released = false; }
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && MouseHover) {
+		if(pressed == false)SoundClick_in.play();
 		pressed = true;
 	}
 	else {
-		if (pressed && MouseHover) released = true;
+		if (pressed && MouseHover) { released = true; SoundClick_out.play(); }
 		pressed = false;
 	}
 	if (MouseHover) {
@@ -237,7 +238,7 @@ void TextCanvas::draw(sf::RenderWindow& window) {
 
 	text.setFillColor(colorText);
 	window.draw(text);
-	window.draw(reg);///    reg
+	//window.draw(reg);///    reg
 }
 
 //using namespace std;
@@ -276,11 +277,11 @@ void TextCanvas::Update(float windowWidth, float windowHeight, float posX, float
 	text.setPosition(windowWidth * indentLeft + posX, windowHeight * indentTop + posY);
 
 	///////////тимчасовий код
-	reg.setFillColor(sf::Color(0, 0, 0, 0));
+	/*reg.setFillColor(sf::Color(0, 0, 0, 0));
 	reg.setOutlineColor(sf::Color(255, 0, 0));
 	reg.setOutlineThickness(1);
 	reg.setPosition(sf::Vector2f(windowWidth * indentLeft + posX, windowHeight * indentTop + posY));
-	reg.setSize(sf::Vector2f(windowWidth * width, windowHeight * height));
+	reg.setSize(sf::Vector2f(windowWidth * width, windowHeight * height));*/
 
 }
 
@@ -396,7 +397,6 @@ void Slider::updatePressed(sf::RenderWindow& window) {
 
 		if (value > 1) { value = 1; }
 		if (value < 0) { value = 0; }
-		std::cout << value << std::endl;
 	}
 	canUpdatePressed = false;
 }

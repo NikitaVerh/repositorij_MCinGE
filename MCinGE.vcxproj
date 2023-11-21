@@ -208,6 +208,8 @@
     <Image Include="Resources\textures\pers.png" />
     <Image Include="Resources\textures\player-sprite-left.png" />
     <Image Include="Resources\textures\player-sprite.png" />
+    <Image Include="Resources\textures\player\player-sprite-left.png" />
+    <Image Include="Resources\textures\player\player-sprite.png" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\fonts\master_font.ttf" />
@@ -215,6 +217,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\json\task.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\music\music0.wav" />
+    <Media Include="Resources\music\music1.wav" />
+    <Media Include="Resources\music\music2.wav" />
+    <Media Include="Resources\sounds\click_in.wav" />
+    <Media Include="Resources\sounds\click_out.wav" />
+    <Media Include="Resources\sounds\correct.mp3" />
+    <Media Include="Resources\sounds\door_open.wav" />
+    <Media Include="Resources\sounds\step0.wav" />
+    <Media Include="Resources\sounds\step1.wav" />
+    <Media Include="Resources\sounds\step2.wav" />
+    <Media Include="Resources\sounds\step3.wav" />
+    <Media Include="Resources\sounds\step4.wav" />
+    <Media Include="Resources\sounds\step5.wav" />
+    <Media Include="Resources\sounds\step6.wav" />
+    <Media Include="Resources\sounds\step7.wav" />
+    <Media Include="Resources\sounds\step8.wav" />
+    <Media Include="Resources\sounds\step9.wav" />
+    <Media Include="Resources\sounds\wrong.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

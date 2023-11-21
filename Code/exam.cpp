@@ -35,6 +35,7 @@ void Exam::start_test(string theme) {
 	ButtonTestFinish->setVisible(true);
 	ButtonTestBack->setVisible(false);
 	setMenu(menu_test);
+	SoundDoor_open.play();
 }
 void Exam::next_task() {
 	curr_task = task_union.getTask(task_theme, task_diff);
@@ -48,7 +49,8 @@ void Exam::next_task() {
 	ButtonTest4->setText(answers[3]);
 }
 void Exam::answer_chosen(int code_button) {
-	if (code_button == correct_button) mark++;
+	if (code_button == correct_button) { mark++; SoundCorrect.play(); }
+	else { SoundWrong.play(); }
 	counter_task++;
 	if (counter_task < max_count_task) next_task();
 	else stop_test();

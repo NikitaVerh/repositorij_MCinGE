@@ -8,6 +8,9 @@
 void loadResources() {
 	if (!imageCursor.loadFromFile("Resources/textures/interface/cursor.png"))
 		throw ResourceLoadException("Resources/textures/interface/cursor.png");
+	if (!icon.loadFromFile("Resources/textures/interface/icon.png"))
+		throw ResourceLoadException("Resources/textures/interface/icon.png");
+		
 	for (int i = 0; i < maxIdTextres; i++) {
 		if (!texture_block_wall[i].loadFromFile("Resources/textures/blocks/texture_wall"+std::to_string(i)+".png"))
 			throw ResourceLoadException("Resources/textures/blocks/texture_wall" + std::to_string(i) + ".png");
@@ -32,10 +35,10 @@ void loadResources() {
 	if (!texture_window5.loadFromFile("Resources/textures/interface/background_inf.png"))
 		throw ResourceLoadException("Resources/textures/interface/background_inf.png");
 
-	if (!texture_person.loadFromFile("Resources/textures/player-sprite.png"))
-		throw ResourceLoadException("Resources/textures/player-sprite.png");
-	if (!texture_person_left.loadFromFile("Resources/textures/player-sprite-left.png"))
-		throw ResourceLoadException("Resources/textures/player-sprite-left.png");
+	if (!texture_person.loadFromFile("Resources/textures/player/player-sprite.png"))
+		throw ResourceLoadException("Resources/textures/player/player-sprite.png");
+	if (!texture_person_left.loadFromFile("Resources/textures/player/player-sprite-left.png"))
+		throw ResourceLoadException("Resources/textures/player/player-sprite-left.png");
 
 	if (!master_font.loadFromFile("Resources/fonts/master_font.ttf"))
 		throw ResourceLoadException("Resources/fonts/master_font+.ttf");
@@ -52,6 +55,25 @@ void loadResources() {
 	if (!texture_cursor.loadFromFile("Resources/textures/interface/cursor.png"))
 		throw ResourceLoadException("Resources/textures/interface/cursor.png");
 
+	if (!sbclick_in.loadFromFile("Resources/sounds/click_in.wav"))
+		throw ResourceLoadException("Resources/sounds/click_in.wav");
+	if (!sbclick_out.loadFromFile("Resources/sounds/click_out.wav"))
+		throw ResourceLoadException("Resources/sounds/click_out.wav");
+	if (!sbcorrect.loadFromFile("Resources/sounds/correct.wav"))
+		throw ResourceLoadException("Resources/sounds/correct.wav");
+	if (!sbwrong.loadFromFile("Resources/sounds/wrong.wav"))
+		throw ResourceLoadException("Resources/sounds/wrong.wav");
+	if (!sbdoor_open.loadFromFile("Resources/sounds/door_open.wav"))
+		throw ResourceLoadException("Resources/sounds/door_open.wav");
+		
+	for (int i = 0; i < maxStepSounds; i++) {
+		if (!sbstep[i].loadFromFile("Resources/sounds/step" + std::to_string(i) + ".wav"))
+			throw ResourceLoadException("Resources/sounds/step" + std::to_string(i) + ".wav");
+	}	
+	for (int i = 0; i < maxMusicTracks; i++) {
+		if (!music[i].openFromFile("Resources/music/music" + std::to_string(i) + ".wav"))
+			throw ResourceLoadException("Resources/music/music" + std::to_string(i) + ".wav");
+	}
 }
 
 void initializeVariables() {
@@ -69,6 +91,17 @@ void initializeVariables() {
 		last_marks.push_back(rslt_pair(0, single_theme));
 	}
 	last_difficulty = "інформація відсутня";
+
+
+	// sounds
+	SoundClick_in.setBuffer(sbclick_in);
+	SoundClick_out.setBuffer(sbclick_out);
+	SoundCorrect.setBuffer(sbcorrect);
+	SoundWrong.setBuffer(sbwrong);
+	SoundDoor_open.setBuffer(sbdoor_open);
+	for (int i = 0; i < maxStepSounds; i++) {
+		SoundStep[i].setBuffer(sbstep[i]);
+	}
 }
 
 void initializeInterface() {

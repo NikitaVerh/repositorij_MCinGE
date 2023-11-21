@@ -1,10 +1,12 @@
 #pragma once
 #include "nlohmann/json.hpp"
 #include <SFML/Graphics.hpp>
+#include "SFML/Audio.hpp"
 #include "GlobalConnsts.h"
 
 extern sf::Cursor cursor;
 extern sf::Image imageCursor;
+extern sf::Image icon;
 
 using json = nlohmann::json;
 
@@ -104,3 +106,20 @@ extern int game_sessions;
 
 extern bool isReadedGood;
 
+
+
+extern sf::Sound SoundClick_in;
+extern sf::Sound SoundClick_out;
+extern sf::Sound SoundCorrect;
+extern sf::Sound SoundWrong;
+extern sf::Sound SoundDoor_open;
+extern sf::Sound SoundStep[maxStepSounds];
+
+extern sf::SoundBuffer sbclick_in;
+extern sf::SoundBuffer sbclick_out;
+extern sf::SoundBuffer sbcorrect;
+extern sf::SoundBuffer sbwrong;
+extern sf::SoundBuffer sbdoor_open;
+extern sf::SoundBuffer sbstep[maxStepSounds];
+
+extern sf::Music music[maxMusicTracks];
