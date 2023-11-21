@@ -54,6 +54,7 @@ void stopProgram(sf::RenderWindow& window) {
 void updateMehanics(sf::Time delta_time) {
 	player.set_time(delta_time);
 	player.Update();
+	particles->set_time(delta_time);
 }
 
 void setMenu(int menu) {
