@@ -14,9 +14,9 @@ sf::Texture texture_window4;
 sf::Texture texture_window5;
 
 
-sf::Texture texture_block_wall;
-sf::Texture texture_block_door;
-sf::Texture texture_block_ladder;
+sf::Texture texture_block_wall[maxIdTextres];
+sf::Texture texture_block_door[maxIdTextres];
+sf::Texture texture_block_ladder[maxIdTextres];
 
 sf::Texture texture_wall_left;
 sf::Texture texture_wall_right;
@@ -69,3 +69,7 @@ std::vector<rslt_pair> last_marks;
 std::vector<rslt_pair> curr_marks;
 std::string last_difficulty = "";
 int game_sessions = 0;
+
+
+
+

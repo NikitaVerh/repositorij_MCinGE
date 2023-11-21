@@ -8,14 +8,14 @@
 void loadResources() {
 	if (!imageCursor.loadFromFile("Resources/textures/interface/cursor.png"))
 		throw ResourceLoadException("Resources/textures/interface/cursor.png");
-	;
-	if (!texture_block_wall.loadFromFile("Resources/textures/blocks/texture_wall.png"))
-		throw ResourceLoadException("Resources/textures/blocks/texture_wall.png");  
-	if (!texture_block_door.loadFromFile("Resources/textures/blocks/texture_door.png"))  
-		throw ResourceLoadException("Resources/textures/blocks/texture_door.png"); 
-	if (!texture_block_ladder.loadFromFile("Resources/textures/blocks/texture_ladder.png"))
-		throw ResourceLoadException("Resources/textures/blocks/texture_ladder.png");  
-	
+	for (int i = 0; i < maxIdTextres; i++) {
+		if (!texture_block_wall[i].loadFromFile("Resources/textures/blocks/texture_wall"+std::to_string(i)+".png"))
+			throw ResourceLoadException("Resources/textures/blocks/texture_wall" + std::to_string(i) + ".png");
+		if (!texture_block_door[i].loadFromFile("Resources/textures/blocks/texture_door" + std::to_string(i) + ".png"))
+			throw ResourceLoadException("Resources/textures/blocks/texture_door" + std::to_string(i) + ".png");
+		if (!texture_block_ladder[i].loadFromFile("Resources/textures/blocks/texture_ladder" + std::to_string(i) + ".png"))
+			throw ResourceLoadException("Resources/textures/blocks/texture_ladder" + std::to_string(i) + ".png");
+	}
 	if (!texture_wall_left.loadFromFile("Resources/textures/blocks/texture_wall_left.png")) 
 		throw ResourceLoadException("Resources/textures/blocks/texture_wall_left.png");  
 	if (!texture_wall_right.loadFromFile("Resources/textures/blocks/texture_wall_right.png")) 
@@ -235,6 +235,9 @@ void initializeInterface() {
 	SliderMusic->setSnapToBackground(false);
 	SliderSound->setSnapToBackground(false);
 
+	particles->setPosSize(0, 0, 0, 1 / float(texture_window.getSize().y));
+
+	Form_menu.addInterfaceObj(particles);
 	Form_menu.addInterfaceObj(ButtonMenuStart);
 	Form_menu.addInterfaceObj(ButtonMenuContinue);
 	Form_menu.addInterfaceObj(ButtonMenuStatic);

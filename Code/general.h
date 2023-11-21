@@ -33,3 +33,7 @@ void restart_all();
 void update_statistics();
 
 void setMenu(int menu);
+
+void saveAllData();
+
+void loadAllData();

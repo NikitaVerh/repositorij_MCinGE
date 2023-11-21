@@ -11,6 +11,8 @@ extern Form Form_test; //кабінет
 extern Form Form_stat; //статистика
 extern Form Form_inf; //інформація
 
+extern Particles* particles;
+
 extern Button* ButtonMenuStart;
 extern Button* ButtonMenuContinue;
 extern Button* ButtonMenuStatic;

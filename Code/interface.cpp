@@ -408,3 +408,57 @@ void Slider::setTexturePic(sf::Texture& textureForPic) {
 float Slider::getValue() {
 	return value;
 }
+
+
+
+
+
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\\
+//||||||||||||||||||||||||||||||||||  Particle  ||||||||||||||||||||||||||||||||||\\
+
+
+
+void Particles::draw(sf::RenderWindow& window) {
+	/*for (int i = 0; i < spawners.size(); i++) {
+		spawners[i].area.setFillColor(sf::Color(0, 0, 0, 0));
+		spawners[i].area.setOutlineColor(sf::Color(255, 0, 0));
+		spawners[i].area.setOutlineThickness(2);
+		window.draw(spawners[i].area);
+	}*/
+	for (int i = 0; i < particles.size(); i++) {
+		window.draw(particles[i].area);
+	}
+}
+
+void Particles::Update(float windowWidth, float windowHeight, float posX, float posY) {
+	for (int i = 0; i < particles.size(); i++) {
+		particles[i].coefficientForAnimation += DT;
+		if (particles[i].coefficientForAnimation >= 3.14159265 * 2) { particles[i].coefficientForAnimation -= 3.14159265 * 2; }
+		
+		particles[i].setDxDy(-0.1+0.05*cos(particles[i].coefficientForAnimation)/ particles[i].speed, 0.5, DT);
+		particles[i].move();
+		if (particles[i].y > 0.9 || particles[i].x<0) {
+			int a = rand() % spawners.size();
+			particles[i].setRandomPositionInCircle(spawners[a].x, spawners[a].y, spawners[a].w, spawners[a].h);
+		}
+		particles[i].area.setPosition(particles[i].x * windowWidth + posX, particles[i].y * windowHeight + posY);
+		particles[i].area.setSize(sf::Vector2f(height * windowHeight, height * windowHeight));
+		
+	}
+	for (int i = 0; i < spawners.size(); i++) {
+		spawners[i].area.setPosition(spawners[i].x * windowWidth + posX, spawners[i].y * windowHeight + posY);
+		spawners[i].area.setSize(sf::Vector2f(spawners[i].w * windowWidth, spawners[i].h * windowHeight));
+	}
+	
+}
+
+void Particles::set_time(sf::Time delta_time) {
+	DT = delta_time.asSeconds();
+};
+
+void Particles::setPosSize(float indent_left, float indent_top, float W, float H) {
+	height = H;
+}
+
+
+void Particles::updatePressed(sf::RenderWindow& window) {}
