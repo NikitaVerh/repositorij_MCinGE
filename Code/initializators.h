@@ -70,28 +70,28 @@ void initializeInterface() {
 	ButtonMenuStart->setColorButton(ColorForButton, ColorForButtonLine);
 	ButtonMenuStart->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
 	ButtonMenuStart->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
-	ButtonMenuStart->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonMenuStart->setStyleText(0.6, sf::Color(95, 42, 21, 255));
 	ButtonMenuStart->setText("Нова гра");
 
 	ButtonMenuContinue->setPosSize(0.493, 0.28 + 0.1, 0.185, 0.065);
 	ButtonMenuContinue->setColorButton(ColorForButton, ColorForButtonLine);
 	ButtonMenuContinue->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
 	ButtonMenuContinue->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
-	ButtonMenuContinue->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonMenuContinue->setStyleText(0.6, sf::Color(95, 42, 21, 255));
 	ButtonMenuContinue->setText("Продовжувати");
 
 	ButtonMenuStatic->setPosSize(0.493, 0.28 + 0.1 * 2, 0.185, 0.065);
 	ButtonMenuStatic->setColorButton(ColorForButton, ColorForButtonLine);
 	ButtonMenuStatic->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
 	ButtonMenuStatic->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
-	ButtonMenuStatic->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonMenuStatic->setStyleText(0.6, sf::Color(95, 42, 21, 255));
 	ButtonMenuStatic->setText("Статистика");
 
 	ButtonMenuInf->setPosSize(0.493, 0.28 + 0.1 * 3, 0.185, 0.065);
 	ButtonMenuInf->setColorButton(ColorForButton, ColorForButtonLine);
 	ButtonMenuInf->setColorHover(ColorForHoverButton, ColorForHoverButtonLine);
 	ButtonMenuInf->setColorPressed(ColorForPressedButton, ColorForPressedButtonLine);
-	ButtonMenuInf->setStyleText(0.6, sf::Color(255, 255, 255, 255));
+	ButtonMenuInf->setStyleText(0.6, sf::Color(95, 42, 21, 255));
 	ButtonMenuInf->setText("Інформація");
 
 	ButtonLobbyEasy->setPosSize(0.4, 0.2, 0.2, 0.05);

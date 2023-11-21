@@ -55,7 +55,7 @@ void Button::draw(sf::RenderWindow& window) {
 	float x = Area.getPosition().x + (Area.getSize().x / 2);
 	float y = Area.getPosition().y + (Area.getSize().y / 3);
 
-	text_button.setOrigin(text_button.getGlobalBounds().width / 2, newSize / 2);
+	text_button.setOrigin(text_button.getGlobalBounds().width / 2, newSize / 3.35);
 	
 	text_button.setPosition(x, y);
 	text_button.setFillColor(color_text);
