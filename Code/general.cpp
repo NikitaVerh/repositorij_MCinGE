@@ -60,7 +60,7 @@ void startProgram(sf::RenderWindow& window) {
 	}
 	if (!isReadedGood) { ButtonMenuContinue->setVisible(false); restart_all(); }
 	else ButtonMenuContinue->setVisible(true);
-	window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+	
 }
 
 // метод що виконується один раз перед закриттям программи
