@@ -35,11 +35,11 @@ Button* ButtonInfBack = new Button();
 TextCanvas* TextBlackboard = new TextCanvas();
 TextCanvas* TextStatistics = new TextCanvas();
 
-Slider* SliderMusic = new Slider();
-Slider* SliderSound = new Slider();
+Slider* SliderMusic = new Slider(); //
+Slider* SliderSound = new Slider(); // 
 
 Map GameMap;
-Player player;
+Player player; //
 
 Union task_union;
-Exam exam;
+Exam exam; //

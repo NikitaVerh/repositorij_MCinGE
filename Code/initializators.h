@@ -58,6 +58,8 @@ void initializeVariables() {
 	playerHeight = 0.6;
 	playerWidth = playerHeight * (texture_person.getSize().x/8.0) / texture_person.getSize().y;
 	GameMap = Map(); // створюватис€ ц€ зм≥нна повинна п≥сл€ загрузки текстр
+	GameMap.generateLabyrinth();
+	player.Player_set_source();
 	exam.load_tasks();
 	std::vector<std::string> themes = task_union.getThemes();
 	for (const std::string& single_theme : themes) {

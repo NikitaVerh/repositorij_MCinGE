@@ -14,14 +14,31 @@
 //тимчасові бібліотеки
 #include <iostream>
 
-
-
+void restart_all() {
+	GameMap.generateLabyrinth();
+	player.Player_set_source();
+	std::vector<std::string> themes = task_union.getThemes();
+	curr_marks.clear();
+	for (const std::string& single_theme : themes) {
+		curr_marks.push_back(rslt_pair(0, single_theme));
+	}
+}
 void saveAllData() {
-	
+	saveStatistics("Resources/data/statistics.csv");
+	saveLabyrinth("Resources/data/labyrinth.sld", GameMap);
+	savePlayerPosition("Resources/data/playerPos.spp");
+	saveMarks("Resources/data/marks.smd");
+	saveExamData("Resources/data/exam.sed");
+	saveSliderData("Resources/data/slider.ssd");
 }
 
 void loadAllData() {
-
+	loadStatistics("Resources/data/statistics.csv");
+	loadLabyrinth("Resources/data/labyrinth.sld", GameMap);
+	loadPlayerPosition("Resources/data/playerPos.spp");
+	loadMarks("Resources/data/marks.smd");
+	loadExamData("Resources/data/exam.sed");
+	loadSliderData("Resources/data/slider.ssd");
 }
 
 //обробка виняткових ситуацій врахована
@@ -31,7 +48,6 @@ void startProgram(sf::RenderWindow& window) {
 	try {
 		loadResources();
 		initializeVariables();
-		loadStatistics("statistics.csv"); 
 		initializeCursorAndIcon(window);
 		initializeInterface();
 		loadAllData();
@@ -42,13 +58,14 @@ void startProgram(sf::RenderWindow& window) {
 	catch (const std::exception& e) {
 		std::cerr << "Помилка при завантаженні статистики: " << e.what() << '\n';
 	}
+	if (!isReadedGood) { ButtonMenuContinue->setVisible(false); restart_all(); }
+	else ButtonMenuContinue->setVisible(true);
 }
 
 // метод що виконується один раз перед закриттям программи
 void stopProgram(sf::RenderWindow& window) {
 	saveAllData();
 	window.close();
-	saveStatistics("statistics.csv");
 }
 
 void updateMehanics(sf::Time delta_time) {
@@ -71,15 +88,7 @@ bool button_interact = false;
 
 
 
-void restart_all() {
-	GameMap.generateLabyrinth();
-	player.Player_set_source();
-	std::vector<std::string> themes = task_union.getThemes();
-	curr_marks.clear();
-	for (const std::string& single_theme : themes) {
-		curr_marks.push_back(rslt_pair(0, single_theme));
-	}
-}
+
 
 
 void update_statistics() {
@@ -148,7 +157,9 @@ void windowEventHandling(sf::RenderWindow& window) {
 	if(window.hasFocus())
 	switch (Menu) {
 	case menu_main:
-		if (ButtonMenuStart->Released()) { setMenu(menu_lobby); restart_all();}
+		if (ButtonMenuStart->Released()) {
+			setMenu(menu_lobby); restart_all();
+		}
 		if (ButtonMenuContinue->Released()) {setMenu(menu_game); }
 		if (ButtonMenuStatic->Released()) { setMenu(menu_stat); update_statistics(); }
 		if (ButtonMenuInf->Released()) {setMenu(menu_inf); }
@@ -160,9 +171,9 @@ void windowEventHandling(sf::RenderWindow& window) {
 		break;
 	case menu_lobby:
 		if (ButtonLobbyBack->Released()) { setMenu(menu_main); }
-		if (ButtonLobbyEasy->Released()) { exam.set_difficulty(0); setMenu(menu_game); }
-		if (ButtonLobbyNormal->Released()) { exam.set_difficulty(1); setMenu(menu_game); }
-		if (ButtonLobbyHard->Released()) { exam.set_difficulty(2); setMenu(menu_game); }
+		if (ButtonLobbyEasy->Released()) { exam.set_difficulty(0); ButtonMenuContinue->setVisible(true);  setMenu(menu_game); }
+		if (ButtonLobbyNormal->Released()) { exam.set_difficulty(1); ButtonMenuContinue->setVisible(true);  setMenu(menu_game); }
+		if (ButtonLobbyHard->Released()) { exam.set_difficulty(2); ButtonMenuContinue->setVisible(true);  setMenu(menu_game); }
 		break;
 	case menu_test:
 		if (ButtonTestBack->Released()) { setMenu(menu_game); }

@@ -10,7 +10,7 @@
 class Player {
 private:
 	sf::RectangleShape player_pers;
-	float x, y;
+	float x, y;  
 	Hitbox hitbox;
 	sf::Time delta_time;
 	int frame;
@@ -22,6 +22,10 @@ private:
 	bool rotate = false;
 	bool checkColision(float dx);
 public:
+	float getX() { return x; }
+	float getY() { return y; }
+	void setX(float value) { x = value; }
+	void setY(float value) { y = value; }
 	// конструктор класа гравц€
 	Player();
 
