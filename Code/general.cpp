@@ -14,6 +14,15 @@
 #include <iostream>
 
 
+
+void saveAllData() {
+	
+}
+
+void loadAllData() {
+
+}
+
 //обробка виняткових ситуацій врахована
 // 
 // метод що виконується один раз при старті програми
@@ -23,6 +32,7 @@ void startProgram(sf::RenderWindow& window) {
 		initializeVariables();
 		initializeCursorAndIcon(window);
 		initializeInterface();
+		loadAllData();
 	}
 	catch (const ResourceLoadException& e) {
 		std::cerr << "Помилка: " << e.what() << '\n';
@@ -31,7 +41,7 @@ void startProgram(sf::RenderWindow& window) {
 
 // метод що виконується один раз перед закриттям программи
 void stopProgram(sf::RenderWindow& window) {
-
+	saveAllData();
 	window.close();
 }
 
@@ -42,6 +52,7 @@ void updateMehanics(sf::Time delta_time) {
 
 void setMenu(int menu) {
 	Menu = menu;
+	saveAllData();
 }
 
 // тимчасово ці змінні тут
@@ -141,13 +152,13 @@ void windowEventHandling(sf::RenderWindow& window) {
 		if (ButtonLabirintBack->Released()) {  setMenu(menu_main); }
 		break;
 	case menu_lobby:
-		if (ButtonLobbyBack->Released()) {  Menu = menu_main; }
-		if (ButtonLobbyEasy->Released()) { exam.set_difficulty(0); Menu = menu_game; }
-		if (ButtonLobbyNormal->Released()) { exam.set_difficulty(1); Menu = menu_game; }
-		if (ButtonLobbyHard->Released()) { exam.set_difficulty(2); Menu = menu_game; }
+		if (ButtonLobbyBack->Released()) { setMenu(menu_main); }
+		if (ButtonLobbyEasy->Released()) { exam.set_difficulty(0); setMenu(menu_game); }
+		if (ButtonLobbyNormal->Released()) { exam.set_difficulty(1); setMenu(menu_game); }
+		if (ButtonLobbyHard->Released()) { exam.set_difficulty(2); setMenu(menu_game); }
 		break;
 	case menu_test:
-		if (ButtonTestBack->Released()) { Menu = menu_game; }
+		if (ButtonTestBack->Released()) { setMenu(menu_game); }
 		if (ButtonTest1->Released()) { exam.answer_chosen(0); }
 		if (ButtonTest2->Released()) { exam.answer_chosen(1); }
 		if (ButtonTest3->Released()) { exam.answer_chosen(2); }
@@ -155,10 +166,10 @@ void windowEventHandling(sf::RenderWindow& window) {
 		if (ButtonTestFinish->Released()) { exam.stop_test(); }
 		break;
 	case menu_stat:
-		if (ButtonStatBack->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
+		if (ButtonStatBack->Released()) { std::cout << "released" << std::endl; setMenu(menu_main); }
 		break;
 	case menu_inf:
-		if (ButtonInfBack->Released()) { std::cout << "released" << std::endl; Menu = menu_main; }
+		if (ButtonInfBack->Released()) { std::cout << "released" << std::endl; setMenu(menu_main); }
 		break;
 	default:
 		break;

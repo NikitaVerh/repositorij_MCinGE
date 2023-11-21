@@ -19,6 +19,9 @@ public:
         return theme;
     }
 
+    void setIdTexture(int value) { idTexture = value; }
+    int getIdTexture() { return idTexture; }
+
     void setTheme(std::string chsn_theme) {
         theme = chsn_theme;
     }
