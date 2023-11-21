@@ -4,7 +4,36 @@
 #include <vector>
 #include <string>
 
+#pragma region statistics
+void saveStatistics(const std::string& filename) {
+    std::ofstream file(filename);
 
+    if (!file.is_open()) {
+        std::cerr << "Unable to open file " << filename << std::endl;
+        return;
+    }
+
+    // Збереження найкращих балів
+    auto writeMarks = [&file](const std::vector<rslt_pair>& marks, const std::string& type) {
+        for (const auto& pair : marks) {
+            file << type << "," << pair.theme << "," << pair.mark << std::endl;
+        }
+        };
+
+    writeMarks(easy_best_marks, "easy");
+    writeMarks(normal_best_marks, "normal");
+    writeMarks(hard_best_marks, "hard");
+
+    // Збереження останніх балів
+    for (const auto& pair : last_marks) {
+        file << "last," << pair.theme << "," << pair.mark << std::endl;
+    }
+
+    // Збереження інформації про останню сесію та кількість пройдених тестів
+    file << "session," << last_difficulty << "," << test_amnt << std::endl;
+
+    file.close();
+}
 void updateOrAddMark(std::vector<rslt_pair>& marks, const std::string& theme, int newMark) {
     for (auto& markPair : marks) {
         if (markPair.theme == theme) {
@@ -17,7 +46,8 @@ void updateOrAddMark(std::vector<rslt_pair>& marks, const std::string& theme, in
     marks.push_back(rslt_pair(newMark, theme));
 }
 
-void loadStatistics(const std::string& filename) {
+void loadStatistics(const std::string& filename)
+{
     std::ifstream file(filename);
     if (!file.is_open()) {
         std::cerr << "Unable to open file " << filename << std::endl;
@@ -53,188 +83,238 @@ void loadStatistics(const std::string& filename) {
         }
     }
 }
+#pragma endregion
 
+#pragma region labyrinth
+void loadLabyrinth(const std::string& filename, Map& gameMap)
+{
+    std::ifstream file(filename);
 
-void saveStatistics(const std::string& filename) {
+    if (!file.is_open()) {
+        throw std::runtime_error("Unable to open file for loading");
+    }
+
+    for (int i = 0; i < mapWidth; ++i) {
+        for (int j = 0; j < mapHeight; ++j) {
+            int type, idTexture;
+            bool wallLeft, wallRight;
+            std::string theme;
+            file >> type >> wallLeft >> wallRight >> idTexture;
+            std::getline(file, theme); // Читаємо тему, яка може містити пробіли
+
+            Block* block = nullptr;
+            switch (type) {
+            case type_block_wall:
+                block = new BlockWall();
+                break;
+            case type_block_door:
+                block = new BlockDoor();
+                break;
+            case type_block_ladder:
+                block = new BlockLadder();
+                break;
+            default:
+                throw std::runtime_error("Unknown block type");
+            }
+
+            block->setWallLeft(wallLeft);
+            block->setWallRight(wallRight);
+            block->setIdTexture(idTexture);
+            theme.erase(0, 1);  
+            block->setTheme(theme);
+
+            gameMap.setBlock(i, j, block);
+        }
+    }
+    gameMap.setNewHitboxes();
+    file.close();
+    
+}
+
+void saveLabyrinth(const std::string& filename, Map& gameMap) {
     std::ofstream file(filename);
 
     if (!file.is_open()) {
-        std::cerr << "Unable to open file " << filename << std::endl;
-        return;
+        throw std::runtime_error("Unable to open file for saving");
     }
 
-    // Збереження найкращих балів
-    auto writeMarks = [&file](const std::vector<rslt_pair>& marks, const std::string& type) {
-        for (const auto& pair : marks) {
-            file << type << "," << pair.theme << "," << pair.mark << std::endl;
+    for (int i = 0; i < mapWidth; ++i) {
+        for (int j = 0; j < mapHeight; ++j) {
+            Block& block = gameMap.getMapBlock(i, j);
+            file << block.getTypeBlock() << " "
+                << block.getWallLeft() << " "
+                << block.getWallRight() << " "
+                << block.getIdTexture() << " "
+                << block.getTheme() << "\n";
         }
-        };
-
-    writeMarks(easy_best_marks, "easy");
-    writeMarks(normal_best_marks, "normal");
-    writeMarks(hard_best_marks, "hard");
-
-    // Збереження останніх балів
-    for (const auto& pair : last_marks) {
-        file << "last," << pair.theme << "," << pair.mark << std::endl;
     }
 
-    // Збереження інформації про останню сесію та кількість пройдених тестів
-    file << "session," << last_difficulty << "," << test_amnt << std::endl;
+    file.close();
+}
+#pragma endregion
+
+#pragma region player
+void loadPlayerPosition(const std::string& filename) {
+    std::ifstream file(filename);
+
+    if (!file.is_open()) {
+        throw std::runtime_error("Unable to open file for loading player position");
+    }
+
+    float x, y;
+    file >> x >> y;
+
+    if (!file.fail()) {
+        player.setX(x);
+        player.setY(y);
+    }
+    else {
+        throw std::runtime_error("Error reading player position from file");
+    }
 
     file.close();
 }
 
+void savePlayerPosition(const std::string& filename) {
+    std::ofstream file(filename);
+
+    if (!file.is_open()) {
+        throw std::runtime_error("Unable to open file for saving player position");
+    }
+
+    file << player.getX() << " " << player.getY();
+    file.close();
+}
 
 
+#pragma endregion 
 
+#pragma region marks
+void saveMarks(const std::string& filename) {
+    std::ofstream file(filename);
 
+    if (!file.is_open()) {
+        throw std::runtime_error("Unable to open file for saving marks");
+    }
 
+    // Збереження curr_marks
+    file << curr_marks.size() << "\n";
+    for (const auto& mark : curr_marks) {
+        file << mark.mark << " " << mark.theme << "\n";
+    }
 
+    file.close();
+}
 
+void loadMarks(const std::string& filename) {
+    std::ifstream file(filename);
 
+    if (!file.is_open()) {
+        throw std::runtime_error("Unable to open file for loading marks");
+    }
 
+    // Перевірка, чи файл не пустий
+    if (file.peek() == std::ifstream::traits_type::eof()) {
+        // Файл пустий, можна ініціалізувати дані за замовчуванням або просто повернутися
+        return;
+    }
 
+    // Завантаження curr_marks
+    size_t size;
+    if (file >> size) {
+        curr_marks.clear();
+        for (size_t i = 0; i < size; ++i) {
+            int mark;
+            std::string theme;
+            if (file >> mark >> std::ws && std::getline(file, theme)) {
+                curr_marks.push_back(rslt_pair(mark, theme));
+            }
+            else {
+                throw std::runtime_error("Error reading marks from file");
+            }
+        }
+    }
 
+    file.close();
+}
+#pragma endregion 
 
+#pragma region exam
+void loadExamData(const std::string& filename) {
+    std::ifstream file(filename);
 
+    if (!file.is_open()) {
+        throw std::runtime_error("Unable to open file for loading exam data");
+    }
 
-//int findIndexInVector(const std::vector<rslt_pair>& vec, const std::string& theme) {
-//    for (size_t i = 0; i < vec.size(); ++i) {
-//        if (vec[i].theme == theme) {
-//            return i;
-//        }
-//    }
-//    return -1; // Возвращает -1, если тема не найдена
-//}
-//
-//void updateVector(std::vector<rslt_pair>& vec, const std::string& theme, int mark) {
-//    int index = findIndexInVector(vec, theme);
-//    if (index != -1) {
-//        vec[index].mark = mark;
-//    }
-//    else {
-//        // Если тема не найдена, можно добавить новую запись или обработать этот случай по-другому
-//        std::cerr << "Тема не найдена: " << theme << '\n';
-//    }
-//}
-//void saveStatistics(const std::string& filename)
-//{
-//    std::ofstream file(filename);
-//
-//    if (!file.is_open()) {
-//        std::cerr << "Не удалось открыть файл для записи." << std::endl;
-//        return;
-//    }
-//
-//    // Сохранение общей статистики
-//    file << "Общая статистика\n";
-//    file << "Последняя сложность," << last_difficulty << "\n";
-//    file << "Количество игровых сессий," << game_sessions << "\n";
-//    file << "Количество тестов," << test_amnt << "\n\n";
-//
-//    // Функция для сохранения вектора rslt_pair
-//    auto saveVector = [&file](const std::string& title, const std::vector<rslt_pair>& vec) {
-//        file << title << "\n";
-//        for (const auto& pair : vec) {
-//            file << pair.theme << "," << pair.mark << "\n";
-//        }
-//        file << "\n";
-//        };
-//
-//    // Сохранение результатов по категориям
-//    saveVector("Лучшие результаты (Легко)", easy_best_marks);
-//    saveVector("Лучшие результаты (Нормально)", normal_best_marks);
-//    saveVector("Лучшие результаты (Сложно)", hard_best_marks);
-//    saveVector("Последние результаты", last_marks);
-//
-//    file.close();
-//}
+    double diffFactor;
+    int maxCountTask;
+    std::string taskDiff;
 
-//void loadStatistics(const std::string& filename)
-//{
-//    std::ifstream file(filename);
-//
-//    if (!file.is_open()) {
-//        std::cerr << "Не удалось открыть файл для чтения." << std::endl;
-//        return;
-//    }
-//
-//    std::string line;
-//
-//    // Очистка векторов перед загрузкой новых данных
-//   /* easy_best_marks.clear();
-//    normal_best_marks.clear();
-//    hard_best_marks.clear();
-//    last_marks.clear();*/
-//
-//    // Пропускаем заголовки общей статистики
-//    std::getline(file, line); // "Общая статистика"
-//    std::getline(file, line); // "Последняя сложность"
-//    std::getline(file, line); // Значение последней сложности
-//    last_difficulty = line.substr(line.find(',') + 1);
-//
-//    std::getline(file, line); // "Количество игровых сессий"
-//    std::getline(file, line); // Значение количества игровых сессий
-//    try {
-//        game_sessions = std::stoi(line.substr(line.find(',') + 1));
-//    }
-//    catch (const std::invalid_argument& e) {
-//        std::cerr << "Неверный аргумент при преобразовании строки в число: " << e.what() << '\n';
-//        return;
-//    }
-//    catch (const std::out_of_range& e) {
-//        std::cerr << "Число вне допустимого диапазона: " << e.what() << '\n';
-//        return;
-//    }
-//
-//    std::getline(file, line); // "Количество тестов"
-//    std::getline(file, line); // Значение количества тестов
-//    try {
-//        test_amnt = std::stoi(line.substr(line.find(',') + 1));
-//    }
-//    catch (const std::invalid_argument& e) {
-//        std::cerr << "Неверный аргумент при преобразовании строки в число: " << e.what() << '\n';
-//        return;
-//    }
-//    catch (const std::out_of_range& e) {
-//        std::cerr << "Число вне допустимого диапазона: " << e.what() << '\n';
-//        return;
-//    }
-//
-//    std::getline(file, line); // Пустая строка
-//
-//    // Функция для чтения вектора пар
-//    auto loadAndUpdateVector = [&file](std::vector<rslt_pair>& vec) {
-//        std::string line;
-//        while (std::getline(file, line) && !line.empty()) {
-//            std::istringstream iss(line);
-//            std::string theme;
-//            std::string markStr;
-//            int mark;
-//            if (std::getline(iss, theme, ',') && std::getline(iss, markStr)) {
-//                try {
-//                    mark = std::stoi(markStr);
-//                    updateVector(vec, theme, mark);
-//                }
-//                catch (const std::invalid_argument& e) {
-//                    std::cerr << "Неверный формат оценки: " << markStr << '\n';
-//                }
-//                catch (const std::out_of_range& e) {
-//                    std::cerr << "Оценка вне допустимого диапазона: " << markStr << '\n';
-//                }
-//            }
-//        }
-//        };
-//    // Чтение результатов по категориям
-//    std::getline(file, line); // "Лучшие результаты (Легко)"
-//    loadAndUpdateVector(easy_best_marks);
-//    std::getline(file, line); // "Лучшие результаты (Нормально)"
-//    loadAndUpdateVector(normal_best_marks);
-//    std::getline(file, line); // "Лучшие результаты (Сложно)"
-//    loadAndUpdateVector(hard_best_marks);
-//    std::getline(file, line); // "Последние результаты"
-//    loadAndUpdateVector(last_marks);
-//
-//    file.close();
-//}
+    if (file >> diffFactor && file >> maxCountTask && std::getline(file >> std::ws, taskDiff)) {
+        exam.setDiffFactor(diffFactor);
+        exam.setMaxCountTask(maxCountTask);
+        exam.setTaskDiff(taskDiff);
+    }
+    else {
+        throw std::runtime_error("Error reading exam data from file");
+    }
+
+    file.close();
+}
+
+void saveExamData(const std::string& filename) {
+    std::ofstream file(filename);
+
+    if (!file.is_open()) {
+        throw std::runtime_error("Unable to open file for saving exam data");
+    }
+
+    file << exam.getDiffFactor() << "\n";
+    file << exam.getMaxCountTask() << "\n";
+    file << exam.getTaskDiff() << "\n";
+
+    file.close();
+}
+#pragma endregion
+
+#pragma region slider
+void saveSliderData(const std::string& filename) {
+    std::ofstream file(filename);
+
+    if (!file.is_open()) {
+        throw std::runtime_error("Unable to open file for saving slider data");
+    }
+
+    file << SliderMusic->getValue() << "\n";
+    file << SliderSound->getValue() << "\n";
+
+    file.close();
+}
+
+void loadSliderData(const std::string& filename) {
+    std::ifstream file(filename);
+
+    if (!file.is_open()) {
+        throw std::runtime_error("Unable to open file for loading slider data");
+    }
+
+    float musicValue, soundValue;
+
+    if (file >> musicValue) {
+        SliderMusic->setValue(musicValue);
+    }
+    else {
+        throw std::runtime_error("Error reading music slider value from file");
+    }
+
+    if (file >> soundValue) {
+        SliderSound->setValue(soundValue);
+    }
+    else {
+        throw std::runtime_error("Error reading sound slider value from file");
+    }
+
+    file.close();
+}
+#pragma endregion

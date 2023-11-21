@@ -41,7 +41,7 @@ extern Slider* SliderMusic;
 extern Slider* SliderSound;
 
 extern Map GameMap;
-extern Player player;
+extern Player player; //
 
 extern Union task_union;
-extern Exam exam;
+extern Exam exam; //

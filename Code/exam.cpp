@@ -124,5 +124,4 @@ void Exam::stop_test() {
 		last_difficulty = task_diff;
 		game_sessions++;
 	}
-	//saveStatistics("statistics.csv");
 }

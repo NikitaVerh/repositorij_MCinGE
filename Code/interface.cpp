@@ -462,3 +462,10 @@ void Particles::setPosSize(float indent_left, float indent_top, float W, float H
 
 
 void Particles::updatePressed(sf::RenderWindow& window) {}
+}
+
+void Slider::setValue(float val) {
+	if (val < 0.0f) val = 0.0f;
+	if (val > 1.0f) val = 1.0f;
+	value = val;
+}

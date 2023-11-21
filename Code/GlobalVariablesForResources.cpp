@@ -66,7 +66,7 @@ std::vector<rslt_pair> easy_best_marks;
 std::vector<rslt_pair> normal_best_marks;
 std::vector<rslt_pair> hard_best_marks;
 std::vector<rslt_pair> last_marks;
-std::vector<rslt_pair> curr_marks;
+std::vector<rslt_pair> curr_marks; // save 
 std::string last_difficulty = "";
 int game_sessions = 0;
 
