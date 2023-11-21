@@ -232,6 +232,9 @@ void initializeInterface() {
 	SliderMusic->setSnapToBackground(false);
 	SliderSound->setSnapToBackground(false);
 
+	particles->setPosSize(0, 0, 0, 1 / float(texture_window.getSize().y));
+
+	Form_menu.addInterfaceObj(particles);
 	Form_menu.addInterfaceObj(ButtonMenuStart);
 	Form_menu.addInterfaceObj(ButtonMenuContinue);
 	Form_menu.addInterfaceObj(ButtonMenuStatic);

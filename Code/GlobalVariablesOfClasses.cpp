@@ -9,6 +9,8 @@ Form Form_test;
 Form Form_stat;
 Form Form_inf;
 
+Particles* particles = new Particles();
+
 Button* ButtonMenuStart = new Button();
 Button* ButtonMenuContinue = new Button();
 Button* ButtonMenuStatic = new Button();
