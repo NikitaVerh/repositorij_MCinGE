@@ -224,7 +224,7 @@ void initializeInterface() { //метод для ініціалізації об'єктів
 	ButtonTestBack->setStyleText(0.6, color_button);
 	ButtonTestBack->setText("Назад");
 
-	ButtonTestFinish->setPosSize(0.68, 0.77, 0.06, 0.07);
+	ButtonTestFinish->setPosSize(0.435, 0.93, 0.13, 0.055);
 	ButtonTestFinish->setColorButton(ColorForButtonGame, ColorForButtonGameLine);
 	ButtonTestFinish->setColorHover(ColorForHoverButtonGame, ColorForHoverButtonGameLine);
 	ButtonTestFinish->setColorPressed(ColorForPressedButtonGame, ColorForPressedButtonGameLine);
