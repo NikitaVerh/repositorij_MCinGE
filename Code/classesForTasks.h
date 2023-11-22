@@ -1,5 +1,6 @@
 #pragma once
 #pragma execution_character_set("utf-8")
+#include "Exceptions.h"
 #include <iostream>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
