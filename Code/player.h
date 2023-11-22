@@ -16,6 +16,7 @@ private:
 	int frame;
 	Timer interval_standing;
 	Timer interval_walking;
+	Timer interval_walking_sound;
 	bool mov_flag = false;
 	int state = 0;
 	int prev_state = 0;

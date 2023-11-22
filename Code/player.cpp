@@ -22,6 +22,7 @@ void Player::Player_set_source() {
 	y = mapHeight - 0.01;
 	interval_walking.setInterval(150);
 	interval_standing.setInterval(500);
+	interval_walking_sound.setInterval(450);
 }
 
 // перев≥рка кол≥з≥њ гравц€ з об'Їктами GameMap
@@ -65,6 +66,7 @@ void Player::Update() {
 		mov_flag = false;
 	}
 	skipFrame();
+	interval_walking_sound.update();
 	set_pos_hitbox_player();
 	state = 0;
 }
@@ -93,6 +95,9 @@ bool Ladder_up(float x, float y) {
 
 // метод дл€ руху гравц€
 void Player::move(float dx, float dy) {
+	if (dy != 0 && interval_walking_sound.getValue()) {
+		SoundStep[rand()%maxStepSounds].play();
+	}
 	mov_flag = true;
 	if (dx != 0) state = 1;
 	if (dx > 0) rotate = false;
