@@ -20,13 +20,14 @@ Button* ButtonLobbyEasy = new Button();
 Button* ButtonLobbyNormal = new Button();
 Button* ButtonLobbyHard = new Button();
 Button* ButtonLabirintBack = new Button();
-Button* ButtonTestFinish = new Button();
+Button* ButtonLabirintFinish = new Button();
 
 Button* ButtonTest1 = new Button();
 Button* ButtonTest2 = new Button();
 Button* ButtonTest3 = new Button();
 Button* ButtonTest4 = new Button();
 Button* ButtonTestBack = new Button();
+Button* ButtonTestFinish = new Button();
 
 Button* ButtonStatBack = new Button();
 Button* ButtonInfBack = new Button();

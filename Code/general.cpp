@@ -170,6 +170,7 @@ void windowEventHandling(sf::RenderWindow& window) {
 		break;
 	case menu_game:
 		if (ButtonLabirintBack->Released()) {  setMenu(menu_main); }
+		if (ButtonLabirintFinish->Released()) {  setMenu(menu_stat); }
 		break;
 	case menu_lobby:
 		if (ButtonLobbyBack->Released()) { setMenu(menu_main); }

@@ -169,6 +169,13 @@ void initializeInterface() { //метод для ініціалізації об'єктів
 	ButtonLabirintBack->setStyleText(0.6, color_button);
 	ButtonLabirintBack->setText("Вийти");
 
+	ButtonLabirintFinish->setPosSize(0.86, 0.05, 0.1, 0.05);
+	ButtonLabirintFinish->setColorButton(ColorForButtonGame, ColorForButtonGameLine);
+	ButtonLabirintFinish->setColorHover(ColorForHoverButtonGame, ColorForHoverButtonGameLine);
+	ButtonLabirintFinish->setColorPressed(ColorForPressedButtonGame, ColorForPressedButtonGameLine);
+	ButtonLabirintFinish->setStyleText(0.6, color_button);
+	ButtonLabirintFinish->setText("Завершити");
+
 	ButtonInfBack->setPosSize(0.278, 0.76, 0.05, 0.06);
 	ButtonInfBack->setColorButton(ColorForButtonGame, ColorForButtonGameLine);
 	ButtonInfBack->setColorHover(ColorForHoverButtonGame, ColorForHoverButtonGameLine);
@@ -241,6 +248,7 @@ void initializeInterface() { //метод для ініціалізації об'єктів
 	ButtonLobbyHard->setSnapToBackground(true);
 	ButtonLobbyBack->setSnapToBackground(false);
 	ButtonLabirintBack->setSnapToBackground(false);
+	ButtonLabirintBack->setSnapToBackground(false);
 	ButtonInfBack->setSnapToBackground(true);
 	ButtonStatBack->setSnapToBackground(true);
 
@@ -280,6 +288,7 @@ void initializeInterface() { //метод для ініціалізації об'єктів
 	Form_lobby.addInterfaceObj(ButtonLobbyNormal);
 	Form_lobby.addInterfaceObj(ButtonLobbyHard);
 	Form_labirint.addInterfaceObj(ButtonLabirintBack);
+	Form_labirint.addInterfaceObj(ButtonLabirintFinish);
 	Form_test.addInterfaceObj(ButtonTestBack);
 	Form_test.addInterfaceObj(ButtonTestFinish);
 	Form_stat.addInterfaceObj(ButtonStatBack);
