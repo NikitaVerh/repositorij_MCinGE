@@ -109,9 +109,7 @@ extern int test_amnt;
 extern std::vector<rslt_pair> easy_best_marks;
 extern std::vector<rslt_pair> normal_best_marks;
 extern std::vector<rslt_pair> hard_best_marks;
-extern std::vector<rslt_pair> last_marks;
 extern std::vector<rslt_pair> curr_marks;
-extern std::string last_difficulty;
 extern int game_sessions;
 
 
@@ -134,3 +132,5 @@ extern sf::SoundBuffer sbdoor_open;
 extern sf::SoundBuffer sbstep[maxStepSounds];
 
 extern sf::Music music[maxMusicTracks];
+
+extern bool InProgress;

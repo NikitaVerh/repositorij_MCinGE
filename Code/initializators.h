@@ -88,9 +88,7 @@ void initializeVariables() {
 		easy_best_marks.push_back(rslt_pair(0, single_theme));
 		normal_best_marks.push_back(rslt_pair(0, single_theme));
 		hard_best_marks.push_back(rslt_pair(0, single_theme));
-		last_marks.push_back(rslt_pair(0, single_theme));
 	}
-	last_difficulty = "інформація відсутня";
 
 
 	// sounds

@@ -15,7 +15,7 @@ private:
 	double diff_factor;
 	vector<string> difficulties;
 public:
-	Exam() { task_diff = "easy"; };
+	Exam() { task_diff = "інформація відсутня"; };
 
 	double getDiffFactor() const { return diff_factor; }
 	int getMaxCountTask() const { return max_count_task; }
@@ -41,4 +41,6 @@ public:
 	int is_completed(string theme);
 
 	void blackboard_result(int mark);
+
+	bool session_end();
 };

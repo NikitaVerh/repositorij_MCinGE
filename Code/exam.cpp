@@ -76,7 +76,7 @@ void Exam::blackboard_result(int mark) {
 	ButtonTestBack->setVisible(true);
 }
 
-bool session_end() {
+bool Exam:: session_end() {
 	for (rslt_pair& single_pair : curr_marks) {
 		if (single_pair.mark == 0) return false;
 	}
@@ -119,11 +119,9 @@ void Exam::stop_test() {
 		}
 	}
 	if (session_end()) {
-		last_marks.clear();
-		for (rslt_pair& single_pair : curr_marks) {
-			last_marks.push_back(single_pair);
-		}
-		last_difficulty = task_diff;
+		ButtonLabirintFinish->setVisible(true);
+		ButtonLabirintBack->setVisible(false);
 		game_sessions++;
+		InProgress = false;
 	}
 }

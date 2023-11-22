@@ -24,13 +24,8 @@ void saveStatistics(const std::string& filename) {
     writeMarks(normal_best_marks, "normal");
     writeMarks(hard_best_marks, "hard");
 
-    // Збереження останніх балів
-    for (const auto& pair : last_marks) {
-        file << "last," << pair.theme << "," << pair.mark << std::endl;
-    }
-
     // Збереження інформації про останню сесію та кількість пройдених тестів
-    file << "session," << last_difficulty << "," << test_amnt << std::endl;
+    file << "session," << game_sessions << "," << test_amnt << std::endl;
 
     file.close();
 }
@@ -67,7 +62,7 @@ void loadStatistics(const std::string& filename)
         std::getline(iss, markStr);
 
         if (difficulty == "session") {
-            last_difficulty = theme;
+            game_sessions = std::stoi(theme);
             test_amnt = std::stoi(markStr);
             continue;
         }
@@ -257,12 +252,14 @@ void loadExamData(const std::string& filename) {
 
     double diffFactor;
     int maxCountTask;
-    std::string taskDiff;
+    std::string StaskDiff;
+    bool LoadProgress;
 
-    if (file >> diffFactor && file >> maxCountTask && std::getline(file >> std::ws, taskDiff)) {
+    if (file >> diffFactor && file >> maxCountTask && std::getline(file >> std::ws, StaskDiff) && file >> LoadProgress) {
         exam.setDiffFactor(diffFactor);
         exam.setMaxCountTask(maxCountTask);
-        exam.setTaskDiff(taskDiff);
+        exam.setTaskDiff(StaskDiff);
+        InProgress = LoadProgress;
     }
     else {
         throw std::runtime_error("Error reading exam data from file");
@@ -282,6 +279,7 @@ void saveExamData(const std::string& filename) {
     file << exam.getDiffFactor() << "\n";
     file << exam.getMaxCountTask() << "\n";
     file << exam.getTaskDiff() << "\n";
+    file << InProgress << "\n";
 
     file.close();
 }

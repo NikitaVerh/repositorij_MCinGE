@@ -95,7 +95,7 @@ bool Ladder_up(float x, float y) {
 
 // метод дл€ руху гравц€
 void Player::move(float dx, float dy) {
-	if (dy != 0 && interval_walking_sound.getValue()) {
+	if (dy != 0 && interval_walking_sound.getValue() && Y_start_climbing!=-1) {
 		SoundStep[rand()%maxStepSounds].play();
 	}
 	mov_flag = true;

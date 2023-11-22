@@ -58,8 +58,8 @@ void startProgram(sf::RenderWindow& window) {
 	catch (const std::exception& e) {
 		std::cerr << "Помилка при завантаженні статистики: " << e.what() << '\n';
 	}
-	if (!isReadedGood) { ButtonMenuContinue->setVisible(false); restart_all(); }
-	else ButtonMenuContinue->setVisible(true);
+	ButtonMenuContinue->setVisible(InProgress);
+	if (!isReadedGood) { restart_all(); }
 	
 }
 
@@ -106,8 +106,8 @@ void update_statistics() {
 	for (rslt_pair& single_pair : hard_best_marks) {
 		str = str + "\n        " + single_pair.theme + "  -  " + std::to_string(single_pair.mark);
 	}
-	str = str + "\n" + "\n" + "Інформація про останню сесію гри:" + "\n" + "    Складність  -  " + last_difficulty;
-	for (rslt_pair& single_pair : last_marks) {
+	str = str + "\n" + "\n" + "Інформація про останню сесію гри:" + "\n" + "    Складність  -  " + exam.getTaskDiff();
+	for (rslt_pair& single_pair : curr_marks) {
 		str = str + "\n    " + single_pair.theme + "  -  " + std::to_string(single_pair.mark);
 	}
 
@@ -160,9 +160,9 @@ void windowEventHandling(sf::RenderWindow& window) {
 	switch (Menu) {
 	case menu_main:
 		if (ButtonMenuStart->Released()) {
-			setMenu(menu_lobby); restart_all();
+			setMenu(menu_lobby);
 		}
-		if (ButtonMenuContinue->Released()) {setMenu(menu_game); }
+		if (ButtonMenuContinue->Released()) { setMenu(menu_game); ButtonLabirintFinish->setVisible(false); ButtonLabirintBack->setVisible(true);}
 		if (ButtonMenuStatic->Released()) { setMenu(menu_stat); update_statistics(); }
 		if (ButtonMenuInf->Released()) {setMenu(menu_inf); }
 		SliderMusic->setCanUpdatePresed(true);
@@ -170,13 +170,13 @@ void windowEventHandling(sf::RenderWindow& window) {
 		break;
 	case menu_game:
 		if (ButtonLabirintBack->Released()) {  setMenu(menu_main); }
-		if (ButtonLabirintFinish->Released()) {  setMenu(menu_stat); }
+		if (ButtonLabirintFinish->Released()) { update_statistics(); setMenu(menu_stat);}
 		break;
 	case menu_lobby:
 		if (ButtonLobbyBack->Released()) { setMenu(menu_main); }
-		if (ButtonLobbyEasy->Released()) { exam.set_difficulty(0); ButtonMenuContinue->setVisible(true);  setMenu(menu_game); }
-		if (ButtonLobbyNormal->Released()) { exam.set_difficulty(1); ButtonMenuContinue->setVisible(true);  setMenu(menu_game); }
-		if (ButtonLobbyHard->Released()) { exam.set_difficulty(2); ButtonMenuContinue->setVisible(true);  setMenu(menu_game); }
+		if (ButtonLobbyEasy->Released()) { restart_all(); exam.set_difficulty(0); InProgress = true; ButtonLabirintFinish->setVisible(false); ButtonLabirintBack->setVisible(true); ButtonMenuContinue->setVisible(true);  setMenu(menu_game); }
+		if (ButtonLobbyNormal->Released()) { restart_all(); exam.set_difficulty(1); InProgress = true; ButtonLabirintFinish->setVisible(false); ButtonLabirintBack->setVisible(true); ButtonMenuContinue->setVisible(true);  setMenu(menu_game); }
+		if (ButtonLobbyHard->Released()) { restart_all(); exam.set_difficulty(2); InProgress = true; ButtonLabirintFinish->setVisible(false); ButtonLabirintBack->setVisible(true); ButtonMenuContinue->setVisible(true);  setMenu(menu_game); }
 		break;
 	case menu_test:
 		if (ButtonTestBack->Released()) { setMenu(menu_game); }
@@ -239,6 +239,7 @@ void UpdateGraphic(sf::RenderWindow& window) {
 	if (Menu == menu_test) Form_test.updateForm(window);
 	if (Menu == menu_stat) Form_stat.updateForm(window);
 	if (Menu == menu_inf)  Form_inf.updateForm(window);
+	ButtonMenuContinue->setVisible(InProgress);
 
 }
 
