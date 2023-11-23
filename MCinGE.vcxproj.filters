@@ -101,6 +101,9 @@
     <ClInclude Include="Code\save.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\textures\interface\background.png">
@@ -238,6 +241,9 @@
     <Image Include="Resources\textures\interface\icon.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\textures\interface\icon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\fonts\testFont.ttf" />
@@ -305,5 +311,10 @@
     <Media Include="Resources\sounds\correct.wav">
       <Filter>Resource Files</Filter>
     </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
