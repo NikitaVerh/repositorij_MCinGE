@@ -6,9 +6,6 @@
 #include "Game.h"
 #include <Windows.h> // бібліотека для встановлення кодування для консолі
 
-// тимчасові бібліотеки
-#include <iostream>
-
 sf::VideoMode GameWindowSize = { 1400,700 }; // змінна що відповідає за відео режим вікна
 sf::String GameWindowTitle = L"Seek and Solve"; // підпис вікна (caption)
 sf::RenderWindow GameWindow(GameWindowSize, GameWindowTitle); // основне вікно програми

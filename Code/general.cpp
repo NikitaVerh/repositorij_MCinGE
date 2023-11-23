@@ -11,9 +11,6 @@
 #include "initializators.h"
 #include "save.h"
 
-//тимчасові бібліотеки
-#include <iostream>
-
 void restart_all() {
 	GameMap.generateLabyrinth();
 	player.Player_set_source();
