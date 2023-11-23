@@ -4,7 +4,7 @@
       {
         "problem": "ʃx⁵dx",
         "answer": "x⁶/6 + C",
-        "options": [ "x⁶ + C", "x⁵/5+ C", "x⁶/6⁶" ]
+        "options": [ "x⁶ + C", "x⁵/5 + C", "5x⁴" ]
       },
       {
         "problem": "ʃ(1/x)dx",
@@ -17,14 +17,14 @@
         "options": [ "cos²(x) + C", "sin(x)", "sin²(x) + C" ]
       },
       {
-        "problem": "ʃe^(2x)",
-        "answer": "ʃ1/2(e^(2x)) + C",
-        "options": [ "e^(2x) + C", "e^(2x)", "e² + C" ]
+        "problem": "ʃe²ˣdx",
+        "answer": "(1/2) (e²ˣ) + C",
+        "options": [ "e²ˣ + C", "e²ˣ", "e² + C" ]
       },
       {
         "problem": "ʃ3xdx",
-        "answer": "1,5(x²) + C",
-        "options": [ "2/3(x²)", "x² + C", "2/3(x)⁶ + C" ]
+        "answer": "1,5x² + C",
+        "options": [ "(2/3)x²", "x² + C", "(2/3)x⁶ + C" ]
       },
       {
         "problem": "ʃ4x³dx",
@@ -32,9 +32,9 @@
         "options": [ "x⁴", "x⁵ + C", "4x⁴ + C" ]
       },
       {
-        "problem": "ʃsin(2x)",
-        "answer": "-½cos(2x) + C",
-        "options": [ "-1/2(sin(2x))+ C", "-1/3(cos(2x)) + C", "-1/2(cos(4x)) + C" ]
+        "problem": "ʃsin(2x)dx",
+        "answer": "-(1/2)cos(2x) + C",
+        "options": [ "-(1/2)sin(2x)+ C", "(-1/3)cos(2x) + C", "-(1/2)cos(4x) + C" ]
       },
       {
         "problem": "ʃ8dx",
@@ -42,276 +42,276 @@
         "options": [ "8x² + С", "8x⁶ + C", "x + C" ]
       },
       {
-        "problem": "ʃ6e^(3x)dx",
-        "answer": "2e^(3x) + C",
-        "options": [ "3e^(3x) + C", "e^(3x) + C", "x^(3x) + C" ]
+        "problem": "ʃ6e³ˣdx",
+        "answer": "2e³ˣ + C",
+        "options": [ "3e³ˣ + C", "e³ˣ + C", "x³ˣ + C" ]
       },
       {
         "problem": "ʃ-2cos(6x)dx",
-        "answer": "ʃ-1/3(sin(6x)) + C",
-        "options": [ "-sin(6x) + C", "ʃ-½sin(6x) + C", "-1/3(cos(6x)) + C" ]
+        "answer": "(-1/3)sin(6x) + C",
+        "options": [ "-sin(6x) + C", "-(1/2)sin(6x) + C", "(-1/3)cos(6x) + C" ]
       }
     ],
     "normal": [
       {
         "problem": "ʃ(x+1)(x-2)dx",
-        "answer": "1/3(x)^3 - 1/2(x)^2 - 2x + C",
-        "options": [ "1/3(x)^3 - 1/2(x)^2 - 2x", "(x)^3 - (x)^2 - 2x + C", "1/5(x)^3 - 1/4(x)^2 - 8x + C" ]
+        "answer": "(1/3)x³ - (1/2)x² - 2x + C",
+        "options": [ "(1/3)x³ - (1/2)x² - 2x", "x³ - x² - 2x + C", "(1/5)x³ - (1/4)x² - 8x + C" ]
       },
       {
-        "problem": "ʃ(x^2 + 2)dx",
-        "answer": "1/3(x)^3 + 2x + C",
-        "options": [ "1/3(x)^3 + C", "1/3(x)^3 + 2x", "(x)^3 + 4x + C" ]
+        "problem": "ʃ(x² + 2)dx",
+        "answer": "(1/3)x³ + 2x + C",
+        "options": [ "(1/3)x³ + C", "(1/3)x³ + 2x", "x³ + 4x + C" ]
       },
       {
-        "problem": "ʃctgxdx",
+        "problem": "ʃctg(x)dx",
         "answer": "ln|sin(x)| + C",
         "options": [ "ln|cos(x)| + C", "sin(x)", "ln|tg(x)| + C" ]
       },
       {
-        "problem": "ʃ(x^3 - 3x^2 + 4x - 5)dx",
-        "answer": "(x^4/4) - x^3 + 2x^2 - 5x + C",
-        "options": [ "(x^4/4) - x^6 + 8x^2 - 13x + C", "x - x^3 + 2x^2 - 5x + C", "(x^4/4) - x^3 + 2x^2 + C" ]
+        "problem": "ʃ(x³ - 3x² + 4x - 5)dx",
+        "answer": "x⁴/4 - x³ + 2x² - 5x + C",
+        "options": [ "x⁴/4 - x⁶ + 8x² - 13x + C", "x - x³ + 2x² - 5x + C", "x⁴/4 - x³ + 2x² + C" ]
       },
       {
         "problem": "ʃ(2x + 3cos(x))dx",
-        "answer": "x^2 + 3sin(x) + C",
-        "options": [ "x + sin(x) + C", "x^2 + 3cos(x) + C", "x^2 + sin(x)" ]
+        "answer": "x² + 3sin(x) + C",
+        "options": [ "x + sin(x) + C", "x² + 3cos(x) + C", "x² + sin(x)" ]
       },
       {
-        "problem": "ʃ((3sqrt(x^2) - 4sqrt(x)) / sqrt(x))dx",
-        "answer": "6/7 * 6sqrt(x^7) - 4/3 * 4sqrt(x^3) + C",
-        "options": [ "6/7 * 6sqrt(x) - 4/3 * 4sqrt(x^2) + C", "1/2(x) * sqrt(x) + C", "6/7 * 6sqrt(x) - 4/3 * 4sqrt(x^2)" ]
+        "problem": "ʃ((x²⸍³ - x¹⸍⁴) / ✓x)dx",
+        "answer": "(6/7)x⁷⸍⁶ - (4/3)x³⸍⁴ + C",
+        "options": [ "(6/7)x¹⸍⁶ - (4/3)x²⸍⁴ + C", "(1/2)x✓x + C", "(6/7)x¹⸍⁶ - (4/3)x²⸍⁴" ]
       },
       {
-        "problem": "ʃ(3x^2 + 2x + 1)dx",
-        "answer": "x^3 + x^2 + x + C",
-        "options": [ "x^3 + x^2 + x^4 + C", "x^3 + x^2 + C", "x^3 + x^2 + x" ]
+        "problem": "ʃ(3x² + 2x + 1)dx",
+        "answer": "x³ + x² + x + C",
+        "options": [ "x³ + x² + x⁴ + C", "x³ + x² + C", "x³ + x² + x" ]
       },
       {
         "problem": "ʃsin(x)cos(x)dx",
-        "answer": "(1/2)sin^2(x) + C",
-        "options": [ "(1/2)sin^2(x+1) + C", "(1/4)sin^3(x) + C", "(1/2)cos^2(x) + C" ]
+        "answer": "(1/2)sin²(x) + C",
+        "options": [ "(1/2)sin²(x+1) + C", "(1/4)sin³(x) + C", "(1/2)cos²(x) + C" ]
       },
       {
-        "problem": "ʃ(sin^4(x))dx",
+        "problem": "ʃsin⁴(x)dx",
         "answer": "(3/8)x + (1/32)sin(4x) - (1/4)sin(2x) + C",
-        "options": [ "(3/8)x + (1/32)sin(4x) - (1/4)sin(2x)", "(3/4)x^2 + (1/16)sin(4x) - (1/4)sin(2x) + C", "(3/8)x + (1/32)cos(4x) - (1/4)sin(2x)" ]
+        "options": [ "(3/8)x + (1/32)sin(4x) - (1/4)sin(2x)", "(3/4)x² + (1/16)sin(4x) - (1/4)sin(2x) + C", "(3/8)x + (1/32)cos(4x) - (1/4)sin(2x)" ]
       },
       {
         "problem": "ʃ(ln(x)/x)dx",
-        "answer": "(1/2)(ln(x)^2 + C",
-        "options": [ "(ln(x)^4 + C", "(1/2)(ln(x+1)^3 + C", "(1/2)(ln(x)^2" ]
+        "answer": "(1/2)ln²(x) + C",
+        "options": [ "(ln⁴(x) + C", "(1/2)ln³(x+1) + C", "(1/2)ln²(x)" ]
       }
     ],
     "hard": [
       {
-        "problem": "ʃ(1/sqrt(3-2x^2))dx",
-        "answer": "1/sqrt(2)arcsin(sqrt(2/3(x)) + C",
-        "options": [ "1/sqrt(2)arcsin(sqrt(2/3(x))", "1/sqrt(2)arccos(sqrt(2/3(x)) + C", "1/sqrt(4)arctg(sqrt(2/5(x)) + C" ]
+        "problem": "ʃ(1/✓(3-2x²))dx",
+        "answer": "(1/✓2)arcsin(x✓(2/3)) + C",
+        "options": [ "(1/✓2)arcsin(✓(2/(3x)))", "(1/✓2)arccos(✓(2x/3)) + C", "(1/✓4)arctg(x✓(2/5)) + C" ]
       },
       {
-        "problem": "ʃ((1 + sin(x)^3)cos(x))dx",
-        "answer": "((1 + sin(x)^4))/4 + C",
-        "options": [ "((1 + cos(x)^3))/4 + C", "((1 + sin(x)^4))/4", "((1 + sin(2x)^4))/4 + x/2 + C" ]
+        "problem": "ʃ(1 + sin(x))³cos(x)dx",
+        "answer": "(1 + sin(x))⁴/4 + C",
+        "options": [ "(1 + cos(x))³/4 + C", "(1 + sin(x))⁴/4", "(1 + sin(2x))⁴/4 + x/2 + C" ]
       },
       {
-        "problem": "ʃ(tg^3(2x))dx",
-        "answer": "tg^2(2x)/4 - 1/4(ln(|1 + tg^2(2x)|)) + C",
-        "options": [ "tg^3(2x)/4 - 1/5(ln(|1 + ctg^2(2x)|)) + C", "tg^2(2x)/4  + C", "ctg^3(2x) - 1/8(ln(|1 + tg^2(4x)|)) + C" ]
+        "problem": "ʃtg³(2x)dx",
+        "answer": "tg²(2x)/4 - (1/4)ln(|1 + tg²(2x)|) + C",
+        "options": [ "tg³(2x)/4 - (1/5)ln(|1 + ctg²(2x)|) + C", "tg²(2x)/4  + C", "ctg³(2x) - (1/8)ln(|1 + tg²(4x)|) + C" ]
       },
       {
-        "problem": "ʃ(1/(3sqrt(x)) - 2/x + (3sqrt(x^3)) - 4/5sqrt(x^3))dx",
-        "answer": "3/2(3sqrt(x^2) - 2ln|x| + (6/5x^2)(sqrt(x)) - 10(5sqrt(x^2)) + C",
-        "options": [ "2ln|x| + (6/5x^2)(sqrt(x)) - 10(5sqrt(x^2)) + C", "3/2(3sqrt(x^2) + C", "3/2(3sqrt(x^2) - 2xln|x| + (6/5x^4)(sqrt(x)) + 25(5sqrt(x^3)) + C" ]
+        "problem": "ʃ(1/x¹⸍³ - 2/x + 3✓x³ - 4/x³⸍⁵)dx",
+        "answer": "(3/2)x²⸍³ - 2ln|x| + (6/5)x²✓x - 10x²⸍⁵ + C",
+        "options": [ "2ln|x| + (6/5)x²✓x - 10x²⸍⁵ + C", "(3/2)x²⸍³ + C", "(3/2)x²⸍³ - 2xln|x| + (6/5)x⁴✓x + 25x³⸍⁵ + C" ]
       },
       {
-        "problem": "ʃ(((sqrt(2 + x^2)) - (sqrt(2 - x^2))/(sqrt(4 - x^4)))dx",
-        "answer": "arcsin(x / sqrt(2)) - ln(x + sqrt(x + x^2)) + C",
-        "options": [ "arccos(x^2 / sqrt(5)) - ln(x + sqrt(x + x^3)) + C", "arcsin(x / sqrt(2)) - ln(x + sqrt(x + x^2))", "cos(x / sqrt(2)) - sin(x + sqrt(x + x^2)) + C" ]
+        "problem": "ʃ((✓(2 + x²) - ✓(2 - x²))/✓(4 - x⁴))dx",
+        "answer": "arcsin(x/✓2) - ln(x + ✓(2 + x²)) + C",
+        "options": [ "arccos(x² / ✓5) - ln(x + ✓(x + x³)) + C", "arcsin(x / ✓2) - ln(x + ✓(x + x²))", "cos(x / ✓2) - sin(x + ✓(x + x²)) + C" ]
       },
       {
-        "problem": "ʃ((1 + 2x^2) / ((x^2)(1 + x^2)))dx",
+        "problem": "ʃ((1 + 2x²) / (x²(1 + x²)))dx",
         "answer": "arctg(x) - 1/x + C",
-        "options": [ "cos(x) - 1/sin(x) + C", "sin(x) - 1/2x + C", "arctg(x^2) - 1/x^2 + C" ]
+        "options": [ "cos(x) - 1/sin(x) + C", "sin(x) - (1/2)x + C", "arctg(x²) - 1/x² + C" ]
       },
       {
-        "problem": "ʃ((x^2)(ln(x)))dx",
-        "answer": "1/9(x^3)(3ln(x) - 1) + C",
-        "options": [ "1/9(x^3)(3ln(x) + C", "1/2(3ln(x) + 2) + C", "-1/2(cos(4x)) + C" ]
+        "problem": "ʃx²ln(x)dx",
+        "answer": "(1/9)x³(3ln(x) - 1) + C",
+        "options": [ "(1/9)x³ln(x) + C", "(1/2)(3ln(x) + 2x) + C", "-(1/2)cos(4x) + C" ]
       },
       {
-        "problem": "ʃx/sin^2(3x)dx",
-        "answer": "-1/3(xctg(3x)) + 1/9ln|sin(3x)| + C",
-        "options": [ "-1/3(xctg(3x)) + 1/9ln|(3x)| + C", "cos(3x) + 1/9ln|(3x)| + C", "ln(|2x^3|) + cos(3x) + 1/9ln|(3x)| + C" ]
+        "problem": "ʃ(x/sin²(3x))dx",
+        "answer": "(-1/3)xctg(3x) + (1/9)ln|sin(3x)| + C",
+        "options": [ "(-1/3)xctg(3x) + (1/9)ln|(3x)| + C", "cos(3x) + (1/9)ln|(3x)| + C", "ln(|2x³|) + cos(3x) + (1/9)ln|(3x)| + C" ]
       },
       {
-        "problem": "ʃ((3(2^x) - (2(3^x)))dx",
-        "answer": "3x - 2(3/2)^x(ln^(-1)(3/2)) + C",
-        "options": [ "3x - 2(3/2)^x(ln^(-1)(3/2))", "x - (3/2)^x(cos^(-1)(3/2)) - sin(5x)+ C", "x^(3x) + C" ]
+        "problem": "ʃ((3(2ˣ) - 2(3ˣ))/2ˣ)dx",
+        "answer": "3x - 2(3/2)ˣln⁻¹(3/2) + C",
+        "options": [ "3x - 2(3/2)ˣln⁻¹(3/2)", "x - (3/2)ˣcos⁻¹(3/2) - sin(5x) + C", "x³ˣ + C" ]
       },
       {
-        "problem": "ʃ(1/((3x^2) + 5))dx",
-        "answer": "1/sqrt(arctg(x)(sqrt(3/5))) + C",
-        "options": [ "sin(x)(sqrt(3/5)) + C", "1/sqrt(sqrt(3/5))) + C", "1/cos(sqrt(3/5))) - tg(3x) + C" ]
+        "problem": "ʃ(1/(3x² + 5))dx",
+        "answer": "(1/✓15)arctg(x✓(3/5)) + C",
+        "options": [ "sin(x)✓(3/5) + C", "1/✓(3/5) + C", "1/cos(✓(3/5)) - tg(3x) + C" ]
       }
     ]
   },
   "Класична Алгебра": {
     "easy": [
       {
-        "problem": "x^2 - 4 = 0",
+        "problem": "x² - 4 = 0",
         "answer": "x = ±2",
         "options": [ "x = ±3", "x = -2", "x = 2" ]
       },
       {
-        "problem": "8x^2 - 8 = 0",
+        "problem": "8x² - 8 = 0",
         "answer": "x = ±1",
-        "options": [ "x = -1", "x = 1", "x = 0.5" ]
+        "options": [ "x = -1", "x = 1", "x = ±0.5" ]
       },
       {
-        "problem": "x^2 = 16 ",
-        "answer": "x = 4 та x = -4",
+        "problem": "x² = 16 ",
+        "answer": "x = ±4",
         "options": [ "x = 4", "x = -4", "x = 2" ]
       },
       {
-        "problem": "x^2 + 7 = 11",
+        "problem": "x² + 7 = 11",
         "answer": "x = ±2",
-        "options": [ "x = 2.", "x = -2.", "x = 1" ]
+        "options": [ "x = 2", "x = -2", "x = ±1" ]
       },
       {
-        "problem": "x^2 + 4 = 29",
-        "answer": "x = 5 та x = -5",
+        "problem": "x² + 4 = 29",
+        "answer": "x = ±5",
         "options": [ "x = 5", "x = -5", "x = 2.5" ]
       },
       {
-        "problem": "6x^2 - 7x + 1 = 0",
-        "answer": "x = 1/6 та x = 1",
-        "options": [ "x = 1/6", "x = 1", "x = 2" ]
+        "problem": "6x² - 7x + 1 = 0",
+        "answer": "x = 1/6, x = 1",
+        "options": [ "x = 1/6", "x = -1, x = 1/6", "x = 2" ]
       },
       {
-        "problem": "x^2 - 3x + 2 = 0",
-        "answer": "x = 1 та x = 2",
-        "options": [ "x = 1", "x = 2.5", "x = 2" ]
+        "problem": "x² - 3x + 2 = 0",
+        "answer": "x = 1, x = 2",
+        "options": [ "x = ±1", "x = 2.5", "x = ±2" ]
       },
       {
-        "problem": "3x^2 - 8x + 4 = 0",
-        "answer": "x = 2 та x = 2 / 3",
-        "options": [ "x = 2", "x = 2 / 3", "x = 1" ]
+        "problem": "3x² - 8x + 4 = 0",
+        "answer": "x = 2, x = 2/3",
+        "options": [ "x = 2", "x = 2/3", "x = -2, x = 2/3" ]
       },
       {
-        "problem": "5x^2 - 2x - 3 = 0",
-        "answer": "x = 1 та x = -3/5",
+        "problem": "5x² - 2x - 3 = 0",
+        "answer": "x = 1, x = -3/5",
         "options": [ "x = -3/5 ", "x = 2", "x = 1" ]
       },
       {
-        "problem": "4x^2 - 12x + 9 = 0",
+        "problem": "4x² - 12x + 9 = 0",
         "answer": "x = 3/2",
-        "options": [ "x = 3/2 та x = -3/2", "x = -3/2", "x = 2" ]
+        "options": [ "x = ±3/2", "x = -3/2", "x = 2" ]
       }
     ],
     "normal": [
       {
-        "problem": "3x^2 + 9 =12x – x^2",
+        "problem": "3x² + 9 = 12x – x²",
         "answer": "x = 3/2",
-        "options": [ "x = -3/2", "x = 3/2 та x = -3/2", "x = 3" ]
+        "options": [ "x = -3/2", "x = ±3/2", "x = 3" ]
       },
       {
         "problem": "18/x – x = 14/x",
-        "answer": "x = -2 та x = 2",
+        "answer": "x = ±2",
         "options": [ "x = 2", "x = -3", "x = -2" ]
       },
       {
         "problem": "x + 3 = (3 – x)/x + 2x",
-        "answer": "x = 1 та x = 3",
-        "options": [ "x = 3", "x = 1", "x = 2" ]
+        "answer": "x = 1, x = 3",
+        "options": [ "x = 3, x = -1", "x = ±1", "x = 2" ]
       },
       {
         "problem": "x(x+2) = 23x",
-        "answer": "x = 0 та x = 21",
-        "options": [ "x = 0", "x = 21", "x = 13" ]
+        "answer": "x = 0, x = 21",
+        "options": [ "x = 0", "x = 21", "x = ±13" ]
       },
       {
-        "problem": "x^2 – 6x = 4x(1 – 4/x)",
-        "answer": "x = 2 та x = 8",
-        "options": [ "x = 2 та x = 9", "x = 8", "x = -8" ]
+        "problem": "x² – 6x = 4x(1 – 4/x)",
+        "answer": "x = 2, x = 8",
+        "options": [ "x = 2, x = 9", "x = 8", "x = -8" ]
       },
       {
         "problem": "x(2x+1) = 3x + 4",
-        "answer": "x = -1 та x = 2",
-        "options": [ "x = 2", "x = -1", "x = -2" ]
+        "answer": "x = -1, x = 2",
+        "options": [ "x = 2", "x = -1", "x = -2, x = 1" ]
       },
       {
         "problem": "(10x – 4)(3x + 2) = -2",
-        "answer": "x = -3/5 та x = 1/3",
+        "answer": "x = -3/5, x = 1/3",
         "options": [ "x = 1/3", "x = -3/5", "x = 3/5" ]
       },
       {
         "problem": "(x-1)(5x + 0.5) = -3/2",
-        "answer": "x = 2/5 та x = 1/2",
-        "options": [ "x = -2/5 ", "x = 1/2", "x = 2/5" ]
+        "answer": "x = 2/5, x = 1/2",
+        "options": [ "x = -2/5, x = 1/2", "x = 1/2", "x = 2/5" ]
       },
       {
         "problem": "(x-8)(6x-4) = -64",
-        "answer": "x = 6 та x = 8/3",
-        "options": [ "x = 6 ", "x = 8/3", "x = -8/3" ]
+        "answer": "x = 6, x = 8/3",
+        "options": [ "x = 6 ", "x = -6", "x = 1, x = -2" ]
       },
       {
         "problem": "x(x+3) – 4(x-5) = 7(x+4) - 8",
-        "answer": "x = 0 та x = 8",
-        "options": [ "x = 1", "x = 8 ", "x = 0" ]
+        "answer": "x = 0, x = 8",
+        "options": [ "x = 1", "x = 2 ", "x = 0" ]
       }
     ],
     "hard": [
       {
-        "problem": "1.\t(3x – 2)/x + 1/(2-x) = (3x+4)/(x^2-2x)",
+        "problem": "(3x – 2)/x + 1/(2-x) = (3x+4)/(x²-2x)",
         "answer": "x = 4",
-        "options": [ "x = -4", "x = 1", "x = 4 та x = -4" ]
+        "options": [ "x = -4", "x = 1", "x = ±4" ]
       },
       {
-        "problem": "2/(x^2 – 4) – 1/(x^2 – 2x) = (4-x)/(x^2 + 2x)",
+        "problem": "2/(x² – 4) – 1/(x² – 2x) = (4-x)/(x² + 2x)",
         "answer": "x = 3",
-        "options": [ "x = -3", "x = 3 та x = -3", "x = 2" ]
+        "options": [ "x = -3", "x = ±3", "x = 2" ]
       },
       {
-        "problem": "(x^2 + 1)/(x-4) – (x^2 – 1)/(x + 3) = 23",
+        "problem": "(x² + 1)/(x-4) – (x² – 1)/(x + 3) = 23",
         "answer": "x = 5 та x = -55/16",
-        "options": [ "x = 5 та x = -55/16", "x = -55/16", "x = 5" ]
+        "options": [ "x = -5, x = -55/16", "x = -55/16", "x = 5" ]
       },
       {
         "problem": "2/(x-3) + 3/(x-2) = 2",
-        "answer": "x = 5 та x = 5/2",
-        "options": [ "x = 5/2", "x = 5", "x = -5" ]
+        "answer": "x = 5, x = 5/2",
+        "options": [ "x = 5/2, x = -3", "x = 5", "x = -5" ]
       },
       {
         "problem": "(x-1)/(x-2) + (x-2)/(x-1) = 5/2",
-        "answer": "x = 3 та x = 0",
-        "options": [ "x = 0", "x = 3", "x = -3" ]
+        "answer": "x = 3, x = 0",
+        "options": [ "x = 0", "x = ±3", "x = 1, x = 2" ]
       },
       {
         "problem": "1/x + 2/(x+1) = 6/(x+2)",
-        "answer": "x = 1 та x = -2/3",
-        "options": [ "x = 1", "x = -2/3", "x = 2/3" ]
+        "answer": "x = 1, x = -2/3",
+        "options": [ "x = 1, x = 3/2", "x = -2/3", "x = 2/3" ]
       },
       {
-        "problem": "3(x + 1/x^2) – 7(1/x + 1) = 0",
-        "answer": "x = 3 та x = 1/3 та x = -1",
-        "options": [ "x = 3 та x = 1/3", "та x = -1", "x = 1/3" ]
+        "problem": "3(x + 1/x²) – 7(1/x + 1) = 0",
+        "answer": "x = 3, x = 1/3, x = -1",
+        "options": [ "x = 3, x = -1/3, x = 1", "x = -1, x = 1/3", "x = -3, x = 1/3, x = 1" ]
       },
       {
-        "problem": "1/(3(x-4)) + 1/(2(x^2 + 3)) + 1/(x^3 – 4x^2 + 3x -12) = 0",
-        "answer": "x = -3/2 та x = 0",
-        "options": [ "x = 0", "x = -3/2", "x = 3/2" ]
+        "problem": "1/(3(x-4)) + 1/(2(x² + 3)) + 1/(x³ – 4x² + 3x - 12) = 0",
+        "answer": "x = -3/2, x = 0",
+        "options": [ "x = 0", "x = -3", "x = ±3/2" ]
       },
       {
         "problem": "x – 1.5 + 1/(x+1) = 0",
-        "answer": "x = -0.5 та x = 1",
-        "options": [ "x = -0.5", "x = 1", "x = -1" ]
+        "answer": "x = -0.5, x = 1",
+        "options": [ "x = -0.5", "x = ±1", "x = -1, x = 0.5" ]
       },
       {
-        "problem": "(x^2 – 1) / (x + 3) – (x ^2 + 1) / (x+4) = 1/(x^2 + 7x + 12)",
-        "answer": "x = -2 та x = 4",
-        "options": [ "x = -2", "x = 4", "x = 2 та x = -4" ]
+        "problem": "(x² – 1)/(x + 3) – (x² + 1)/(x + 4) = 1/(x² + 7x + 12)",
+        "answer": "x = -2, x = 4",
+        "options": [ "x = -2", "x = 6", "x = 2, x = -3" ]
       }
     ]
   },
@@ -355,17 +355,17 @@
       {
         "problem": "Монету кидають тричі. Знайдіть ймовірність того, що герб випаде рівно один раз.",
         "answer": "0.375",
-        "options": [ "0.25", "0.88", "0.6" ]
+        "options": [ "0.25", "0.88", "0.633" ]
       },
       {
         "problem": "У довільному експерименті гральний кубик кидають один раз. Знайдіть ймовірність того, що число, що випало, є дільником числа 6.",
         "answer": "0.66",
-        "options": [ "0.5", "0.9", "0.1" ]
+        "options": [ "0.56", "0.9", "0.1" ]
       },
       {
         "problem": "У середньому з 1000 садових насосів, що надійшли у продаж, 5 підтікають. Знайдіть ймовірність того, що один випадково обраний для контролю насос не підтікає.",
         "answer": "0.995",
-        "options": [ "0.1", "0.3", "0.7" ]
+        "options": [ "0.005", "0.3", "0.7" ]
       }
     ],
     "normal": [
@@ -380,7 +380,7 @@
         "options": [ "0.4", "0.88", "0.12" ]
       },
       {
-        "problem": "Вчитель намалював на дошці квадрат 𝐴𝐵𝐶𝐷 і випадково обрав дві вершини. Якою є ймовірність того, що обрані вершини можна з’єднати діагоналлю?",
+        "problem": "Вчитель намалював на дошці квадрат ABCD і випадково обрав дві вершини. Якою є ймовірність того, що обрані вершини можна з’єднати діагоналлю?",
         "answer": "0.33",
         "options": [ "0.2", "0.7", "0.4" ]
       },

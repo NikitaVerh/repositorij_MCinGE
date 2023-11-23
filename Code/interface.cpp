@@ -177,6 +177,8 @@ void Form::updateForm(sf::RenderWindow& window){
 	updatePressed(window);
 	updateBackground(window);
 	update(window);
+	if (bgr)	windowAspectRatio = background.getSize().y / float(background.getSize().x);
+	else windowAspectRatio = 0.5;
 }
 
 void Form::update(sf::RenderWindow& window){

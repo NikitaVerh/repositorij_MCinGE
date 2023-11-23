@@ -4,6 +4,8 @@
 #include "SFML/Audio.hpp"
 #include "GlobalConnsts.h"
 
+extern float windowAspectRatio;
+
 extern sf::Cursor cursor;
 extern sf::Image imageCursor;
 extern sf::Image icon;

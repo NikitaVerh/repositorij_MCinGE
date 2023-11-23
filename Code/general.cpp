@@ -230,6 +230,7 @@ void updateSoundAndMusic() {
 
 // метод для оновлення інтерфейсу
 void UpdateGraphic(sf::RenderWindow& window) {
+	if (window.getSize().y < 400) window.setSize(sf::Vector2u(window.getSize().x, 400));
 	window.setView(sf::View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y)));
 
 	sizeBlock = window.getSize().y / float(1.35);
@@ -241,6 +242,9 @@ void UpdateGraphic(sf::RenderWindow& window) {
 	if (Menu == menu_inf)  Form_inf.updateForm(window);
 	ButtonMenuContinue->setVisible(InProgress);
 
+	float winWidth = window.getSize().x;
+	float winHeight = window.getSize().y;
+	if (windowAspectRatio > winHeight / winWidth) window.setSize(sf::Vector2u(winHeight / windowAspectRatio, winHeight));
 }
 
 // метод для відображення графіки
