@@ -99,23 +99,6 @@ void Button::setPosSize(float indent_left, float indent_top, float W, float H){
 	height = H;
 }
 
-void Button::setStyle(sf::String str, float textSize, sf::Color colorFill, sf::Color colorLine, sf::Color colorFillPressed, sf::Color colorLinePressed, sf::Color colorText) {
-	//try catch should be added
-	if (textSize <= 0) {
-		throw UIException("Розмір тексту не може бути меншим або дорівнювати нулю.");
-	}
-	size_text = textSize;
-	text_button.setFont(master_font);
-	text_button.setString(str);
-	color_fill = colorFill;
-	color_fill_pressed = colorFillPressed;
-	color_line = colorLine;
-	color_line_pressed = colorLinePressed;
-	color_text = colorText;
-	color_fill_hovered = sf::Color(255, 255, 255, 50);
-	color_line_hovered = sf::Color(150, 70, 30, 50);
-}
-
 void Button::setText(sf::String str) {
 	text_button.setString(sf::String::fromUtf8(str.begin(), str.end()));
 }
