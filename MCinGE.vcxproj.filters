@@ -45,9 +45,6 @@
     <ClCompile Include="Code\classesForTasks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Exceptions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Code\exam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -102,6 +99,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Code\save.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -208,6 +208,42 @@
     <Image Include="Resources\textures\player\player-sprite.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\textures\blocks\texture_door6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_door7.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_ladder6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_ladder7.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_wall6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blocks\texture_wall7.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\interface\background_inf.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\interface\background_lobby.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\interface\background_room.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\interface\background_static.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\interface\icon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\interface\icon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\fonts\testFont.ttf" />
@@ -269,5 +305,16 @@
     <Media Include="Resources\music\music0.wav">
       <Filter>Resource Files</Filter>
     </Media>
+    <Media Include="Resources\music\music3.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\sounds\correct.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

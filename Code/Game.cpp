@@ -7,9 +7,6 @@
 #include "GlobalVariablesForResources.h"
 #include "GlobalVariablesOfClasses.h"
 
-// тимчасові бібліотеки
-#include <iostream>
-
 // метод для обробки вікна
 void HandleInput(sf::RenderWindow& window) {
 	windowEventHandling(window);

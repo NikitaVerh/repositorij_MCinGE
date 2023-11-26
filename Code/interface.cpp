@@ -4,7 +4,6 @@
 #include <SFML/System.hpp>
 #include "interface.h"
 #include "GlobalVariablesForResources.h"
-#include <iostream>
 
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\\
 //||||||||||||||||||||||||||||||||||   Button   ||||||||||||||||||||||||||||||||||\\
@@ -100,25 +99,6 @@ void Button::setPosSize(float indent_left, float indent_top, float W, float H){
 	height = H;
 }
 
-void Button::setStyle(sf::String str, float textSize, sf::Color colorFill, sf::Color colorLine, sf::Color colorFillPressed, sf::Color colorLinePressed, sf::Color colorText) {
-	/*Area.setFillColor();
-	Area.set*/
-	//try catch should be added
-	if (textSize <= 0) {
-		throw UIException("Розмір тексту не може бути меншим або дорівнювати нулю.");
-	}
-	size_text = textSize;
-	text_button.setFont(master_font);
-	text_button.setString(str);
-	color_fill = colorFill;
-	color_fill_pressed = colorFillPressed;
-	color_line = colorLine;
-	color_line_pressed = colorLinePressed;
-	color_text = colorText;
-	color_fill_hovered = sf::Color(255, 255, 255, 50);
-	color_line_hovered = sf::Color(150, 70, 30, 50);
-}
-
 void Button::setText(sf::String str) {
 	text_button.setString(sf::String::fromUtf8(str.begin(), str.end()));
 }
@@ -177,6 +157,8 @@ void Form::updateForm(sf::RenderWindow& window){
 	updatePressed(window);
 	updateBackground(window);
 	update(window);
+	if (bgr)	windowAspectRatio = background.getSize().y / float(background.getSize().x);
+	else windowAspectRatio = 0.5;
 }
 
 void Form::update(sf::RenderWindow& window){
@@ -241,8 +223,6 @@ void TextCanvas::draw(sf::RenderWindow& window) {
 	//window.draw(reg);///    reg
 }
 
-//using namespace std;
-
 void TextCanvas::Update(float windowWidth, float windowHeight, float posX, float posY) {
 	
 	float size = windowHeight * sizeText;
@@ -271,7 +251,6 @@ void TextCanvas::Update(float windowWidth, float windowHeight, float posX, float
 	else {
 		text.setString(strText);
 	}
-	//sf::String strT32 = sf::String::fromUtf8(strT.begin(), strT.end());
 	
 
 	text.setPosition(windowWidth * indentLeft + posX, windowHeight * indentTop + posY);
@@ -443,7 +422,7 @@ void Particles::Update(float windowWidth, float windowHeight, float posX, float 
 		particles[i].move();
 		if (particles[i].y > 0.9 || particles[i].x<0) {
 			int a = rand() % spawners.size();
-			particles[i].setRandomPositionInCircle(spawners[a].x, spawners[a].y, spawners[a].w, spawners[a].h);
+			particles[i].setRandomPositionInRect(spawners[a].x, spawners[a].y, spawners[a].w, spawners[a].h);
 		}
 		particles[i].area.setPosition(particles[i].x * windowWidth + posX, particles[i].y * windowHeight + posY);
 		particles[i].area.setSize(sf::Vector2f(height * windowHeight, height * windowHeight));

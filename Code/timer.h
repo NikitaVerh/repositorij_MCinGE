@@ -2,6 +2,7 @@
 #include "SFML/Graphics.hpp"
 #include <SFML/System.hpp>
 
+//обробка виняткових ситуацій не потрібна 
 class Timer {
 private:
 	sf::Clock cl;

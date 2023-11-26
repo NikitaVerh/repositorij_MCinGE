@@ -24,7 +24,6 @@ void Exam::start_test(string theme) {
 	task_union.resetAllTasks();
 	mark = 0;
 	counter_task = 0;
-	max_count_task = 5;
 	srand((unsigned int)(time(0)));
 	task_theme = theme;
 	next_task();

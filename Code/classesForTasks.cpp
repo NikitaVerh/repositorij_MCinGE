@@ -144,13 +144,12 @@ void Union::resetAllTasks()
     }
 }
 
-void Union::readTasksFromJson()
-{
+void Union::readTasksFromJson() {
     std::ifstream file("Resources/json/task.json");
     if (!file.is_open()) {
-        std::cerr << "Не вдалося відкрити файл task.json" << std::endl;
-        return;
+        throw ResourceLoadException("Resources/json/task.json");
     }
+
     json j;
     file >> j;
 

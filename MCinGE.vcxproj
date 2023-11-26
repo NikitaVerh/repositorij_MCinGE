@@ -115,7 +115,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)Libraries\SFML-2.6.0\include;$(SolutionDir)Libraries\Dependencies\json\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Libraries\SFML-2.6.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-audio-d.lib;sfml-graphics-d.lib;sfml-network-d.lib;sfml-system-d.lib;sfml-window-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -132,7 +132,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)Libraries\SFML-2.6.0\include;$(SolutionDir)Libraries\Dependencies\json\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -152,7 +152,6 @@
     <ClCompile Include="Code\Game.cpp" />
     <ClCompile Include="Code\map.cpp" />
     <ClCompile Include="Code\player.cpp" />
-    <ClCompile Include="Code\Exceptions.cpp" />
     <ClCompile Include="Code\save.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +171,7 @@
     <ClInclude Include="Code\Exceptions.h" />
     <ClInclude Include="Code\save.h" />
     <ClInclude Include="Code\timer.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\textures\blocks\texture_door0.png" />
@@ -180,18 +180,24 @@
     <Image Include="Resources\textures\blocks\texture_door3.png" />
     <Image Include="Resources\textures\blocks\texture_door4.png" />
     <Image Include="Resources\textures\blocks\texture_door5.png" />
+    <Image Include="Resources\textures\blocks\texture_door6.png" />
+    <Image Include="Resources\textures\blocks\texture_door7.png" />
     <Image Include="Resources\textures\blocks\texture_ladder0.png" />
     <Image Include="Resources\textures\blocks\texture_ladder1.png" />
     <Image Include="Resources\textures\blocks\texture_ladder2.png" />
     <Image Include="Resources\textures\blocks\texture_ladder3.png" />
     <Image Include="Resources\textures\blocks\texture_ladder4.png" />
     <Image Include="Resources\textures\blocks\texture_ladder5.png" />
+    <Image Include="Resources\textures\blocks\texture_ladder6.png" />
+    <Image Include="Resources\textures\blocks\texture_ladder7.png" />
     <Image Include="Resources\textures\blocks\texture_wall0.png" />
     <Image Include="Resources\textures\blocks\texture_wall1.png" />
     <Image Include="Resources\textures\blocks\texture_wall2.png" />
     <Image Include="Resources\textures\blocks\texture_wall3.png" />
     <Image Include="Resources\textures\blocks\texture_wall4.png" />
     <Image Include="Resources\textures\blocks\texture_wall5.png" />
+    <Image Include="Resources\textures\blocks\texture_wall6.png" />
+    <Image Include="Resources\textures\blocks\texture_wall7.png" />
     <Image Include="Resources\textures\blocks\texture_wall_left.png" />
     <Image Include="Resources\textures\blocks\texture_wall_right.png" />
     <Image Include="Resources\textures\interface\background.png">
@@ -199,7 +205,13 @@
     </Image>
     <Image Include="Resources\textures\interface\background2.png" />
     <Image Include="Resources\textures\interface\background3.png" />
+    <Image Include="Resources\textures\interface\background_inf.png" />
+    <Image Include="Resources\textures\interface\background_lobby.png" />
+    <Image Include="Resources\textures\interface\background_room.png" />
+    <Image Include="Resources\textures\interface\background_static.png" />
     <Image Include="Resources\textures\interface\cursor.png" />
+    <Image Include="Resources\textures\interface\icon.ico" />
+    <Image Include="Resources\textures\interface\icon.png" />
     <Image Include="Resources\textures\interface\old_background.png" />
     <Image Include="Resources\textures\interface\slider\pic_music.png" />
     <Image Include="Resources\textures\interface\slider\pic_sound.png" />
@@ -222,9 +234,11 @@
     <Media Include="Resources\music\music0.wav" />
     <Media Include="Resources\music\music1.wav" />
     <Media Include="Resources\music\music2.wav" />
+    <Media Include="Resources\music\music3.wav" />
     <Media Include="Resources\sounds\click_in.wav" />
     <Media Include="Resources\sounds\click_out.wav" />
     <Media Include="Resources\sounds\correct.mp3" />
+    <Media Include="Resources\sounds\correct.wav" />
     <Media Include="Resources\sounds\door_open.wav" />
     <Media Include="Resources\sounds\step0.wav" />
     <Media Include="Resources\sounds\step1.wav" />
@@ -237,6 +251,9 @@
     <Media Include="Resources\sounds\step8.wav" />
     <Media Include="Resources\sounds\step9.wav" />
     <Media Include="Resources\sounds\wrong.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

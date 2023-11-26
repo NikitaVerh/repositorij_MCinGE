@@ -34,7 +34,7 @@ private:
 			coefficientForAnimation = (rand()%7000)/1000.0-3;
 			speed = 1 / float(rand());
 			if (speed < 0.3) { speed = 0.3; }
-			setRandomPositionInCircle(X,Y,W,H);
+			setRandomPositionInRect(X,Y,W,H);
 			area.setFillColor(sf::Color(240+rand()%15, 100+rand()%75, 7+rand()%15));
 		}
 		void move() {
@@ -45,7 +45,7 @@ private:
 			dx = DX * DT / 10;
 			dy = DY * DT / 10;
 		}
-		void setRandomPositionInCircle(float X, float Y, float W, float H) {
+		void setRandomPositionInRect(float X, float Y, float W, float H) {
 			srand((unsigned int)(time(0)*seed++));
 			x = (rand() % int(W * 1000)) / 1000.0 + X;
 			y = (rand() % int(H * 1000)) / 1000.0 + Y;
@@ -150,9 +150,6 @@ public:
 	void Update(float windowWidth, float windowHeight, float posX, float posY) override;
 	void setPosSize(float indent_left, float indent_top, float W, float H) override;
 	void updatePressed(sf::RenderWindow& window) override;
-
-	//тимчасовий
-	void setStyle(sf::String str, float textSize, sf::Color colorFill, sf::Color colorLine, sf::Color colorFillPressed, sf::Color colorLinePressed, sf::Color colorText);
 
 	void setStyleText(float textSize, sf::Color colorText);
 	void setColorButton(sf::Color fill, sf::Color line);

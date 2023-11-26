@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include "GlobalVariablesForResources.h"
 
+float windowAspectRatio = 1;
+
 sf::Cursor cursor;
 sf::Image imageCursor;
 sf::Image icon;

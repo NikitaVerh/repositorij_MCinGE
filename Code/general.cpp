@@ -11,9 +11,6 @@
 #include "initializators.h"
 #include "save.h"
 
-//тимчасові бібліотеки
-#include <iostream>
-
 void restart_all() {
 	GameMap.generateLabyrinth();
 	player.Player_set_source();
@@ -96,19 +93,19 @@ void update_statistics() {
 	sf::String str;
 	str = "Усього тестів пройдено: " + std::to_string(test_amnt) + "\n" + "Усього сесій гри завершено: " + std::to_string(game_sessions) + "\n" + "\n" + "Найвищі отримані оцінки:" + "\n" + "    Рівень складності - легко:";
 	for (rslt_pair& single_pair : easy_best_marks) {
-		str = str + "\n        " + single_pair.theme + "  -  " + std::to_string(single_pair.mark);
+		str = str + "\n        " + single_pair.theme + "  -  " + std::to_string(single_pair.mark) + "/5";
 	}
 	str = str + "\n" + "    Рівень складності - нормально:";
 	for (rslt_pair& single_pair : normal_best_marks) {
-		str = str + "\n        " + single_pair.theme + "  -  " + std::to_string(single_pair.mark);
+		str = str + "\n        " + single_pair.theme + "  -  " + std::to_string(single_pair.mark) + "/9";
 	}
 	str = str + "\n" + "    Рівень складності - складно:";
 	for (rslt_pair& single_pair : hard_best_marks) {
-		str = str + "\n        " + single_pair.theme + "  -  " + std::to_string(single_pair.mark);
+		str = str + "\n        " + single_pair.theme + "  -  " + std::to_string(single_pair.mark) + "/12";
 	}
 	str = str + "\n" + "\n" + "Інформація про останню сесію гри:" + "\n" + "    Складність  -  " + exam.getTaskDiff();
 	for (rslt_pair& single_pair : curr_marks) {
-		str = str + "\n    " + single_pair.theme + "  -  " + std::to_string(single_pair.mark);
+		str = str + "\n    " + single_pair.theme + "  -  " + std::to_string(single_pair.mark) + "/" + std::to_string(int(exam.getMaxCountTask() * exam.getDiffFactor()));
 	}
 
 	TextStatistics->setText(str);
@@ -230,6 +227,7 @@ void updateSoundAndMusic() {
 
 // метод для оновлення інтерфейсу
 void UpdateGraphic(sf::RenderWindow& window) {
+	if (window.getSize().y < 400) window.setSize(sf::Vector2u(window.getSize().x, 400));
 	window.setView(sf::View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y)));
 
 	sizeBlock = window.getSize().y / float(1.35);
@@ -241,6 +239,9 @@ void UpdateGraphic(sf::RenderWindow& window) {
 	if (Menu == menu_inf)  Form_inf.updateForm(window);
 	ButtonMenuContinue->setVisible(InProgress);
 
+	float winWidth = window.getSize().x;
+	float winHeight = window.getSize().y;
+	if (windowAspectRatio > winHeight / winWidth) window.setSize(sf::Vector2u(winHeight / windowAspectRatio, winHeight));
 }
 
 // метод для відображення графіки

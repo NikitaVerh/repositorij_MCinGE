@@ -15,7 +15,10 @@ private:
 	double diff_factor;
 	vector<string> difficulties;
 public:
-	Exam() { task_diff = "інформація відсутня"; };
+	Exam() { 
+		task_diff = "інформація відсутня";
+		max_count_task = 5;
+	};
 
 	double getDiffFactor() const { return diff_factor; }
 	int getMaxCountTask() const { return max_count_task; }
